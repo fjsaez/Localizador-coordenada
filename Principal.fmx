@@ -34,6 +34,7 @@ object Form1: TForm1
       end
     end
     object MultiView: TMultiView
+      DrawerOptions.TouchAreaSize = 25.000000000000000000
       MasterButton = SBMenu
       Mode = Drawer
       NavigationPaneOptions.CollapsedWidth = 161.000000000000000000
@@ -43,7 +44,7 @@ object Form1: TForm1
       StyleLookup = 'multiviewstyle'
       Visible = False
       TabOrder = 1
-      object ListBox1: TListBox
+      object LstBoxMenu: TListBox
         Align = Top
         Size.Width = 250.000000000000000000
         Size.Height = 81.000000000000000000
@@ -64,8 +65,13 @@ object Form1: TForm1
           TabOrder = 1
           Text = 'Guardar/seleccionar coordenada'
         end
-        object ListBoxItem3: TListBoxItem
+        object ListBoxItem4: TListBoxItem
           Position.Y = 38.000000000000000000
+          TabOrder = 3
+          Text = 'Acerca...'
+        end
+        object ListBoxItem3: TListBoxItem
+          Position.Y = 57.000000000000000000
           TabOrder = 2
           Text = 'Salir'
         end

@@ -3,7 +3,8 @@
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Principal in 'Principal.pas' {Form1};
+  Principal in 'Principal.pas' {Form1},
+  AgrCoordenada in 'AgrCoordenada.pas' {FrmAgregar: TFrame};
 
 {$R *.res}
 

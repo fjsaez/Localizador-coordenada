@@ -15,10 +15,11 @@ type
     ToolBar1: TToolBar;
     SBMenu: TSpeedButton;
     MultiView: TMultiView;
-    ListBox1: TListBox;
+    LstBoxMenu: TListBox;
     ListBoxItem1: TListBoxItem;
     ListBoxItem2: TListBoxItem;
     ListBoxItem3: TListBoxItem;
+    ListBoxItem4: TListBoxItem;
   private
     { Private declarations }
   public
