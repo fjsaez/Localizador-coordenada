@@ -3,13 +3,13 @@
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Principal in 'Principal.pas' {Form1},
+  Principal in 'Principal.pas' {FPrinc},
   AgrCoordenada in 'AgrCoordenada.pas' {FrmAgregar: TFrame};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TFPrinc, FPrinc);
   Application.Run;
 end.

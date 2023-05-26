@@ -252,7 +252,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Principal.pas">
-            <Form>Form1</Form>
+            <Form>FPrinc</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="AgrCoordenada.pas">

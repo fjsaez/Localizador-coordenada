@@ -1,4 +1,4 @@
-object Form1: TForm1
+object FPrinc: TFPrinc
   Left = 0
   Top = 0
   Caption = 'Form1'
@@ -7,6 +7,7 @@ object Form1: TForm1
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object LayPrincipal: TLayout
     Align = Client
@@ -56,24 +57,38 @@ object Form1: TForm1
         DefaultItemStyles.GroupFooterStyle = ''
         Viewport.Width = 246.000000000000000000
         Viewport.Height = 77.000000000000000000
-        object ListBoxItem1: TListBoxItem
+        object LstBuscar: TListBoxItem
           TabOrder = 0
           Text = 'Buscar coordenada'
         end
-        object ListBoxItem2: TListBoxItem
+        object LstBGuardar: TListBoxItem
           Position.Y = 19.000000000000000000
           TabOrder = 1
           Text = 'Guardar/seleccionar coordenada'
+          OnClick = LstBGuardarClick
         end
-        object ListBoxItem4: TListBoxItem
+        object LstBAcerca: TListBoxItem
           Position.Y = 38.000000000000000000
           TabOrder = 3
           Text = 'Acerca...'
         end
-        object ListBoxItem3: TListBoxItem
+        object LstBSalir: TListBoxItem
           Position.Y = 57.000000000000000000
           TabOrder = 2
           Text = 'Salir'
+        end
+      end
+    end
+  end
+  inline FrmAgregarPnc: TFrmAgregar
+    Align = Client
+    Size.Width = 432.000000000000000000
+    Size.Height = 573.000000000000000000
+    Size.PlatformDefault = False
+    inherited LayPrAgregar: TLayout
+      inherited ToolBar1: TToolBar
+        inherited SBVolver: TSpeedButton
+          OnClick = FrmAgregarPncSBVolverClick
         end
       end
     end

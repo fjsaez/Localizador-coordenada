@@ -12,9 +12,23 @@ type
     ToolBar1: TToolBar;
     SBVolver: TSpeedButton;
     LayPrAgregar: TLayout;
+    LayGCoords: TLayout;
+    LayLongitud: TLayout;
+    LayLatitud: TLayout;
+    LayGuardar: TLayout;
+    LayCoords: TLayout;
     Layout1: TLayout;
     Layout2: TLayout;
     Layout3: TLayout;
+    Layout4: TLayout;
+    Layout5: TLayout;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    LLongitud: TLabel;
+    LLatitud: TLabel;
+    SBGuardar: TSpeedButton;
+    procedure SBVolverClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,5 +38,10 @@ type
 implementation
 
 {$R *.fmx}
+
+procedure TFrmAgregar.SBVolverClick(Sender: TObject);
+begin
+  Visible:=false;
+end;
 
 end.
