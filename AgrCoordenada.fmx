@@ -117,29 +117,31 @@ object FrmAgregar: TFrmAgregar
       end
     end
     object Layout1: TLayout
-      Position.X = 168.000000000000000000
-      Position.Y = 320.000000000000000000
+      Align = Client
+      Size.Width = 432.000000000000000000
+      Size.Height = 433.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 2
-    end
-    object Layout2: TLayout
-      Position.X = 184.000000000000000000
-      Position.Y = 440.000000000000000000
-      TabOrder = 3
-    end
-    object Layout3: TLayout
-      Position.X = 360.000000000000000000
-      Position.Y = 344.000000000000000000
-      TabOrder = 4
-    end
-    object Layout4: TLayout
-      Position.X = 296.000000000000000000
-      Position.Y = 232.000000000000000000
-      TabOrder = 5
-    end
-    object Layout5: TLayout
-      Position.X = 280.000000000000000000
-      Position.Y = 392.000000000000000000
-      TabOrder = 6
+      object Layout2: TLayout
+        Position.X = 80.000000000000000000
+        Position.Y = 207.000000000000000000
+        TabOrder = 3
+      end
+      object Layout3: TLayout
+        Position.X = 256.000000000000000000
+        Position.Y = 168.000000000000000000
+        TabOrder = 4
+      end
+      object Layout4: TLayout
+        Position.X = 192.000000000000000000
+        Position.Y = 56.000000000000000000
+        TabOrder = 5
+      end
+      object Layout5: TLayout
+        Position.X = 176.000000000000000000
+        Position.Y = 207.000000000000000000
+        TabOrder = 6
+      end
     end
   end
 end
