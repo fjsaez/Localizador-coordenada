@@ -116,15 +116,17 @@ object FrmAgregar: TFrmAgregar
         end
       end
     end
-    object Layout1: TLayout
+    object LayLista: TLayout
       Align = Client
       Size.Width = 432.000000000000000000
       Size.Height = 433.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       object Layout2: TLayout
-        Position.X = 80.000000000000000000
-        Position.Y = 207.000000000000000000
+        Align = Top
+        Size.Width = 432.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 3
       end
       object Layout3: TLayout
@@ -141,6 +143,55 @@ object FrmAgregar: TFrmAgregar
         Position.X = 176.000000000000000000
         Position.Y = 207.000000000000000000
         TabOrder = 6
+      end
+      object Rectangle1: TRectangle
+        Align = Client
+        Fill.Color = claYellow
+        Size.Width = 432.000000000000000000
+        Size.Height = 413.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+        object SGrid: TStringGrid
+          Align = Client
+          CanFocus = True
+          ClipChildren = True
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Size.Width = 426.000000000000000000
+          Size.Height = 407.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+          TabOrder = 0
+          RowCount = 0
+          Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 382.000000000000000000
+          object ColDescr: TStringColumn
+            Header = 'Descripci'#243'n'
+            ReadOnly = True
+            Size.Width = 291.000000000000000000
+          end
+          object ColID: TIntegerColumn
+            Header = 'IDCoord'
+            Visible = False
+            Size.Width = 55.000000000000000000
+          end
+          object ColGeoSex: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+          object ColGeoDec: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+          object ColUTM: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+        end
       end
     end
   end
