@@ -123,12 +123,28 @@ object FrmAgregar: TFrmAgregar
       Size.Height = 433.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
-      object Layout2: TLayout
+      object LayDescr: TLayout
         Align = Top
         Size.Width = 432.000000000000000000
-        Size.Height = 20.000000000000000000
+        Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 3
+        object MmDescr: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          MaxLength = 40
+          Align = Client
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Size.Width = 426.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 44.000000000000000000
+        end
       end
       object Layout3: TLayout
         Position.X = 256.000000000000000000
@@ -149,7 +165,7 @@ object FrmAgregar: TFrmAgregar
         Align = Client
         Fill.Color = claYellow
         Size.Width = 432.000000000000000000
-        Size.Height = 413.000000000000000000
+        Size.Height = 383.000000000000000000
         Size.PlatformDefault = False
         XRadius = 3.000000000000000000
         YRadius = 3.000000000000000000
@@ -162,14 +178,14 @@ object FrmAgregar: TFrmAgregar
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 426.000000000000000000
-          Size.Height = 407.000000000000000000
+          Size.Height = 377.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Style, FontColor]
           TabOrder = 0
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           Viewport.Width = 426.000000000000000000
-          Viewport.Height = 407.000000000000000000
+          Viewport.Height = 377.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
@@ -201,7 +217,7 @@ object FrmAgregar: TFrmAgregar
     ActivityType = Other
     UsageAuthorization = WhenInUse
     OnLocationChanged = LctSensorLocationChanged
-    Left = 280
-    Top = 128
+    Left = 272
+    Top = 8
   end
 end

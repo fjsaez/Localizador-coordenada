@@ -6,9 +6,9 @@ uses
   {$IFDEF ANDROID}
   FMX.FontGlyphs.Android,
   {$ENDIF}
-  FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics,
+  FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
-  System.Permissions, FMX.DialogService;
+  System.Permissions;
 
 type
   TCoord = record
@@ -32,6 +32,7 @@ var
   procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
   procedure CargarFuente(Etq: TLabel);
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
+  procedure IniciarRegistro;
 
 implementation
 
@@ -116,6 +117,20 @@ begin
         TDialogService.ShowMessage('Permiso a Localización no concedido');
       end;
     end);
+end;
+
+procedure IniciarRegistro;
+begin
+  Coords.IDCoord:=0;
+  Coords.EsteUTM:=0.0;
+  Coords.NorteUTM:=0.0;
+  Coords.Lat:=0.0;
+  Coords.Lon:=0.0;
+  Coords.LatGMS:='';
+  Coords.LonGMS:='';
+  Coords.LatLon:='';
+  Coords.Descripcion:='';
+  Coords.Fecha:=Date;
 end;
 
 end.

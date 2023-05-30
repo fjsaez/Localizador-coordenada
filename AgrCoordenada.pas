@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Rtti, FMX.Grid.Style, FMX.Grid,
   FMX.ScrollBox, FMX.Objects, System.Sensors, System.Sensors.Components,
-  UTM_WGS84, UtilesLocalizador;
+  UTM_WGS84, UtilesLocalizador, FMX.Memo.Types, FMX.Memo;
 
 type
   TFrmAgregar = class(TFrame)
@@ -20,7 +20,7 @@ type
     LayGuardar: TLayout;
     LayCoords: TLayout;
     LayLista: TLayout;
-    Layout2: TLayout;
+    LayDescr: TLayout;
     Layout3: TLayout;
     Layout4: TLayout;
     Layout5: TLayout;
@@ -38,6 +38,7 @@ type
     ColGeoDec: TStringColumn;
     ColUTM: TStringColumn;
     LctSensor: TLocationSensor;
+    MmDescr: TMemo;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -47,22 +48,48 @@ type
   public
     { Public declarations }
   end;
+var
+  UTM: TRecUTM;
+  LatLon: TRecLatLon;
 
 implementation
+
+uses DataMod;
 
 {$R *.fmx}
 
 procedure TFrmAgregar.LctSensorLocationChanged(Sender: TObject;
   const OldLocation, NewLocation: TLocationCoord2D);
 begin
-  Coords.Lat:=NewLocation.Latitude;
-  Coords.Lon:=NewLocation.Longitude;
+  LatLon.Lat:=NewLocation.Latitude;
+  LatLon.Lon:=NewLocation.Longitude;
 end;
 
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
+var
+  PuntoLon,PuntoLat: string;
 begin
+  if LatLon.Lon>=0 then PuntoLon:=' N'
+                   else PuntoLon:=' S';
+  if LatLon.Lat>=0 then PuntoLon:=' E'
+                   else PuntoLon:=' O';
   //se completa el registro a guardar:
-
+  Coords.Lat:=LatLon.Lat;
+  Coords.Lon:=LatLon.Lon;
+  LatLon_To_UTM(LatLon,UTM);
+  Coords.EsteUTM:=UTM.X;
+  Coords.NorteUTM:=UTM.Y;
+  Coords.LatGMS:=DecAGrados(Coords.Lat,true);
+  Coords.LonGMS:=DecAGrados(Coords.Lon,false);
+  Coords.LatLon:=FormatFloat('0.000000',LatLon.Lon)+PuntoLon+','+
+                 FormatFloat('0.000000',LatLon.Lat)+PuntoLat;
+  //Coords.Descripcion:=;
+  Coords.Fecha:=Date;
+  //se guarda el registro en la BD:
+  Dmod.Query.SQL.Text:='';
+  Dmod.Query.ParamByName('');
+  Dmod.Query.ExecSQL;
+  IniciarRegistro;  //se limpia el registro
 end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
