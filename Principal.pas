@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base,  FMX.MultiView,
-  FMX.ListBox, AgrCoordenada;
+  FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components;
 
 type
   TFPrinc = class(TForm)
@@ -21,6 +21,7 @@ type
     LstBSalir: TListBoxItem;
     LstBAcerca: TListBoxItem;
     FrmAgregarPnc: TFrmAgregar;
+    LctSensor: TLocationSensor;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

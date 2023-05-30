@@ -3,7 +3,10 @@
 interface
 
 uses
-  FMX.FontGlyphs.Android, FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics,
+  {$IFDEF ANDROID}
+  FMX.FontGlyphs.Android,
+  {$ENDIF}
+  FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
   System.Permissions, FMX.DialogService;
 

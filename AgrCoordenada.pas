@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Rtti, FMX.Grid.Style, FMX.Grid,
-  FMX.ScrollBox, FMX.Objects;
+  FMX.ScrollBox, FMX.Objects, System.Sensors, System.Sensors.Components,
+  UTM_WGS84, UtilesLocalizador;
 
 type
   TFrmAgregar = class(TFrame)
@@ -36,7 +37,11 @@ type
     ColGeoSex: TStringColumn;
     ColGeoDec: TStringColumn;
     ColUTM: TStringColumn;
+    LctSensor: TLocationSensor;
     procedure SBVolverClick(Sender: TObject);
+    procedure SBGuardarClick(Sender: TObject);
+    procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
+      NewLocation: TLocationCoord2D);
   private
     { Private declarations }
   public
@@ -46,6 +51,19 @@ type
 implementation
 
 {$R *.fmx}
+
+procedure TFrmAgregar.LctSensorLocationChanged(Sender: TObject;
+  const OldLocation, NewLocation: TLocationCoord2D);
+begin
+  Coords.Lat:=NewLocation.Latitude;
+  Coords.Lon:=NewLocation.Longitude;
+end;
+
+procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
+begin
+  //se completa el registro a guardar:
+
+end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
 begin

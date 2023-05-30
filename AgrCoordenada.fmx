@@ -58,6 +58,7 @@ object FrmAgregar: TFrmAgregar
           Size.PlatformDefault = False
           StyleLookup = 'addtoolbuttonbordered'
           Text = 'addtoolbuttonbordered'
+          OnClick = SBGuardarClick
         end
       end
       object LayCoords: TLayout
@@ -167,8 +168,8 @@ object FrmAgregar: TFrmAgregar
           TabOrder = 0
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
-          Viewport.Width = 422.000000000000000000
-          Viewport.Height = 382.000000000000000000
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 407.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
@@ -194,5 +195,13 @@ object FrmAgregar: TFrmAgregar
         end
       end
     end
+  end
+  object LctSensor: TLocationSensor
+    Active = True
+    ActivityType = Other
+    UsageAuthorization = WhenInUse
+    OnLocationChanged = LctSensorLocationChanged
+    Left = 280
+    Top = 128
   end
 end

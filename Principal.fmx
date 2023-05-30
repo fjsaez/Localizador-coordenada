@@ -85,12 +85,43 @@ object FPrinc: TFPrinc
     Size.Width = 432.000000000000000000
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     inherited LayPrAgregar: TLayout
       inherited ToolBar1: TToolBar
         inherited SBVolver: TSpeedButton
           OnClick = FrmAgregarPncSBVolverClick
         end
       end
+      inherited LayLista: TLayout
+        inherited Rectangle1: TRectangle
+          inherited SGrid: TStringGrid
+            Viewport.Width = 422.000000000000000000
+            Viewport.Height = 382.000000000000000000
+            inherited ColDescr: TStringColumn
+              Size.Width = 291.000000000000000000
+            end
+            inherited ColID: TIntegerColumn
+              Size.Width = 55.000000000000000000
+            end
+            inherited ColGeoSex: TStringColumn
+              Size.Width = 40.000000000000000000
+            end
+            inherited ColGeoDec: TStringColumn
+              Size.Width = 40.000000000000000000
+            end
+            inherited ColUTM: TStringColumn
+              Size.Width = 40.000000000000000000
+            end
+          end
+        end
+      end
     end
+  end
+  object LctSensor: TLocationSensor
+    Active = True
+    ActivityType = Other
+    UsageAuthorization = WhenInUse
+    Left = 280
+    Top = 128
   end
 end
