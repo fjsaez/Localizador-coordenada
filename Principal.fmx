@@ -93,10 +93,16 @@ object FPrinc: TFPrinc
         end
       end
       inherited LayLista: TLayout
+        inherited LayDescr: TLayout
+          inherited MmDescr: TMemo
+            Viewport.Width = 426.000000000000000000
+            Viewport.Height = 44.000000000000000000
+          end
+        end
         inherited Rectangle1: TRectangle
           inherited SGrid: TStringGrid
-            Viewport.Width = 422.000000000000000000
-            Viewport.Height = 382.000000000000000000
+            Viewport.Width = 426.000000000000000000
+            Viewport.Height = 377.000000000000000000
             inherited ColDescr: TStringColumn
               Size.Width = 291.000000000000000000
             end

@@ -6,8 +6,9 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base,  FMX.MultiView,
-  FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components;
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
+  FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
+  UtilesLocalizador;
 
 type
   TFPrinc = class(TForm)
@@ -56,6 +57,7 @@ procedure TFPrinc.LstBGuardarClick(Sender: TObject);
 begin
   LayPrincipal.Visible:=false;
   FrmAgregarPnc.Visible:=true;
+  IniciarRegistro;
 end;
 
 end.

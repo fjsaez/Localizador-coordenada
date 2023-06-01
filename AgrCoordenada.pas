@@ -43,8 +43,10 @@ type
     procedure SBGuardarClick(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
+    procedure MmDescrChange(Sender: TObject);
   private
     { Private declarations }
+    procedure Guardar;
   public
     { Public declarations }
   end;
@@ -58,11 +60,36 @@ uses DataMod;
 
 {$R *.fmx}
 
+procedure TFrmAgregar.Guardar;
+begin
+  Coords.Descripcion:=Trim(MmDescr.Text);
+  Coords.Fecha:=Now;
+  DMod.Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
+    'LonGMS,LatLon,Descripcion) values (:esu,:nou,:lat,:lon,:lag,:log,:lln,:dsc)';
+  DMod.Query.ParamByName('esu').AsSingle:=Coords.EsteUTM;
+  DMod.Query.ParamByName('nou').AsSingle:=Coords.NorteUTM;
+  DMod.Query.ParamByName('lat').AsSingle:=Coords.Lat;
+  DMod.Query.ParamByName('lon').AsSingle:=Coords.Lon;
+  DMod.Query.ParamByName('lag').AsString:=Coords.LatGMS;
+  DMod.Query.ParamByName('log').AsString:=Coords.LonGMS;
+  DMod.Query.ParamByName('lln').AsString:=Coords.LatLon;
+  DMod.Query.ParamByName('dsc').AsString:=Coords.Descripcion;
+  DMod.Query.ExecSQL;
+  DMod.QrLista.Close;
+  ShowMessage('Coordenada agregada');
+  SBVolver.OnClick(Self);
+end;
+
 procedure TFrmAgregar.LctSensorLocationChanged(Sender: TObject;
   const OldLocation, NewLocation: TLocationCoord2D);
 begin
   LatLon.Lat:=NewLocation.Latitude;
   LatLon.Lon:=NewLocation.Longitude;
+end;
+
+procedure TFrmAgregar.MmDescrChange(Sender: TObject);
+begin
+  SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
 end;
 
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
@@ -83,12 +110,12 @@ begin
   Coords.LonGMS:=DecAGrados(Coords.Lon,false);
   Coords.LatLon:=FormatFloat('0.000000',LatLon.Lon)+PuntoLon+','+
                  FormatFloat('0.000000',LatLon.Lat)+PuntoLat;
-  //Coords.Descripcion:=;
+  Coords.Descripcion:=MmDescr.Text.Trim;
   Coords.Fecha:=Date;
   //se guarda el registro en la BD:
-  Dmod.Query.SQL.Text:='';
-  Dmod.Query.ParamByName('');
-  Dmod.Query.ExecSQL;
+  DMod.Query.SQL.Text:='';
+  DMod.Query.ParamByName('');
+  DMod.Query.ExecSQL;
   IniciarRegistro;  //se limpia el registro
 end;
 

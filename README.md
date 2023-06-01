@@ -9,10 +9,11 @@ Sencilla app móvil para Android que indica el rumbo en línea recta a seguir, y
 
 ---
 
-## Lenguaje/framework
+## Lenguaje/framework/base de datos
 
 * Lenguaje: Delphi 11.2 Alexandria, empleando sólo componentes nativos.
 * Framework: Firemonkey.
+* Base de datos: SQLite
 
 ---
 
