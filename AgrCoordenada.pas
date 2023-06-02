@@ -101,9 +101,9 @@ begin
   if LatLon.Lat>=0 then PuntoLon:=' E'
                    else PuntoLon:=' O';
   //se completa el registro a guardar:
+  LatLon_To_UTM(LatLon,UTM);
   Coords.Lat:=LatLon.Lat;
   Coords.Lon:=LatLon.Lon;
-  LatLon_To_UTM(LatLon,UTM);
   Coords.EsteUTM:=UTM.X;
   Coords.NorteUTM:=UTM.Y;
   Coords.LatGMS:=DecAGrados(Coords.Lat,true);
