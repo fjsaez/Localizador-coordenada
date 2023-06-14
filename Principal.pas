@@ -8,7 +8,7 @@ uses
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
   FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
-  UtilesLocalizador;
+  UtilesLocalizador, FMX.Objects;
 
 type
   TFPrinc = class(TForm)
@@ -23,6 +23,11 @@ type
     LstBAcerca: TListBoxItem;
     FrmAgregarPnc: TFrmAgregar;
     LctSensor: TLocationSensor;
+    Layout1: TLayout;
+    Layout2: TLayout;
+    Layout3: TLayout;
+    Rectangle1: TRectangle;
+    Rectangle2: TRectangle;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

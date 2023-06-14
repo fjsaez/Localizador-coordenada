@@ -34,50 +34,86 @@ object FPrinc: TFPrinc
         StyleLookup = 'drawertoolbuttonbordered'
       end
     end
-    object MultiView: TMultiView
-      DrawerOptions.TouchAreaSize = 25.000000000000000000
-      MasterButton = SBMenu
-      Mode = Drawer
-      NavigationPaneOptions.CollapsedWidth = 161.000000000000000000
-      Size.Width = 250.000000000000000000
-      Size.Height = 533.000000000000000000
+    object Layout1: TLayout
+      Align = Top
+      Position.Y = 40.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 97.000000000000000000
       Size.PlatformDefault = False
-      StyleLookup = 'multiviewstyle'
-      Visible = False
       TabOrder = 1
-      object LstBoxMenu: TListBox
-        Align = Top
-        Size.Width = 250.000000000000000000
-        Size.Height = 81.000000000000000000
+      object Rectangle1: TRectangle
+        Align = Client
+        Size.Width = 432.000000000000000000
+        Size.Height = 97.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
-        DisableFocusEffect = True
-        DefaultItemStyles.ItemStyle = ''
-        DefaultItemStyles.GroupHeaderStyle = ''
-        DefaultItemStyles.GroupFooterStyle = ''
-        Viewport.Width = 246.000000000000000000
-        Viewport.Height = 77.000000000000000000
-        object LstBuscar: TListBoxItem
+      end
+      object MultiView: TMultiView
+        DrawerOptions.TouchAreaSize = 25.000000000000000000
+        MasterButton = SBMenu
+        Mode = Drawer
+        NavigationPaneOptions.CollapsedWidth = 161.000000000000000000
+        SplitViewOptions.Placement = Bottom
+        Size.Width = 250.000000000000000000
+        Size.Height = 97.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'multiviewstyle'
+        Visible = False
+        TabOrder = 1
+        object LstBoxMenu: TListBox
+          Align = Top
+          Size.Width = 250.000000000000000000
+          Size.Height = 81.000000000000000000
+          Size.PlatformDefault = False
           TabOrder = 0
-          Text = 'Buscar coordenada'
-        end
-        object LstBGuardar: TListBoxItem
-          Position.Y = 19.000000000000000000
-          TabOrder = 1
-          Text = 'Guardar/seleccionar coordenada'
-          OnClick = LstBGuardarClick
-        end
-        object LstBAcerca: TListBoxItem
-          Position.Y = 38.000000000000000000
-          TabOrder = 3
-          Text = 'Acerca...'
-        end
-        object LstBSalir: TListBoxItem
-          Position.Y = 57.000000000000000000
-          TabOrder = 2
-          Text = 'Salir'
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 246.000000000000000000
+          Viewport.Height = 77.000000000000000000
+          object LstBuscar: TListBoxItem
+            TabOrder = 0
+            Text = 'Buscar coordenada'
+          end
+          object LstBGuardar: TListBoxItem
+            Position.Y = 19.000000000000000000
+            TabOrder = 1
+            Text = 'Guardar/seleccionar coordenada'
+            OnClick = LstBGuardarClick
+          end
+          object LstBAcerca: TListBoxItem
+            Position.Y = 38.000000000000000000
+            TabOrder = 3
+            Text = 'Acerca...'
+          end
+          object LstBSalir: TListBoxItem
+            Position.Y = 57.000000000000000000
+            TabOrder = 2
+            Text = 'Salir'
+          end
         end
       end
+    end
+    object Layout2: TLayout
+      Align = Client
+      Size.Width = 432.000000000000000000
+      Size.Height = 386.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Rectangle2: TRectangle
+        Align = Client
+        Size.Width = 432.000000000000000000
+        Size.Height = 386.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Layout3: TLayout
+      Align = Bottom
+      Position.Y = 523.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
     end
   end
   inline FrmAgregarPnc: TFrmAgregar
