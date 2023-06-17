@@ -253,17 +253,14 @@
         </DelphiCompile>
         <DCCReference Include="Principal.pas">
             <Form>FPrinc</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="AgrCoordenada.pas">
             <Form>FrmAgregar</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="UtilesLocalizador.pas"/>
         <DCCReference Include="DataMod.pas">
             <Form>DMod</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
