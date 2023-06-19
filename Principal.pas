@@ -42,7 +42,7 @@ type
     Label3: TLabel;
     LLonLoc: TLabel;
     LLatLoc: TLabel;
-    Circle1: TCircle;
+    CrcFlecha: TCircle;
     Layout1: TLayout;
     Rectangle4: TRectangle;
     Layout2: TLayout;
@@ -71,8 +71,8 @@ type
     Layout24: TLayout;
     Layout25: TLayout;
     Layout26: TLayout;
-    Label15: TLabel;
-    Label16: TLabel;
+    LOrientacion: TLabel;
+    LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
