@@ -43,7 +43,7 @@ type
     LLonLoc: TLabel;
     LLatLoc: TLabel;
     CrcFlecha: TCircle;
-    Layout1: TLayout;
+    LayIndicadores: TLayout;
     Rectangle4: TRectangle;
     Layout2: TLayout;
     Label6: TLabel;

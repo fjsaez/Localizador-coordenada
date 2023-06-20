@@ -30,7 +30,7 @@ type
     LLongitud: TLabel;
     LLatitud: TLabel;
     SBGuardar: TSpeedButton;
-    Rectangle1: TRectangle;
+    RectGrid: TRectangle;
     SGrid: TStringGrid;
     ColDescr: TStringColumn;
     ColID: TIntegerColumn;

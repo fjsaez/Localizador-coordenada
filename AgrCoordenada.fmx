@@ -162,7 +162,7 @@ object FrmAgregar: TFrmAgregar
         Position.Y = 207.000000000000000000
         TabOrder = 6
       end
-      object Rectangle1: TRectangle
+      object RectGrid: TRectangle
         Align = Client
         Fill.Color = claYellow
         Size.Width = 432.000000000000000000

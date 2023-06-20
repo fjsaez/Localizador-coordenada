@@ -26,7 +26,7 @@ object FPrinc: TFPrinc
         Size.Width = 432.000000000000000000
         Size.Height = 100.000000000000000000
         Size.PlatformDefault = False
-        object Layout1: TLayout
+        object LayIndicadores: TLayout
           Align = Client
           Size.Width = 432.000000000000000000
           Size.Height = 100.000000000000000000
@@ -1134,7 +1134,7 @@ object FPrinc: TFPrinc
             Viewport.Height = 44.000000000000000000
           end
         end
-        inherited Rectangle1: TRectangle
+        inherited RectGrid: TRectangle
           inherited SGrid: TStringGrid
             Viewport.Width = 426.000000000000000000
             Viewport.Height = 377.000000000000000000
