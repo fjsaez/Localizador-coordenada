@@ -68,8 +68,8 @@ type
     Label13: TLabel;
     Layout23: TLayout;
     LNorteAct: TLabel;
-    Layout24: TLayout;
-    Layout25: TLayout;
+    LayOrientacion: TLayout;
+    LayDistancia: TLayout;
     Layout26: TLayout;
     LOrientacion: TLabel;
     LDistancia: TLabel;
