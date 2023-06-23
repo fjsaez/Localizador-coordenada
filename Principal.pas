@@ -92,10 +92,8 @@ implementation
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
-  //ocultar las pantallas secundarias:
-  FrmAgregarPnc.Visible:=false;
-  //poner visible la pantalla principal:
-  LayPrincipal.Visible:=true;
+  FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
+  LayPrincipal.Visible:=true;     //poner visible la pantalla principal
 end;
 
 procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);

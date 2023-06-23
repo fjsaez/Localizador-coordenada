@@ -36,6 +36,7 @@ var
 
 implementation
 
+{Devuelve el azimut y orientación según los grados}
 function Orientacion(Grados: double): string;
 begin
   case Round(Grados) of
@@ -101,6 +102,7 @@ begin
   Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
 end;
 
+{Activa/desactiva el GPS del teléfono móvil}
 procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
 const
   PermissionAccessFineLocation='android.permission.ACCESS_FINE_LOCATION';
@@ -119,6 +121,7 @@ begin
     end);
 end;
 
+{Inicializa el registro de los datos de las coordenadas}
 procedure IniciarRegistro;
 begin
   Coords.IDCoord:=0;
