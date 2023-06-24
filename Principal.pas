@@ -94,6 +94,8 @@ procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
   LayPrincipal.Visible:=true;     //poner visible la pantalla principal
+  OrntSensor.Active:=true;        //se activa el sensor de brújula
+  LctSensor.Active:=true;         //se activa el sensor de GPS
 end;
 
 procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);

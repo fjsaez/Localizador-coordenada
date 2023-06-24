@@ -1157,10 +1157,6 @@ object FPrinc: TFPrinc
         end
       end
     end
-    inherited LctSensor: TLocationSensor
-      Left = 392
-      Top = 328
-    end
   end
   object ToolBar1: TToolBar
     Size.Width = 432.000000000000000000

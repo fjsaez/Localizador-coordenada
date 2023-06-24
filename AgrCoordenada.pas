@@ -37,7 +37,6 @@ type
     ColGeoSex: TStringColumn;
     ColGeoDec: TStringColumn;
     ColUTM: TStringColumn;
-    LctSensor: TLocationSensor;
     MmDescr: TMemo;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
