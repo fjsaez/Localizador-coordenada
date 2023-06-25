@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EE2029CF-84F1-4BD6-9AB8-1CAFB40BB992}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="LocCoordenada.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Prueba\PruebaLoc.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="LocCoordenada">
+        <MSBuild Projects="LocCoordenada.dproj"/>
+    </Target>
+    <Target Name="LocCoordenada:Clean">
+        <MSBuild Projects="LocCoordenada.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LocCoordenada:Make">
+        <MSBuild Projects="LocCoordenada.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PruebaLoc">
+        <MSBuild Projects="Prueba\PruebaLoc.dproj"/>
+    </Target>
+    <Target Name="PruebaLoc:Clean">
+        <MSBuild Projects="Prueba\PruebaLoc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PruebaLoc:Make">
+        <MSBuild Projects="Prueba\PruebaLoc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="LocCoordenada;PruebaLoc"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="LocCoordenada:Clean;PruebaLoc:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="LocCoordenada:Make;PruebaLoc:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
