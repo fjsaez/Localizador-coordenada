@@ -221,7 +221,7 @@ object FPrinc: TFPrinc
       Size.Height = 383.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object Rectangle2: TRectangle
+      object RectCentral: TRectangle
         Align = Client
         Size.Width = 432.000000000000000000
         Size.Height = 383.000000000000000000
@@ -1026,7 +1026,7 @@ object FPrinc: TFPrinc
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TextSettings.HorzAlign = Center
-            Text = 'Coordenada a localizar:'
+            Text = 'Coordenada destino:'
             TabOrder = 0
           end
         end

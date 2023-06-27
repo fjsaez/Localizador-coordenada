@@ -21,9 +21,6 @@ type
     LayCoords: TLayout;
     LayLista: TLayout;
     LayDescr: TLayout;
-    Layout3: TLayout;
-    Layout4: TLayout;
-    Layout5: TLayout;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;

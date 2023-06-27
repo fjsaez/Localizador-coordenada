@@ -27,7 +27,7 @@ type
     LayCentral: TLayout;
     LayBottom: TLayout;
     Rectangle1: TRectangle;
-    Rectangle2: TRectangle;
+    RectCentral: TRectangle;
     Rectangle3: TRectangle;
     Layout4: TLayout;
     Layout5: TLayout;

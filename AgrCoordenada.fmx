@@ -143,24 +143,9 @@ object FrmAgregar: TFrmAgregar
           Size.Height = 44.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 44.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 40.000000000000000000
         end
-      end
-      object Layout3: TLayout
-        Position.X = 256.000000000000000000
-        Position.Y = 168.000000000000000000
-        TabOrder = 4
-      end
-      object Layout4: TLayout
-        Position.X = 192.000000000000000000
-        Position.Y = 56.000000000000000000
-        TabOrder = 5
-      end
-      object Layout5: TLayout
-        Position.X = 176.000000000000000000
-        Position.Y = 207.000000000000000000
-        TabOrder = 6
       end
       object RectGrid: TRectangle
         Align = Client
@@ -185,8 +170,8 @@ object FrmAgregar: TFrmAgregar
           TabOrder = 0
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 377.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 352.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
