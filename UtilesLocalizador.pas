@@ -18,6 +18,13 @@ type
     Fecha: TDate;
   end;
 
+  TPosicion = record
+    Lat,Lon,        //coords geográficas
+    X,Y,            //coords UTM
+    XDest,YDest,    //coords UTM destino
+    Azimut,Distancia: double;
+  end;
+
 const
   Blanco=4294967295;
   Negro=4278190080;
@@ -28,6 +35,7 @@ const
 var
   Coords: TCoord;
 
+  function CalcularDistancia(X1,Y1,X2,Y2: double): double;
   function Orientacion(Grados: double): string;
   procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
   procedure CargarFuente(Etq: TLabel);
@@ -35,6 +43,11 @@ var
   procedure IniciarRegistro;
 
 implementation
+
+function CalcularDistancia(X1,Y1,X2,Y2: double): double;
+begin
+  Result:=Sqrt(Sqr(Abs(X1-X2))+Sqr(Abs(Y1-Y2)));
+end;
 
 {Devuelve el azimut y orientación según los grados}
 function Orientacion(Grados: double): string;

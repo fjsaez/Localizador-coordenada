@@ -1227,11 +1227,18 @@ object FPrinc: TFPrinc
     Active = True
     ActivityType = Other
     UsageAuthorization = WhenInUse
+    OnLocationChanged = LctSensorLocationChanged
     Left = 392
     Top = 264
   end
   object OrntSensor: TOrientationSensor
     Left = 392
     Top = 206
+  end
+  object Timer: TTimer
+    Interval = 100
+    OnTimer = TimerTimer
+    Left = 392
+    Top = 318
   end
 end

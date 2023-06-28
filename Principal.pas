@@ -8,7 +8,7 @@ uses
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
   FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
-  UtilesLocalizador, FMX.Objects;
+  UtilesLocalizador, FMX.Objects, UTM_WGS84;
 
 type
   TFPrinc = class(TForm)
@@ -74,9 +74,13 @@ type
     LOrientacion: TLabel;
     LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
+    Timer: TTimer;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
+      NewLocation: TLocationCoord2D);
+    procedure TimerTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -104,11 +108,77 @@ begin
   LayPrincipal.Visible:=true;
 end;
 
+procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
+  NewLocation: TLocationCoord2D);
+var
+  LatLon: TRecLatLon;
+  UTM: TRecUTM;
+begin
+  LatLon.Lon:=NewLocation.Longitude;
+  LatLon.Lat:=NewLocation.Latitude;
+  LatLon_To_UTM(LatLon,UTM);
+  Posc.X:=UTM.X;
+  Posc.Y:=UTM.Y;
+  Posc.Lon:=NewLocation.Longitude;
+  Posc.Lat:=NewLocation.Latitude;
+  LCoord.Text:=FormatFloat('0.00',Posc.X)+' E - '+FormatFloat('0.00',Posc.Y)+' N';
+end;
+
 procedure TFPrinc.LstBGuardarClick(Sender: TObject);
 begin
   LayPrincipal.Visible:=false;
   FrmAgregarPnc.Visible:=true;
   IniciarRegistro;
+end;
+
+procedure TFPrinc.TimerTimer(Sender: TObject);
+const
+  Rng=0.2;
+var
+  X,Y,D,Deg,X2,Y2,Grd: double;
+begin
+  {X2:=MtnSensor.Sensor.AccelerationX;
+  Y2:=MtnSensor.Sensor.AccelerationY;}
+  X:=OrntSensor.Sensor.HeadingX;
+  Y:=OrntSensor.Sensor.HeadingY;
+  if Y=0 then D:=Abs(X/1)  //se evita una división por cero
+         else D:=Abs(X/Y);
+  Deg:=RadToDeg(ArcTan(D));
+  if (Y>=0) and (X<=0) then Deg:=Deg
+  else
+    if (Y<0) and (X<=0) then Deg:=180-Deg
+    else
+      if (Y<0) then Deg:=180+Deg
+      else
+        if (Y>=0) and (X>0) then Deg:=360-Deg;
+  CrcBujula.RotationAngle:=360-Deg;
+  Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
+  Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
+
+  if (Posc.X>Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=Grd+180
+  else
+    if (Posc.X>Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=360-Grd
+    else
+      if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd
+      else
+        if (Posc.X<Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=Grd;
+
+  CrcFlecha.RotationAngle:=Grd+(360-Deg);
+  LOrntBrj.Text:='Orientación: '+FormatFloat('0.00',CrcBujula.RotationAngle)+
+                 'º '+Orientacion(CrcBujula.RotationAngle);
+  LOrientacion.Text:=Round(Grd).ToString+'º - '+Orientacion(Grd);
+  LDistancia.Text:=FormatFloat('#,##0.00',Posc.Distancia)+' mts';
+  //se indica si la brújula está nivelada o no:
+  {if ((X2>=-Rng) and (X2<=Rng)) and ((Y2>=-Rng) and (Y2<=Rng)) then
+  begin
+    LNivel.TextSettings.FontColor:=Chartreuse;
+    LNivel.Text:='NIVELADO'
+  end
+  else
+  begin
+    LNivel.TextSettings.FontColor:=Blanco;
+    LNivel.Text:='NO nivelado';
+  end; }
 end;
 
 end.
