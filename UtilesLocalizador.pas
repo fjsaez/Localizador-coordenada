@@ -38,6 +38,7 @@ var
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
   function Orientacion(Grados: double): string;
   procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
+  function EstaNivelado(MSensor: TMotionSensor; Rng: single): boolean;
   procedure CargarFuente(Etq: TLabel);
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
   procedure IniciarRegistro;
@@ -104,6 +105,15 @@ begin
     else
       for I:=AntGrados downto NvoGrados do MoverFlecha(I)
   end;
+end;
+
+function EstaNivelado(MSensor: TMotionSensor; Rng: single): boolean;
+var
+  X,Y: double;
+begin
+  X:=MSensor.Sensor.AccelerationX;
+  Y:=MSensor.Sensor.AccelerationY;
+  Result:=((X>=-Rng) and (X<=Rng)) and ((Y>=-Rng) and (Y<=Rng));
 end;
 
 procedure CargarFuente(Etq: TLabel);

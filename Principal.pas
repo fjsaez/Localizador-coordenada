@@ -8,7 +8,7 @@ uses
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
   FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
-  UtilesLocalizador, FMX.Objects, UTM_WGS84;
+  UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84;
 
 type
   TFPrinc = class(TForm)
@@ -132,13 +132,9 @@ begin
 end;
 
 procedure TFPrinc.TimerTimer(Sender: TObject);
-const
-  Rng=0.2;
 var
   X,Y,D,Deg,X2,Y2,Grd: double;
 begin
-  {X2:=MtnSensor.Sensor.AccelerationX;
-  Y2:=MtnSensor.Sensor.AccelerationY;}
   X:=OrntSensor.Sensor.HeadingX;
   Y:=OrntSensor.Sensor.HeadingY;
   if Y=0 then D:=Abs(X/1)  //se evita una división por cero
@@ -169,7 +165,7 @@ begin
   LOrientacion.Text:=Round(Grd).ToString+'º - '+Orientacion(Grd);
   LDistancia.Text:=FormatFloat('#,##0.00',Posc.Distancia)+' mts';
   //se indica si la brújula está nivelada o no:
-  {if ((X2>=-Rng) and (X2<=Rng)) and ((Y2>=-Rng) and (Y2<=Rng)) then
+  if EstaNivelado() then
   begin
     LNivel.TextSettings.FontColor:=Chartreuse;
     LNivel.Text:='NIVELADO'
@@ -178,7 +174,7 @@ begin
   begin
     LNivel.TextSettings.FontColor:=Blanco;
     LNivel.Text:='NO nivelado';
-  end; }
+  end;
 end;
 
 end.
