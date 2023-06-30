@@ -89,6 +89,7 @@ type
 
 var
   FPrinc: TFPrinc;
+  Posc: TPosicion;
 
 implementation
 
@@ -165,7 +166,7 @@ begin
   LOrientacion.Text:=Round(Grd).ToString+'º - '+Orientacion(Grd);
   LDistancia.Text:=FormatFloat('#,##0.00',Posc.Distancia)+' mts';
   //se indica si la brújula está nivelada o no:
-  if EstaNivelado() then
+  if EstaNivelado(MtnSensor,0.2) then
   begin
     LNivel.TextSettings.FontColor:=Chartreuse;
     LNivel.Text:='NIVELADO'
