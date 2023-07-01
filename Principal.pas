@@ -151,7 +151,6 @@ begin
   CrcBujula.RotationAngle:=360-Deg;
   Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
-
   if (Posc.X>Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=Grd+180
   else
     if (Posc.X>Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=360-Grd
@@ -159,7 +158,6 @@ begin
       if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd
       else
         if (Posc.X<Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=Grd;
-
   CrcFlecha.RotationAngle:=Grd+(360-Deg);
   LOrntBrj.Text:='Orientación: '+FormatFloat('0.00',CrcBujula.RotationAngle)+
                  'º '+Orientacion(CrcBujula.RotationAngle);

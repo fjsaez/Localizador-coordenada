@@ -229,14 +229,17 @@ object FPrinc: TFPrinc
         object LayOrientacion: TLayout
           Align = Top
           Size.Width = 432.000000000000000000
-          Size.Height = 50.000000000000000000
+          Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object LOrientacion: TLabel
             Align = Client
+            StyledSettings = [Family, FontColor]
             Size.Width = 432.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.HorzAlign = Center
             Text = 'Orientaci'#243'n: 0,00'#186' N'
             TabOrder = 0
@@ -244,16 +247,19 @@ object FPrinc: TFPrinc
         end
         object LayDistancia: TLayout
           Align = Bottom
-          Position.Y = 333.000000000000000000
+          Position.Y = 343.000000000000000000
           Size.Width = 432.000000000000000000
-          Size.Height = 50.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object LDistancia: TLabel
             Align = Client
+            StyledSettings = [Family, FontColor]
             Size.Width = 432.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
+            TextSettings.Font.Size = 20.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.HorzAlign = Center
             Text = 'Distancia: 0,00 m'
             TabOrder = 0
@@ -262,7 +268,7 @@ object FPrinc: TFPrinc
         object Layout26: TLayout
           Align = Client
           Size.Width = 432.000000000000000000
-          Size.Height = 283.000000000000000000
+          Size.Height = 313.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object CrcFlecha: TCircle
@@ -996,7 +1002,7 @@ object FPrinc: TFPrinc
             Fill.Bitmap.WrapMode = TileStretch
             Fill.Kind = Bitmap
             Size.Width = 432.000000000000000000
-            Size.Height = 283.000000000000000000
+            Size.Height = 313.000000000000000000
             Size.PlatformDefault = False
           end
         end
@@ -1177,6 +1183,12 @@ object FPrinc: TFPrinc
       StyleLookup = 'drawertoolbuttonbordered'
     end
   end
+  object Timer: TTimer
+    Interval = 100
+    OnTimer = TimerTimer
+    Left = 392
+    Top = 318
+  end
   object MultiView: TMultiView
     DrawerOptions.TouchAreaSize = 25.000000000000000000
     MasterButton = SBMenu
@@ -1234,11 +1246,5 @@ object FPrinc: TFPrinc
   object OrntSensor: TOrientationSensor
     Left = 392
     Top = 206
-  end
-  object Timer: TTimer
-    Interval = 100
-    OnTimer = TimerTimer
-    Left = 392
-    Top = 318
   end
 end
