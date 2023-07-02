@@ -227,7 +227,8 @@ object FPrinc: TFPrinc
         Size.Height = 383.000000000000000000
         Size.PlatformDefault = False
         object LayOrientacion: TLayout
-          Align = Top
+          Align = Bottom
+          Position.Y = 313.000000000000000000
           Size.Width = 432.000000000000000000
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
