@@ -8,7 +8,7 @@ uses
   {$ENDIF}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
-  System.Permissions;
+  System.Permissions, System.Math;
 
 type
   TCoord = record
@@ -35,6 +35,7 @@ const
 var
   Coords: TCoord;
 
+  function Grados(Norte1,Norte2,DistH: double): double;
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
   function Orientacion(Grados: double): string;
   procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
@@ -48,6 +49,12 @@ implementation
 function CalcularDistancia(X1,Y1,X2,Y2: double): double;
 begin
   Result:=Sqrt(Sqr(Abs(X1-X2))+Sqr(Abs(Y1-Y2)));
+end;
+
+function Grados(Norte1,Norte2,DistH: double): double;
+begin
+  if DistH>0 then Result:=RadToDeg(ArcCos(Abs(Norte1-Norte2)/DistH))
+             else Result:=0;
 end;
 
 {Devuelve el azimut y orientación según los grados}
