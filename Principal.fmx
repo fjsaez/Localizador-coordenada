@@ -269,7 +269,7 @@ object FPrinc: TFPrinc
         object Layout26: TLayout
           Align = Client
           Size.Width = 432.000000000000000000
-          Size.Height = 313.000000000000000000
+          Size.Height = 289.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object CrcFlecha: TCircle
@@ -1003,9 +1003,16 @@ object FPrinc: TFPrinc
             Fill.Bitmap.WrapMode = TileStretch
             Fill.Kind = Bitmap
             Size.Width = 432.000000000000000000
-            Size.Height = 313.000000000000000000
+            Size.Height = 289.000000000000000000
             Size.PlatformDefault = False
           end
+        end
+        object Layout1: TLayout
+          Align = Top
+          Size.Width = 432.000000000000000000
+          Size.Height = 24.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
         end
       end
     end

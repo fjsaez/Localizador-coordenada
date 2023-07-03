@@ -75,6 +75,7 @@ type
     LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
+    Layout1: TLayout;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
