@@ -34,6 +34,7 @@ const
 
 var
   Coords: TCoord;
+  Posc: TPosicion;
 
   function Grados(Norte1,Norte2,DistH: double): double;
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
@@ -43,6 +44,7 @@ var
   procedure CargarFuente(Etq: TLabel);
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
   procedure IniciarRegistro;
+  procedure IniciarRegCoord;
 
 implementation
 
@@ -164,6 +166,18 @@ begin
   Coords.LatLon:='';
   Coords.Descripcion:='';
   Coords.Fecha:=Date;
+end;
+
+procedure IniciarRegCoord;
+begin
+  Posc.Lat:=0.0;
+  Posc.Lon:=0.0;
+  Posc.X:=0.0;
+  Posc.Y:=0.0;
+  Posc.XDest:=0.0;
+  Posc.XDest:=0.0;
+  Posc.Azimut:=0.0;
+  Posc.Distancia:=0.0;
 end;
 
 end.
