@@ -72,7 +72,8 @@ begin
 end;
 
 function FootpointLatitude (y:Double):Double;
-var y_, alpha_, beta_, gamma_, delta_, epsilon_, n:Double;
+var
+  y_, alpha_, beta_, gamma_, delta_, epsilon_, n: Double;
 begin
   n:=(ct_dga-ct_dpa)/(ct_dga+ct_dpa);
   alpha_:=((ct_dga+ct_dpa)/2)*(1+(intPower(n,2)/4)+(intPower(n,4)/64));
@@ -89,11 +90,13 @@ procedure MapLatLonToXY (LatLon:TrecLatLon; lambda0:Double; var UTM:TrecUTM);
 var N, nu2, ep2, t, t2, l, phi, lambda:Double;
 var l3coef, l4coef, l5coef, l6coef, l7coef, l8coef:Double;
 begin
-  phi:=LatLon.Lat; lambda:=LatLon.Lon;
+  phi:=LatLon.Lat;
+  lambda:=LatLon.Lon;
   ep2 := (intPower (ct_dga, 2) - intPower (ct_dpa, 2)) / intPower (ct_dpa, 2);
   nu2 := ep2 * intPower (cos (phi), 2);
   N := intPower (ct_dga, 2) / (ct_dpa * sqrt (1 + nu2));
-  t := tan (phi); t2 := t * t;
+  t := tan (phi);
+  t2 := t * t;
   l := lambda - lambda0;
   l3coef := 1 - t2 + nu2; l4coef := 5 - t2 + 9 * nu2 + 4 * (nu2 * nu2);
   l5coef := 5 - 18 * t2 + (t2 * t2) + 14 * nu2 - 58 * t2 * nu2;
@@ -112,17 +115,20 @@ begin
 end;
 
 procedure MapXYToLatLon (UTM:TrecUTM; lambda0:Double; var philambda:TrecLatLon);
-var phif, Nf, Nfpow, nuf2, ep2, tf, tf2, tf4, cf,x ,y:Double;
-var x1frac, x2frac, x3frac, x4frac, x5frac, x6frac, x7frac, x8frac:Double;
-var x2poly, x3poly, x4poly, x5poly, x6poly, x7poly, x8poly:Double;
+var
+  phif, Nf, Nfpow, nuf2, ep2, tf, tf2, tf4, cf,x, y,
+  x1frac, x2frac, x3frac, x4frac, x5frac, x6frac, x7frac, x8frac,
+  x2poly, x3poly, x4poly, x5poly, x6poly, x7poly, x8poly: Double;
 begin
   x:=UTM.X; y:=UTM.Y;
   phif := FootpointLatitude (y);
   ep2 := (intPower (ct_dga, 2) - intPower (ct_dpa, 2)) / intPower (ct_dpa, 2);
   cf := cos (phif);
   nuf2 := ep2 * intPower (cf, 2);
-  Nf := intPower (ct_dga, 2) / (ct_dpa * sqrt (1 + nuf2)); Nfpow := Nf;
-  tf := tan (phif); tf2 := tf * tf; tf4 := tf2 * tf2;
+  Nf := intPower (ct_dga, 2) / (ct_dpa * sqrt (1 + nuf2));
+  Nfpow := Nf;
+  tf := tan (phif); tf2 := tf * tf;
+  tf4 := tf2 * tf2;
   x1frac := 1 / (Nfpow * cf);
   Nfpow := Nfpow * Nf; x2frac := tf / (2 * Nfpow);  // now equals Nf**2)
   Nfpow := Nfpow * Nf; x3frac := 1 / (6 * Nfpow * cf);  // now equals Nf**3)
@@ -160,13 +166,13 @@ begin
   if UTM.southhemi then UTM.y := UTM.y - 10000000;
   UTM.y := UTM.y / ct_UTMScaleFactor;
   cmeridian := UTMCentralMeridian (UTM.fuseau);
-  MapXYToLatLon (UTM, cmeridian, latlon);
+  MapXYToLatLon(UTM, cmeridian, latlon);
 end;
 
 function Limits(LatLon:TrecLatLon):boolean;
 begin
   Result:=((LatLon.Lat <= 84) and (LatLon.Lat >= -80)) and
-  ((LatLon.Lon <= 180) and (LatLon.Lon >= -180));
+          ((LatLon.Lon <= 180) and (LatLon.Lon >= -180));
 end;
 
 function CharLat(LatLon:TrecLatLon):char;
@@ -181,7 +187,8 @@ begin
   end else
   begin
     if Od > 9 then Od:=9;
-    Result:=chr(ord('N')+Od); if Result > 'N' then inc(Result);
+    Result:=chr(ord('N')+Od);
+    if Result > 'N' then inc(Result);
   end;
 end;
 
@@ -189,8 +196,9 @@ procedure LatLon_TO_UTM(LatLon:TrecLatLon; var UTM:TrecUTM);
 begin
   UTM.OK:=Limits(LatLon); if not UTM.OK then exit;
   UTM.CharLat:=CharLat(LatLon);
-  UTM.fuseau := floor ((LatLon.lon + 180) / 6) + 1;
-  LatLon.Lat:=DegToRad (LatLon.Lat); LatLon.Lon:=DegToRad (LatLon.Lon);
+  UTM.fuseau := floor((LatLon.lon + 180) / 6) + 1;
+  LatLon.Lat:=DegToRad(LatLon.Lat);
+  LatLon.Lon:=DegToRad(LatLon.Lon);
   UTM.fuseau := LatLonToUTMXY (LatLon,UTM);
   UTM.southhemi:=LatLon.Lat < 0;
   if UTM.southhemi then UTM.Y:=UTM.Y*-1;
@@ -216,7 +224,7 @@ end;
 
 Const CtHorsLimites = 'Hors Limites';
 
-function STR_LatLon_TO_UTM(Const LatLon:TrecLatLon):string;
+function STR_LatLon_TO_UTM(Const LatLon:TrecLatLon): string;
 const Fmt0 = '0';
 var UTM : TrecUTM;
     STRfuseau : string;
@@ -228,8 +236,8 @@ begin
     if UTM.fuseau < 10 then STRfuseau:='0'+STRfuseau;
     Result:=UTM.CharLat+' UTM'+STRfuseau+' X="'+formatFloat(Fmt0,UTM.X)+
     '" Y="'+formatFloat(Fmt0,UTM.Y)+'"';
-  end else
-  Result:=CtHorsLimites;
+  end
+  else Result:=CtHorsLimites;
 end;
 
 function STR_UTM_TO_LatLon(Const UTM:TrecUTM) : string;
@@ -254,4 +262,4 @@ begin
   else Result:=CtHorsLimites;
 end;
 
-end.  //445   431   267   297  257
+end.  //445   431   267   297  265

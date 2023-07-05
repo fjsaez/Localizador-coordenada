@@ -76,6 +76,7 @@ type
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
     Layout1: TLayout;
+    RectFlecha: TRectangle;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -123,7 +124,11 @@ begin
   Posc.Y:=UTM.Y;
   Posc.Lon:=NewLocation.Longitude;
   Posc.Lat:=NewLocation.Latitude;
-  LCoord.Text:=FormatFloat('0.00',Posc.X)+' E - '+FormatFloat('0.00',Posc.Y)+' N';
+  //se muestran las coordenadas en sus diferentes formatos:
+  LLonAct.Text:=FormatFloat('0.00',Posc.Lon);
+  LLatAct.Text:=FormatFloat('0.00',Posc.Lat);
+  LEsteAct.Text:=FormatFloat('0.00',Posc.X);
+  LNorteAct.Text:=FormatFloat('0.00',Posc.Y);
 end;
 
 procedure TFPrinc.LstBGuardarClick(Sender: TObject);
