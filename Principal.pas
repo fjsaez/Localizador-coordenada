@@ -154,7 +154,7 @@ begin
       if (Y<0) then Deg:=180+Deg
       else
         if (Y>=0) and (X>0) then Deg:=360-Deg;
-  CrcBujula.RotationAngle:=360-Deg;
+  //CrcBujula.RotationAngle:=360-Deg;
   Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
   if (Posc.X>Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=Grd+180
@@ -165,12 +165,12 @@ begin
       else
         if (Posc.X<Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=Grd;
   CrcFlecha.RotationAngle:=Grd+(360-Deg);
-  LOrntBrj.Text:='Orientación: '+FormatFloat('0.00',CrcBujula.RotationAngle)+
-                 'º '+Orientacion(CrcBujula.RotationAngle);
+  //LOrntBrj.Text:='Orientación: '+FormatFloat('0.00',CrcBujula.RotationAngle)+
+    //             'º '+Orientacion(CrcBujula.RotationAngle);
   LOrientacion.Text:=Round(Grd).ToString+'º - '+Orientacion(Grd);
   LDistancia.Text:=FormatFloat('#,##0.00',Posc.Distancia)+' mts';
   //se indica si la brújula está nivelada o no:
-  if EstaNivelado(MtnSensor,0.2) then
+  {if EstaNivelado(MtnSensor,0.2) then
   begin
     LNivel.TextSettings.FontColor:=Chartreuse;
     LNivel.Text:='NIVELADO'
@@ -179,7 +179,7 @@ begin
   begin
     LNivel.TextSettings.FontColor:=Blanco;
     LNivel.Text:='NO nivelado';
-  end;
+  end; }
 end;
 
 end.
