@@ -181,7 +181,8 @@ begin
   Od:=floor(abs(LatLon.Lat/8));
   if LatLon.Lat < 0 then
   begin
-    Od:=9-Od; if Od < 0 then Od:=0;
+    Od:=9-Od;
+    if Od < 0 then Od:=0;
     Result:=chr(ord('C')+Od);
     if Result > 'H' then inc(Result);
   end else

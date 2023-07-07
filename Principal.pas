@@ -140,7 +140,7 @@ end;
 
 procedure TFPrinc.TimerTimer(Sender: TObject);
 var
-  X,Y,D,Deg,X2,Y2,Grd: double;
+  X,Y,D,Deg,Grd: double;
 begin
   X:=OrntSensor.Sensor.HeadingX;
   Y:=OrntSensor.Sensor.HeadingY;
