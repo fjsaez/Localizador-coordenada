@@ -181,3 +181,28 @@ begin
 end;
 
 end.
+
+//uses
+  //System.Permissions, FMX.DialogService;
+
+/// Útiles ///
+
+{function MetrosToKm(DistMetros: single): single;
+begin
+  Result:=DistMetros/1000;
+end;
+
+function Sentido(Este1,Norte1,Este2,Norte2: Double): string;
+var
+  Cad: string;
+begin
+  if (Norte1<Norte2) and (Este1=Este2) then Cad:='N';
+  if (Norte1>Norte2) and (Este1=Este2) then Cad:='S';
+  if (Norte1=Norte2) and (Este1<Este2) then Cad:='E';
+  if (Norte1=Norte2) and (Este1>Este2) then Cad:='O';
+  if (Norte1<Norte2) and (Este1<Este2) then Cad:='N - E';
+  if (Norte1<Norte2) and (Este1>Este2) then Cad:='N - O';
+  if (Norte1>Norte2) and (Este1<Este2) then Cad:='S - E';
+  if (Norte1>Norte2) and (Este1>Este2) then Cad:='S - O';
+  Result:=Cad;
+end;}

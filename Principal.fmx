@@ -32,7 +32,7 @@ object FPrinc: TFPrinc
           Size.Height = 100.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
-          object Rectangle4: TRectangle
+          object RectCoordAct: TRectangle
             Align = Client
             Size.Width = 432.000000000000000000
             Size.Height = 100.000000000000000000
@@ -1015,7 +1015,7 @@ object FPrinc: TFPrinc
             end
           end
         end
-        object Layout1: TLayout
+        object LaySep1: TLayout
           Align = Top
           Size.Width = 432.000000000000000000
           Size.Height = 24.000000000000000000

@@ -9,6 +9,9 @@
         <Projects Include="Prueba\PruebaLoc.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="LocSimple\LocSimple.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="PruebaLoc:Make">
         <MSBuild Projects="Prueba\PruebaLoc.dproj" Targets="Make"/>
     </Target>
+    <Target Name="LocSimple">
+        <MSBuild Projects="LocSimple\LocSimple.dproj"/>
+    </Target>
+    <Target Name="LocSimple:Clean">
+        <MSBuild Projects="LocSimple\LocSimple.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LocSimple:Make">
+        <MSBuild Projects="LocSimple\LocSimple.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="LocCoordenada;PruebaLoc"/>
+        <CallTarget Targets="LocCoordenada;PruebaLoc;LocSimple"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="LocCoordenada:Clean;PruebaLoc:Clean"/>
+        <CallTarget Targets="LocCoordenada:Clean;PruebaLoc:Clean;LocSimple:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="LocCoordenada:Make;PruebaLoc:Make"/>
+        <CallTarget Targets="LocCoordenada:Make;PruebaLoc:Make;LocSimple:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

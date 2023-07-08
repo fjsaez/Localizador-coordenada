@@ -44,6 +44,8 @@ modules/
 #*.txt
 
 # Carpetas varias
+LocSimple - copia/
+LocSimple/
 Prueba/
 Android/
 Estilos/
