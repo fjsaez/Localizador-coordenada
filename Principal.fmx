@@ -268,7 +268,7 @@ object FPrinc: TFPrinc
             TabOrder = 0
           end
         end
-        object Layout26: TLayout
+        object LayFlecha: TLayout
           Align = Client
           Size.Width = 432.000000000000000000
           Size.Height = 289.000000000000000000
@@ -1182,7 +1182,7 @@ object FPrinc: TFPrinc
       end
     end
   end
-  object ToolBar1: TToolBar
+  object ToolBMenu: TToolBar
     Size.Width = 432.000000000000000000
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False

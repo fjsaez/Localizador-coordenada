@@ -13,7 +13,7 @@ uses
 type
   TFPrinc = class(TForm)
     LayPrincipal: TLayout;
-    ToolBar1: TToolBar;
+    ToolBMenu: TToolBar;
     SBMenu: TSpeedButton;
     MultiView: TMultiView;
     LstBoxMenu: TListBox;
@@ -70,7 +70,7 @@ type
     LNorteAct: TLabel;
     LayOrientacion: TLayout;
     LayDistancia: TLayout;
-    Layout26: TLayout;
+    LayFlecha: TLayout;
     LOrientacion: TLabel;
     LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
