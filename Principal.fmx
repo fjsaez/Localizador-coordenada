@@ -271,13 +271,17 @@ object FPrinc: TFPrinc
         object LayFlecha: TLayout
           Align = Client
           Size.Width = 432.000000000000000000
-          Size.Height = 289.000000000000000000
+          Size.Height = 313.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object RectFlecha: TRectangle
             Align = Client
+            Padding.Left = 10.000000000000000000
+            Padding.Top = 10.000000000000000000
+            Padding.Right = 10.000000000000000000
+            Padding.Bottom = 10.000000000000000000
             Size.Width = 432.000000000000000000
-            Size.Height = 289.000000000000000000
+            Size.Height = 313.000000000000000000
             Size.PlatformDefault = False
             object CrcFlecha: TCircle
               Align = Client
@@ -1009,18 +1013,11 @@ object FPrinc: TFPrinc
                 FE3F9BFD4DB7CCE562100000000049454E44AE426082}
               Fill.Bitmap.WrapMode = TileStretch
               Fill.Kind = Bitmap
-              Size.Width = 432.000000000000000000
-              Size.Height = 289.000000000000000000
+              Size.Width = 412.000000000000000000
+              Size.Height = 293.000000000000000000
               Size.PlatformDefault = False
             end
           end
-        end
-        object LaySep1: TLayout
-          Align = Top
-          Size.Width = 432.000000000000000000
-          Size.Height = 24.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 3
         end
       end
     end

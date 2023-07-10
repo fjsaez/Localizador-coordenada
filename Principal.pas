@@ -75,7 +75,6 @@ type
     LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
-    LaySep1: TLayout;
     RectFlecha: TRectangle;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
