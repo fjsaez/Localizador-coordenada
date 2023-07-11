@@ -76,6 +76,7 @@ type
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
     RectFlecha: TRectangle;
+    LstBoxAgregar: TListBoxItem;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

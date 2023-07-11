@@ -1227,7 +1227,7 @@ object FPrinc: TFPrinc
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 246.000000000000000000
+      Viewport.Width = 230.000000000000000000
       Viewport.Height = 77.000000000000000000
       object LstBuscar: TListBoxItem
         TabOrder = 0
@@ -1239,13 +1239,18 @@ object FPrinc: TFPrinc
         Text = 'Guardar/seleccionar coordenada'
         OnClick = LstBGuardarClick
       end
-      object LstBAcerca: TListBoxItem
+      object LstBoxAgregar: TListBoxItem
         Position.Y = 38.000000000000000000
+        TabOrder = 4
+        Text = 'LstBoxAgregar'
+      end
+      object LstBAcerca: TListBoxItem
+        Position.Y = 57.000000000000000000
         TabOrder = 3
         Text = 'Acerca...'
       end
       object LstBSalir: TListBoxItem
-        Position.Y = 57.000000000000000000
+        Position.Y = 76.000000000000000000
         TabOrder = 2
         Text = 'Salir'
       end
