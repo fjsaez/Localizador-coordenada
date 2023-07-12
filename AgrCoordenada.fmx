@@ -75,11 +75,13 @@ object FrmAgregar: TFrmAgregar
           TabOrder = 0
           object Label2: TLabel
             Align = Left
+            StyledSettings = [Family, Size, FontColor]
             Margins.Left = 10.000000000000000000
             Position.X = 10.000000000000000000
             Size.Width = 120.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'Longitud:'
             TabOrder = 0
           end
@@ -99,11 +101,13 @@ object FrmAgregar: TFrmAgregar
           TabOrder = 1
           object Label3: TLabel
             Align = Left
+            StyledSettings = [Family, Size, FontColor]
             Margins.Left = 10.000000000000000000
             Position.X = 10.000000000000000000
             Size.Width = 120.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'Latitud:'
             TabOrder = 0
           end
@@ -143,8 +147,8 @@ object FrmAgregar: TFrmAgregar
           Size.Height = 44.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 44.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 40.000000000000000000
         end
       end
       object RectGrid: TRectangle
@@ -170,8 +174,8 @@ object FrmAgregar: TFrmAgregar
           TabOrder = 0
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 377.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 352.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
