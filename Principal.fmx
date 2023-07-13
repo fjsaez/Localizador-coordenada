@@ -133,7 +133,7 @@ object FPrinc: TFPrinc
                     TabOrder = 0
                   end
                 end
-                object CrcBujula: TCircle
+                object CrcBrujula: TCircle
                   Align = Client
                   Fill.Bitmap.Bitmap.PNG = {
                     89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4
@@ -1055,7 +1055,7 @@ object FPrinc: TFPrinc
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object LOrientacion: TLabel
+          object LDireccion: TLabel
             Align = Client
             StyledSettings = [Family, FontColor]
             Size.Width = 432.000000000000000000
@@ -1836,6 +1836,12 @@ object FPrinc: TFPrinc
               Size.Width = 412.000000000000000000
               Size.Height = 273.000000000000000000
               Size.PlatformDefault = False
+              object GlowEffect: TGlowEffect
+                Softness = 0.800000011920929000
+                GlowColor = claBlue
+                Opacity = 1.000000000000000000
+                Enabled = False
+              end
             end
           end
         end
@@ -2069,7 +2075,7 @@ object FPrinc: TFPrinc
       Size.PlatformDefault = False
       StyleLookup = 'drawertoolbuttonbordered'
     end
-    object SpeedButton1: TSpeedButton
+    object SBSalir: TSpeedButton
       Align = Right
       Margins.Left = 5.000000000000000000
       Margins.Top = 5.000000000000000000
@@ -2082,6 +2088,7 @@ object FPrinc: TFPrinc
       Size.PlatformDefault = False
       StyleLookup = 'escapetoolbuttonbordered'
       Text = 'escapetoolbuttonbordered'
+      OnClick = SBSalirClick
     end
   end
   object Timer: TTimer
@@ -2125,10 +2132,10 @@ object FPrinc: TFPrinc
         Text = 'Guardar/seleccionar coordenada'
         OnClick = LstBGuardarClick
       end
-      object LstBoxAgregar: TListBoxItem
+      object LstBAgregar: TListBoxItem
         Position.Y = 38.000000000000000000
         TabOrder = 4
-        Text = 'LstBoxAgregar'
+        Text = 'Agregar'
       end
       object LstBAcerca: TListBoxItem
         Position.Y = 57.000000000000000000

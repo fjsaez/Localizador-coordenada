@@ -3,12 +3,16 @@
 interface
 
 uses
+  {$IF ANDROID}
+    FMX.Platform.Android,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
   FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
-  UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84;
+  UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84, FMX.Effects,
+  System.IOUtils;
 
 type
   TFPrinc = class(TForm)
@@ -70,12 +74,12 @@ type
     LayOrientacion: TLayout;
     LayDistancia: TLayout;
     LayFlecha: TLayout;
-    LOrientacion: TLabel;
+    LDireccion: TLabel;
     LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
     RectFlecha: TRectangle;
-    LstBoxAgregar: TListBoxItem;
+    LstBAgregar: TListBoxItem;
     LayDescr: TLayout;
     Layout1: TLayout;
     Label4: TLabel;
@@ -89,15 +93,17 @@ type
     Label10: TLabel;
     Layout28: TLayout;
     Label12: TLabel;
-    CrcBujula: TCircle;
-    SpeedButton1: TSpeedButton;
+    CrcBrujula: TCircle;
+    SBSalir: TSpeedButton;
     MtnSensor: TMotionSensor;
+    GlowEffect: TGlowEffect;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure TimerTimer(Sender: TObject);
+    procedure SBSalirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -153,9 +159,20 @@ begin
   IniciarRegistro;
 end;
 
+procedure TFPrinc.SBSalirClick(Sender: TObject);
+begin
+  {$IF ANDROID}
+    MainActivity.Finish
+  {$ELSE}
+    Application.Terminate;
+  {$ENDIF}
+
+end;
+
 procedure TFPrinc.TimerTimer(Sender: TObject);
 var
   X,Y,D,Deg,Grd: double;
+  Nivel,Ubic: string;
 begin
   X:=OrntSensor.Sensor.HeadingX;
   Y:=OrntSensor.Sensor.HeadingY;
@@ -169,32 +186,39 @@ begin
       if (Y<0) then Deg:=180+Deg
       else
         if (Y>=0) and (X>0) then Deg:=360-Deg;
-  //CrcBujula.RotationAngle:=360-Deg;
+  CrcBrujula.RotationAngle:=360-Deg;
   Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
+  //se alinea la flecha de búsqueda con la brújula:
   if (Posc.X>Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=Grd+180
   else
     if (Posc.X>Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=360-Grd
     else
-      if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd
-      else
-        if (Posc.X<Posc.XDest) and (Posc.Y<Posc.YDest) then Grd:=Grd;
+      if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd;
   CrcFlecha.RotationAngle:=Grd+(360-Deg);
-  //LOrntBrj.Text:='Orientación: '+FormatFloat('0.00',CrcBujula.RotationAngle)+
-    //             'º '+Orientacion(CrcBujula.RotationAngle);
-  LOrientacion.Text:=Round(Grd).ToString+'º - '+Orientacion(Grd);
-  LDistancia.Text:=FormatFloat('#,##0.00',Posc.Distancia)+' mts';
+  //se colorea la flecha si está dentro de un rango de 15 mts del objetivo:
+  if Posc.Distancia<=15 then Ubic:='crc'
+                        else Ubic:='ljs';
+  //los otros datos:
+  //LOrientacion.Text:='Orientación: '+FormatFloat('0.00',CrcBrujula.RotationAngle)+
+    //                 'º '+Orientacion(CrcBrujula.RotationAngle);
+  LDireccion.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
+  LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
   //se indica si la brújula está nivelada o no:
-  {if EstaNivelado(MtnSensor,0.2) then
+  if EstaNivelado(MtnSensor,0.2) then
   begin
-    LNivel.TextSettings.FontColor:=Chartreuse;
-    LNivel.Text:='NIVELADO'
+    CrcBrujula.Stroke.Color:=Chartreuse;
+    Nivel:='niv_';
   end
   else
   begin
-    LNivel.TextSettings.FontColor:=Blanco;
-    LNivel.Text:='NO nivelado';
-  end; }
+    CrcBrujula.Stroke.Color:=Rojo;
+    Nivel:='noniv_';
+  end;
+  //se muestra la flecha indicadora según el nivel y cercanía:
+  GlowEffect.Enabled:=Posc.Distancia<=15.0;
+  CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
+    TPath.Combine(TPath.GetDocumentsPath,'flc_'+Nivel+Ubic+'.png'));
 end;
 
 end.
