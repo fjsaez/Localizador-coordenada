@@ -124,6 +124,8 @@ begin
   LayPrincipal.Visible:=true;     //poner visible la pantalla principal
   OrntSensor.Active:=true;        //se activa el sensor de brújula
   LctSensor.Active:=true;         //se activa el sensor de GPS
+  CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
+    TPath.Combine(TPath.GetDocumentsPath,'flc_brujula.png'));
 end;
 
 procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
