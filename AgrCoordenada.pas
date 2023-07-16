@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Rtti, FMX.Grid.Style, FMX.Grid,
   FMX.ScrollBox, FMX.Objects, System.Sensors, System.Sensors.Components,
-  UTM_WGS84, UtilesLocalizador, FMX.Memo.Types, FMX.Memo;
+  UTM_WGS84, UtilesLocalizador, FMX.Memo.Types, FMX.Memo, FireDAC.Stan.Param;
 
 type
   TFrmAgregar = class(TFrame)

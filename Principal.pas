@@ -49,8 +49,8 @@ type
     CrcFlecha: TCircle;
     LayIndicadores: TLayout;
     RectCoordAct: TRectangle;
-    Layout2: TLayout;
-    Layout3: TLayout;
+    LayBrujula: TLayout;
+    LayCoordsAct: TLayout;
     Layout12: TLayout;
     Layout13: TLayout;
     Label7: TLabel;
@@ -74,7 +74,7 @@ type
     LayOrientacion: TLayout;
     LayDistancia: TLayout;
     LayFlecha: TLayout;
-    LDireccion: TLabel;
+    LDirDestino: TLabel;
     LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
@@ -97,6 +97,9 @@ type
     CircO: TCircle;
     Label12: TLabel;
     CrcBrujula: TCircle;
+    LayDirActual: TLayout;
+    LDirActual: TLabel;
+    SBAcerca: TSpeedButton;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -104,8 +107,13 @@ type
       NewLocation: TLocationCoord2D);
     procedure TimerTimer(Sender: TObject);
     procedure SBSalirClick(Sender: TObject);
+    procedure OrntSensorSensorChoosing(Sender: TObject;
+      const Sensors: TSensorArray; var ChoseSensorIndex: Integer);
+    procedure LctSensorHeadingChanged(Sender: TObject;
+      const AHeading: THeading);
   private
     { Private declarations }
+    procedure RotarLetrasPolos(Grados: double);
   public
     { Public declarations }
   end;
@@ -123,7 +131,9 @@ begin
   FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
   LayPrincipal.Visible:=true;     //poner visible la pantalla principal
   OrntSensor.Active:=true;        //se activa el sensor de brújula
-  LctSensor.Active:=true;         //se activa el sensor de GPS
+  MtnSensor.Active:=true;         //se activa el sensor de movimiento
+  ActivarGPS(LctSensor,true);     //se activa el sensor de GPS
+  Timer.Enabled:=true;            //se activa el temporizador
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_brujula.png'));
 end;
@@ -132,6 +142,12 @@ procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
 begin
   FrmAgregarPnc.SBVolverClick(Sender);
   LayPrincipal.Visible:=true;
+end;
+
+procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
+  const AHeading: THeading);
+begin
+  Posc.Azimut:=Aheading.Azimuth;
 end;
 
 procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -148,8 +164,8 @@ begin
   Posc.Lon:=NewLocation.Longitude;
   Posc.Lat:=NewLocation.Latitude;
   //se muestran las coordenadas en sus diferentes formatos:
-  LLonAct.Text:=FormatFloat('0.00',Posc.Lon);
-  LLatAct.Text:=FormatFloat('0.00',Posc.Lat);
+  LLonAct.Text:=FormatFloat('0.000000',Posc.Lon);
+  LLatAct.Text:=FormatFloat('0.000000',Posc.Lat);
   LEsteAct.Text:=FormatFloat('0.00',Posc.X);
   LNorteAct.Text:=FormatFloat('0.00',Posc.Y);
 end;
@@ -161,6 +177,22 @@ begin
   IniciarRegistro;
 end;
 
+procedure TFPrinc.OrntSensorSensorChoosing(Sender: TObject;
+  const Sensors: TSensorArray; var ChoseSensorIndex: Integer);
+var
+  Indice,I: integer;
+begin
+  Indice:=-1;
+  for I := 0 to High(Sensors) do
+    if (TCustomOrientationSensor.TProperty.HeadingX in
+         TCustomOrientationSensor(Sensors[I]).AvailableProperties) then
+    begin
+      Indice:=I;
+      Break;
+    end;
+  ChoseSensorIndex:=Indice;
+end;
+
 procedure TFPrinc.SBSalirClick(Sender: TObject);
 begin
   {$IF ANDROID}
@@ -169,6 +201,16 @@ begin
     Application.Terminate;
   {$ENDIF}
 
+end;
+
+procedure TFPrinc.RotarLetrasPolos(Grados: double);
+begin
+  CircPrnc.RotationAngle:=Grados;
+  //las letras giran en sentido contrario a la brújula:
+  CircN.RotationAngle:=-Grados;
+  CircS.RotationAngle:=-Grados;
+  CircE.RotationAngle:=-Grados;
+  CircO.RotationAngle:=-Grados;
 end;
 
 procedure TFPrinc.TimerTimer(Sender: TObject);
@@ -188,7 +230,8 @@ begin
       if (Y<0) then Deg:=180+Deg
       else
         if (Y>=0) and (X>0) then Deg:=360-Deg;
-  CrcBrujula.RotationAngle:=360-Deg;
+  //CrcBrujula.RotationAngle:=360-Deg;
+  RotarLetrasPolos(360-Deg);
   Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
   //se alinea la flecha de búsqueda con la brújula:
@@ -202,9 +245,8 @@ begin
   if Posc.Distancia<=15 then Ubic:='crc'
                         else Ubic:='ljs';
   //los otros datos:
-  //LOrientacion.Text:='Orientación: '+FormatFloat('0.00',CrcBrujula.RotationAngle)+
-    //                 'º '+Orientacion(CrcBrujula.RotationAngle);
-  LDireccion.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
+  LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
+  LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
   LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
   //se indica si la brújula está nivelada o no:
   if EstaNivelado(MtnSensor,0.2) then

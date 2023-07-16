@@ -8,26 +8,26 @@ object FPrinc: TFPrinc
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  DesignerMasterStyle = 0
+  DesignerMasterStyle = 3
   object LayPrincipal: TLayout
     Align = Client
     Size.Width = 432.000000000000000000
-    Size.Height = 533.000000000000000000
+    Size.Height = 525.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     object LayTop: TLayout
       Align = Top
       Size.Width = 432.000000000000000000
-      Size.Height = 100.000000000000000000
+      Size.Height = 125.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       object Rectangle1: TRectangle
         Align = Client
         Size.Width = 432.000000000000000000
-        Size.Height = 100.000000000000000000
+        Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         object LayIndicadores: TLayout
-          Align = Client
+          Align = Top
           Size.Width = 432.000000000000000000
           Size.Height = 100.000000000000000000
           Size.PlatformDefault = False
@@ -37,9 +37,9 @@ object FPrinc: TFPrinc
             Size.Width = 432.000000000000000000
             Size.Height = 100.000000000000000000
             Size.PlatformDefault = False
-            object Layout2: TLayout
+            object LayBrujula: TLayout
               Align = Left
-              Size.Width = 96.000000000000000000
+              Size.Width = 105.000000000000000000
               Size.Height = 100.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
@@ -49,6 +49,7 @@ object FPrinc: TFPrinc
                 Size.Width = 96.000000000000000000
                 Size.Height = 96.000000000000000000
                 Size.PlatformDefault = False
+                Stroke.Color = claNull
                 object CircN: TCircle
                   Align = Top
                   Fill.Kind = None
@@ -986,44 +987,46 @@ object FPrinc: TFPrinc
                 Stroke.Color = claChartreuse
               end
             end
-            object Layout3: TLayout
+            object LayCoordsAct: TLayout
               Align = Client
               Padding.Left = 15.000000000000000000
-              Size.Width = 336.000000000000000000
+              Size.Width = 327.000000000000000000
               Size.Height = 100.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object Layout12: TLayout
                 Align = Top
                 Position.X = 15.000000000000000000
-                Size.Width = 321.000000000000000000
+                Size.Width = 312.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
                 object Layout13: TLayout
                   Align = Left
-                  Size.Width = 50.000000000000000000
+                  Size.Width = 60.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
                   object Label7: TLabel
                     Align = Client
-                    Size.Width = 50.000000000000000000
+                    StyledSettings = [Family, Size, FontColor]
+                    Size.Width = 60.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                     Text = 'Lon:'
                     TabOrder = 0
                   end
                 end
                 object Layout14: TLayout
                   Align = Client
-                  Size.Width = 271.000000000000000000
+                  Size.Width = 252.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 1
                   object LLonAct: TLabel
                     Align = Client
-                    Size.Width = 271.000000000000000000
+                    Size.Width = 252.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
                     Text = '0.00'
@@ -1035,34 +1038,36 @@ object FPrinc: TFPrinc
                 Align = Bottom
                 Position.X = 15.000000000000000000
                 Position.Y = 50.000000000000000000
-                Size.Width = 321.000000000000000000
+                Size.Width = 312.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 3
                 object Layout16: TLayout
                   Align = Left
-                  Size.Width = 50.000000000000000000
+                  Size.Width = 60.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
                   object Label9: TLabel
                     Align = Client
-                    Size.Width = 50.000000000000000000
+                    StyledSettings = [Family, Size, FontColor]
+                    Size.Width = 60.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                     Text = 'Este:'
                     TabOrder = 0
                   end
                 end
                 object Layout17: TLayout
                   Align = Client
-                  Size.Width = 271.000000000000000000
+                  Size.Width = 252.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 1
                   object LEsteAct: TLabel
                     Align = Client
-                    Size.Width = 271.000000000000000000
+                    Size.Width = 252.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
                     Text = '0.00'
@@ -1074,34 +1079,36 @@ object FPrinc: TFPrinc
                 Align = Top
                 Position.X = 15.000000000000000000
                 Position.Y = 25.000000000000000000
-                Size.Width = 321.000000000000000000
+                Size.Width = 312.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
                 object Layout19: TLayout
                   Align = Left
-                  Size.Width = 50.000000000000000000
+                  Size.Width = 60.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
                   object Label11: TLabel
                     Align = Client
-                    Size.Width = 50.000000000000000000
+                    StyledSettings = [Family, Size, FontColor]
+                    Size.Width = 60.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                     Text = 'Lat:'
                     TabOrder = 0
                   end
                 end
                 object Layout20: TLayout
                   Align = Client
-                  Size.Width = 271.000000000000000000
+                  Size.Width = 252.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 1
                   object LLatAct: TLabel
                     Align = Client
-                    Size.Width = 271.000000000000000000
+                    Size.Width = 252.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
                     Text = '0.00'
@@ -1113,34 +1120,36 @@ object FPrinc: TFPrinc
                 Align = Bottom
                 Position.X = 15.000000000000000000
                 Position.Y = 75.000000000000000000
-                Size.Width = 321.000000000000000000
+                Size.Width = 312.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 2
                 object Layout22: TLayout
                   Align = Left
-                  Size.Width = 50.000000000000000000
+                  Size.Width = 60.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
                   object Label13: TLabel
                     Align = Client
-                    Size.Width = 50.000000000000000000
+                    StyledSettings = [Family, Size, FontColor]
+                    Size.Width = 60.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                     Text = 'Norte:'
                     TabOrder = 0
                   end
                 end
                 object Layout23: TLayout
                   Align = Client
-                  Size.Width = 271.000000000000000000
+                  Size.Width = 252.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 1
                   object LNorteAct: TLabel
                     Align = Client
-                    Size.Width = 271.000000000000000000
+                    Size.Width = 252.000000000000000000
                     Size.Height = 25.000000000000000000
                     Size.PlatformDefault = False
                     Text = '0.00'
@@ -1151,51 +1160,71 @@ object FPrinc: TFPrinc
             end
           end
         end
+        object LayDirActual: TLayout
+          Align = Left
+          Position.Y = 100.000000000000000000
+          Size.Width = 105.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          object LDirActual: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 105.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.HorzAlign = Center
+            Text = '0,00'#186' N'
+            TabOrder = 0
+          end
+        end
       end
     end
     object LayCentral: TLayout
       Align = Client
       Size.Width = 432.000000000000000000
-      Size.Height = 363.000000000000000000
+      Size.Height = 320.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object RectCentral: TRectangle
         Align = Client
         Size.Width = 432.000000000000000000
-        Size.Height = 363.000000000000000000
+        Size.Height = 320.000000000000000000
         Size.PlatformDefault = False
         object LayOrientacion: TLayout
           Align = Bottom
-          Position.Y = 293.000000000000000000
+          Position.Y = 265.000000000000000000
           Size.Width = 432.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object LDireccion: TLabel
+          object LDirDestino: TLabel
             Align = Client
             StyledSettings = [Family, FontColor]
             Size.Width = 432.000000000000000000
-            Size.Height = 30.000000000000000000
+            Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.HorzAlign = Center
-            Text = 'Orientaci'#243'n: 0,00'#186' N'
+            Text = 'Direcci'#243'n: 0,00'#186' N'
             TabOrder = 0
           end
         end
         object LayDistancia: TLayout
           Align = Bottom
-          Position.Y = 323.000000000000000000
+          Position.Y = 290.000000000000000000
           Size.Width = 432.000000000000000000
-          Size.Height = 40.000000000000000000
+          Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object LDistancia: TLabel
             Align = Client
             StyledSettings = [Family, FontColor]
             Size.Width = 432.000000000000000000
-            Size.Height = 40.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 20.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -1207,7 +1236,7 @@ object FPrinc: TFPrinc
         object LayFlecha: TLayout
           Align = Client
           Size.Width = 432.000000000000000000
-          Size.Height = 293.000000000000000000
+          Size.Height = 265.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object RectFlecha: TRectangle
@@ -1217,7 +1246,7 @@ object FPrinc: TFPrinc
             Padding.Right = 10.000000000000000000
             Padding.Bottom = 10.000000000000000000
             Size.Width = 432.000000000000000000
-            Size.Height = 293.000000000000000000
+            Size.Height = 265.000000000000000000
             Size.PlatformDefault = False
             object CrcFlecha: TCircle
               Align = Client
@@ -1872,7 +1901,7 @@ object FPrinc: TFPrinc
               Fill.Bitmap.WrapMode = TileStretch
               Fill.Kind = Bitmap
               Size.Width = 412.000000000000000000
-              Size.Height = 273.000000000000000000
+              Size.Height = 245.000000000000000000
               Size.PlatformDefault = False
               object GlowEffect: TGlowEffect
                 Softness = 0.800000011920929000
@@ -1887,28 +1916,27 @@ object FPrinc: TFPrinc
     end
     object LayBottom: TLayout
       Align = Bottom
-      Position.Y = 463.000000000000000000
+      Position.Y = 445.000000000000000000
       Size.Width = 432.000000000000000000
-      Size.Height = 70.000000000000000000
+      Size.Height = 80.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       object Rectangle3: TRectangle
         Align = Bottom
-        Position.Y = -3.000000000000000000
         Size.Width = 432.000000000000000000
-        Size.Height = 73.000000000000000000
+        Size.Height = 80.000000000000000000
         Size.PlatformDefault = False
         object Layout4: TLayout
           Align = Left
           Size.Width = 96.000000000000000000
-          Size.Height = 73.000000000000000000
+          Size.Height = 80.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object Label1: TLabel
             Align = Client
             StyledSettings = [Family, Size, FontColor]
             Size.Width = 96.000000000000000000
-            Size.Height = 73.000000000000000000
+            Size.Height = 80.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.HorzAlign = Center
@@ -1920,7 +1948,7 @@ object FPrinc: TFPrinc
           Align = Client
           Padding.Left = 15.000000000000000000
           Size.Width = 336.000000000000000000
-          Size.Height = 73.000000000000000000
+          Size.Height = 80.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object Layout6: TLayout
@@ -1932,28 +1960,30 @@ object FPrinc: TFPrinc
             TabOrder = 0
             object Layout8: TLayout
               Align = Left
-              Size.Width = 50.000000000000000000
+              Size.Width = 60.000000000000000000
               Size.Height = 25.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
               object Label2: TLabel
                 Align = Client
-                Size.Width = 50.000000000000000000
+                StyledSettings = [Family, Size, FontColor]
+                Size.Width = 60.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Text = 'Lon:'
                 TabOrder = 0
               end
             end
             object Layout10: TLayout
               Align = Client
-              Size.Width = 271.000000000000000000
+              Size.Width = 261.000000000000000000
               Size.Height = 25.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object LLonLoc: TLabel
                 Align = Client
-                Size.Width = 271.000000000000000000
+                Size.Width = 261.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
                 Text = '0.00'
@@ -1971,28 +2001,30 @@ object FPrinc: TFPrinc
             TabOrder = 1
             object Layout9: TLayout
               Align = Left
-              Size.Width = 50.000000000000000000
+              Size.Width = 60.000000000000000000
               Size.Height = 25.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
               object Label3: TLabel
                 Align = Client
-                Size.Width = 50.000000000000000000
+                StyledSettings = [Family, Size, FontColor]
+                Size.Width = 60.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Text = 'Lat:'
                 TabOrder = 0
               end
             end
             object Layout11: TLayout
               Align = Client
-              Size.Width = 271.000000000000000000
+              Size.Width = 261.000000000000000000
               Size.Height = 25.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object LLatLoc: TLabel
                 Align = Client
-                Size.Width = 271.000000000000000000
+                Size.Width = 261.000000000000000000
                 Size.Height = 25.000000000000000000
                 Size.PlatformDefault = False
                 Text = '0.00'
@@ -2002,18 +2034,17 @@ object FPrinc: TFPrinc
           end
           object LayDescr: TLayout
             Align = Client
-            Size.Width = 271.000000000000000000
-            Size.Height = 23.000000000000000000
+            Size.Width = 261.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             object Label5: TLabel
               Align = Client
               StyledSettings = [Family, Style, FontColor]
-              Size.Width = 271.000000000000000000
-              Size.Height = 23.000000000000000000
+              Size.Width = 261.000000000000000000
+              Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 11.000000000000000000
-              Text = '1234567890123456789012345678901234567890'
               TabOrder = 0
             end
           end
@@ -2021,15 +2052,17 @@ object FPrinc: TFPrinc
             Align = Left
             Position.X = 15.000000000000000000
             Position.Y = 50.000000000000000000
-            Size.Width = 50.000000000000000000
-            Size.Height = 23.000000000000000000
+            Size.Width = 60.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
             object Label4: TLabel
               Align = Client
-              Size.Width = 50.000000000000000000
-              Size.Height = 23.000000000000000000
+              StyledSettings = [Family, Size, FontColor]
+              Size.Width = 60.000000000000000000
+              Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
               Text = 'Descr:'
               TabOrder = 0
             end
@@ -2041,16 +2074,31 @@ object FPrinc: TFPrinc
   inline FrmAgregarPnc: TFrmAgregar
     Align = Client
     Size.Width = 432.000000000000000000
-    Size.Height = 573.000000000000000000
+    Size.Height = 525.000000000000000000
     Size.PlatformDefault = False
     Visible = False
     inherited LayPrAgregar: TLayout
+      Size.Height = 525.000000000000000000
       inherited ToolBar1: TToolBar
+        Size.Height = 48.000000000000000000
         inherited SBVolver: TSpeedButton
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
           OnClick = FrmAgregarPncSBVolverClick
+        end
+        inherited Label1: TLabel
+          Size.Width = 364.000000000000000000
+          Size.Height = 48.000000000000000000
         end
       end
       inherited LayGCoords: TLayout
+        Position.Y = 48.000000000000000000
+        inherited LayGuardar: TLayout
+          inherited SBGuardar: TSpeedButton
+            Size.Width = 48.000000000000000000
+            Size.Height = 48.000000000000000000
+          end
+        end
         inherited LayCoords: TLayout
           inherited LayLongitud: TLayout
             inherited Label2: TLabel
@@ -2065,16 +2113,19 @@ object FPrinc: TFPrinc
         end
       end
       inherited LayLista: TLayout
+        Size.Height = 377.000000000000000000
         inherited LayDescr: TLayout
           inherited MmDescr: TMemo
-            Viewport.Width = 426.000000000000000000
-            Viewport.Height = 44.000000000000000000
+            Viewport.Width = 418.000000000000000000
+            Viewport.Height = 36.000000000000000000
           end
         end
         inherited RectGrid: TRectangle
+          Size.Height = 327.000000000000000000
           inherited SGrid: TStringGrid
+            Size.Height = 321.000000000000000000
             Viewport.Width = 426.000000000000000000
-            Viewport.Height = 377.000000000000000000
+            Viewport.Height = 289.000000000000000000
             inherited ColDescr: TStringColumn
               Size.Width = 291.000000000000000000
             end
@@ -2097,36 +2148,33 @@ object FPrinc: TFPrinc
   end
   object ToolBMenu: TToolBar
     Size.Width = 432.000000000000000000
-    Size.Height = 40.000000000000000000
+    Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object SBMenu: TSpeedButton
       Align = Left
-      Margins.Left = 5.000000000000000000
-      Margins.Top = 5.000000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 5.000000000000000000
-      Position.X = 5.000000000000000000
-      Position.Y = 5.000000000000000000
-      Size.Width = 30.000000000000000000
-      Size.Height = 30.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'drawertoolbuttonbordered'
     end
     object SBSalir: TSpeedButton
       Align = Right
-      Margins.Left = 5.000000000000000000
-      Margins.Top = 5.000000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 5.000000000000000000
-      Position.X = 397.000000000000000000
-      Position.Y = 5.000000000000000000
-      Size.Width = 30.000000000000000000
-      Size.Height = 30.000000000000000000
+      Position.X = 384.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'escapetoolbuttonbordered'
       Text = 'escapetoolbuttonbordered'
       OnClick = SBSalirClick
+    end
+    object SBAcerca: TSpeedButton
+      Align = Center
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'infotoolbutton'
+      Text = 'infotoolbutton'
     end
   end
   object Timer: TTimer
@@ -2142,60 +2190,64 @@ object FPrinc: TFPrinc
     Mode = Drawer
     NavigationPaneOptions.CollapsedWidth = 161.000000000000000000
     SplitViewOptions.Placement = Bottom
-    Size.Width = 250.000000000000000000
-    Size.Height = 533.000000000000000000
+    Size.Width = 297.000000000000000000
+    Size.Height = 525.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'multiviewstyle'
     Visible = False
     TabOrder = 1
     object LstBoxMenu: TListBox
       Align = Top
-      Size.Width = 250.000000000000000000
-      Size.Height = 81.000000000000000000
+      Size.Width = 297.000000000000000000
+      Size.Height = 241.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       DisableFocusEffect = True
       DefaultItemStyles.ItemStyle = ''
       DefaultItemStyles.GroupHeaderStyle = ''
       DefaultItemStyles.GroupFooterStyle = ''
-      Viewport.Width = 230.000000000000000000
-      Viewport.Height = 77.000000000000000000
+      Viewport.Width = 297.000000000000000000
+      Viewport.Height = 241.000000000000000000
       object LstBuscar: TListBoxItem
         TabOrder = 0
         Text = 'Buscar coordenada'
       end
       object LstBGuardar: TListBoxItem
-        Position.Y = 19.000000000000000000
+        Position.Y = 44.000000000000000000
+        Size.Width = 297.000000000000000000
+        Size.Height = 34.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 1
         Text = 'Guardar/seleccionar coordenada'
         OnClick = LstBGuardarClick
       end
       object LstBAgregar: TListBoxItem
-        Position.Y = 38.000000000000000000
+        Position.Y = 78.000000000000000000
         TabOrder = 4
         Text = 'Agregar'
       end
       object LstBAcerca: TListBoxItem
-        Position.Y = 57.000000000000000000
+        Position.Y = 122.000000000000000000
         TabOrder = 3
         Text = 'Acerca...'
       end
       object LstBSalir: TListBoxItem
-        Position.Y = 76.000000000000000000
+        Position.Y = 166.000000000000000000
         TabOrder = 2
         Text = 'Salir'
       end
     end
   end
   object LctSensor: TLocationSensor
-    Active = True
     ActivityType = Other
     UsageAuthorization = WhenInUse
     OnLocationChanged = LctSensorLocationChanged
+    OnHeadingChanged = LctSensorHeadingChanged
     Left = 392
     Top = 264
   end
   object OrntSensor: TOrientationSensor
+    OnSensorChoosing = OrntSensorSensorChoosing
     Left = 392
     Top = 206
   end
