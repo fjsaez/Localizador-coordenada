@@ -9,6 +9,9 @@
         <Projects Include="Prueba\LocSimple.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Giro brújula\GiroBrujula.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="LocSimple:Make">
         <MSBuild Projects="Prueba\LocSimple.dproj" Targets="Make"/>
     </Target>
+    <Target Name="GiroBrujula">
+        <MSBuild Projects="Giro brújula\GiroBrujula.dproj"/>
+    </Target>
+    <Target Name="GiroBrujula:Clean">
+        <MSBuild Projects="Giro brújula\GiroBrujula.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GiroBrujula:Make">
+        <MSBuild Projects="Giro brújula\GiroBrujula.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="LocCoordenada;LocSimple"/>
+        <CallTarget Targets="LocCoordenada;LocSimple;GiroBrujula"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="LocCoordenada:Clean;LocSimple:Clean"/>
+        <CallTarget Targets="LocCoordenada:Clean;LocSimple:Clean;GiroBrujula:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="LocCoordenada:Make;LocSimple:Make"/>
+        <CallTarget Targets="LocCoordenada:Make;LocSimple:Make;GiroBrujula:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
