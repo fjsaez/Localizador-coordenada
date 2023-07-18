@@ -12,7 +12,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
   FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
   UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84, FMX.Effects,
-  System.IOUtils;
+  System.IOUtils, Acerca;
 
 type
   TFPrinc = class(TForm)
@@ -100,6 +100,7 @@ type
     LayDirActual: TLayout;
     LDirActual: TLabel;
     SBAcerca: TSpeedButton;
+    FrmAcerca: TFrmAcerca;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -111,9 +112,13 @@ type
       const Sensors: TSensorArray; var ChoseSensorIndex: Integer);
     procedure LctSensorHeadingChanged(Sender: TObject;
       const AHeading: THeading);
+    procedure LstBAcercaClick(Sender: TObject);
+    procedure SBAcercaClick(Sender: TObject);
+    procedure FrmAcercaSBVolverClick(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
+    procedure MostrarFrame(Frame: TFrame);
   public
     { Public declarations }
   end;
@@ -126,6 +131,31 @@ implementation
 
 {$R *.fmx}
 
+procedure TFPrinc.MostrarFrame(Frame: TFrame);
+begin
+  LayPrincipal.Visible:=false;
+  Frame.Visible:=true;
+end;
+
+// El menú principal
+
+procedure TFPrinc.LstBAcercaClick(Sender: TObject);
+begin
+  {LayPrincipal.Visible:=false;
+  FrmAcerca.Visible:=true;}
+  MostrarFrame(FrmAcerca);
+end;
+
+procedure TFPrinc.LstBGuardarClick(Sender: TObject);
+begin
+  {LayPrincipal.Visible:=false;
+  FrmAgregarPnc.Visible:=true;}
+  MostrarFrame(FrmAgregarPnc);
+  IniciarRegistro;
+end;
+
+// fin menú
+
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
@@ -136,6 +166,12 @@ begin
   Timer.Enabled:=true;            //se activa el temporizador
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_brujula.png'));
+end;
+
+procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
+begin
+  FrmAcerca.SBVolverClick(Sender);
+  LayPrincipal.Visible:=true;
 end;
 
 procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
@@ -170,13 +206,6 @@ begin
   LNorteAct.Text:=FormatFloat('0.00',Posc.Y);
 end;
 
-procedure TFPrinc.LstBGuardarClick(Sender: TObject);
-begin
-  LayPrincipal.Visible:=false;
-  FrmAgregarPnc.Visible:=true;
-  IniciarRegistro;
-end;
-
 procedure TFPrinc.OrntSensorSensorChoosing(Sender: TObject;
   const Sensors: TSensorArray; var ChoseSensorIndex: Integer);
 var
@@ -193,6 +222,11 @@ begin
   ChoseSensorIndex:=Indice;
 end;
 
+procedure TFPrinc.SBAcercaClick(Sender: TObject);
+begin
+  MostrarFrame(FrmAcerca);
+end;
+
 procedure TFPrinc.SBSalirClick(Sender: TObject);
 begin
   {$IF ANDROID}
@@ -200,12 +234,11 @@ begin
   {$ELSE}
     Application.Terminate;
   {$ENDIF}
-
 end;
 
 procedure TFPrinc.RotarLetrasPolos(Grados: double);
 begin
-  CircPrnc.RotationAngle:=Grados;
+  CircPrnc.RotationAngle:=Grados;  //el círculo donde están las letras de polos
   //las letras giran en sentido contrario a la brújula:
   CircN.RotationAngle:=-Grados;
   CircS.RotationAngle:=-Grados;
@@ -230,7 +263,6 @@ begin
       if (Y<0) then Deg:=180+Deg
       else
         if (Y>=0) and (X>0) then Deg:=360-Deg;
-  //CrcBrujula.RotationAngle:=360-Deg;
   RotarLetrasPolos(360-Deg);
   Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
@@ -241,23 +273,23 @@ begin
     else
       if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd;
   CrcFlecha.RotationAngle:=Grd+(360-Deg);
-  //se colorea la flecha si está dentro de un rango de 15 mts del objetivo:
-  if Posc.Distancia<=15 then Ubic:='crc'
-                        else Ubic:='ljs';
-  //los otros datos:
+  //los datos de dirección y distancia:
   LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
   LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
   LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
+  //se colorea la flecha si está dentro de un rango de 15 mts del objetivo:
+  if Posc.Distancia<=15 then Ubic:='crc'    //crc = cerca
+                        else Ubic:='ljs';   //ljs = lejos
   //se indica si la brújula está nivelada o no:
   if EstaNivelado(MtnSensor,0.2) then
   begin
     CrcBrujula.Stroke.Color:=Chartreuse;
-    Nivel:='niv_';
+    Nivel:='niv_';     //niv = nivelado
   end
   else
   begin
     CrcBrujula.Stroke.Color:=Rojo;
-    Nivel:='noniv_';
+    Nivel:='noniv_';   //noniv = no nivelado
   end;
   //se muestra la flecha indicadora según el nivel y cercanía:
   GlowEffect.Enabled:=Posc.Distancia<=15.0;

@@ -5,14 +5,15 @@ uses
   Androidapi.JNI.App,
   Androidapi.JNI.GraphicsContentViewText,
   Androidapi.Helpers,
-  {$ENDIF}
+  {$ENDIF }
   System.StartUpCopy,
   System.SysUtils,
   FMX.Forms,
   Principal in 'Principal.pas' {FPrinc},
   AgrCoordenada in 'AgrCoordenada.pas' {FrmAgregar: TFrame},
   UtilesLocalizador in 'UtilesLocalizador.pas',
-  DataMod in 'DataMod.pas' {DMod: TDataModule};
+  DataMod in 'DataMod.pas' {DMod: TDataModule},
+  Acerca in 'Acerca.pas' {FrmAcerca: TFrame};
 
 {$R *.res}
 
