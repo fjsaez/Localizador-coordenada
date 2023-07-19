@@ -34,6 +34,7 @@ type
     Label9: TLabel;
     Label10: TLabel;
     Rectangle1: TRectangle;
+    ImgFondo: TImage;
     procedure SBVolverClick(Sender: TObject);
   private
     { Private declarations }
@@ -41,7 +42,7 @@ type
     { Public declarations }
   end;
 
-implementation
+implementation      // Agregar las fuentes: Novus y FranciscoSaez
 
 {$R *.fmx}
 

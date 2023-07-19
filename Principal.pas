@@ -158,6 +158,7 @@ end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
+  FrmAcerca.Visible:=false;
   FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
   LayPrincipal.Visible:=true;     //poner visible la pantalla principal
   OrntSensor.Active:=true;        //se activa el sensor de brújula
