@@ -86,6 +86,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Francisco Saez Basico.ttf" Condition="'$(Config)'=='Release'">
+            <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
+            <RemoteName>Francisco Saez Basico.ttf</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Imagen\icono_loc_coord_x72.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>LocCoordenada\res\drawable-hdpi\</RemoteDir>
             <RemoteName>ic_launcher.png</RemoteName>
@@ -224,6 +233,15 @@
         <DeployFile Include="Prueba\Imagen\flc_niv_crc.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
             <RemoteName>flc_niv_crc.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Novus-Regular.ttf" Condition="'$(Config)'=='Release'">
+            <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
+            <RemoteName>Novus-Regular.ttf</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -479,6 +497,15 @@
             <RemoteName>colors.xml</RemoteName>
             <DeployClass>Android_Colors</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Novus-Bold.otf" Condition="'$(Config)'=='Release'">
+            <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
+            <RemoteName>Novus-Bold.otf</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

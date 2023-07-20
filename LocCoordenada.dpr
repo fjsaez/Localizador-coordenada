@@ -13,7 +13,8 @@ uses
   AgrCoordenada in 'AgrCoordenada.pas' {FrmAgregar: TFrame},
   UtilesLocalizador in 'UtilesLocalizador.pas',
   DataMod in 'DataMod.pas' {DMod: TDataModule},
-  Acerca in 'Acerca.pas' {FrmAcerca: TFrame};
+  Acerca in 'Acerca.pas' {FrmAcerca: TFrame},
+  FMX.FontGlyphs.Android in 'FMX.FontGlyphs.Android.pas';
 
 {$R *.res}
 
