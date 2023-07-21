@@ -270,10 +270,6 @@ begin
     else
       if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd;
   CrcFlecha.RotationAngle:=Grd+(360-Deg);
-  //los datos de dirección y distancia:
-  LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
-  LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
-  LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
   //se colorea la flecha si está dentro de un rango de 15 mts del objetivo:
   if Posc.Distancia<=15 then Ubic:='crc'    //crc = cerca
                         else Ubic:='ljs';   //ljs = lejos
@@ -292,6 +288,10 @@ begin
   GlowEffect.Enabled:=Posc.Distancia<=15.0;
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_'+Nivel+Ubic+'.png'));
+  //los datos de dirección y distancia:
+  LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
+  LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
+  LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
 end;
 
 end.
