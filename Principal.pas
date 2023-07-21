@@ -141,15 +141,11 @@ end;
 
 procedure TFPrinc.LstBAcercaClick(Sender: TObject);
 begin
-  {LayPrincipal.Visible:=false;
-  FrmAcerca.Visible:=true;}
   MostrarFrame(FrmAcerca);
 end;
 
 procedure TFPrinc.LstBGuardarClick(Sender: TObject);
 begin
-  {LayPrincipal.Visible:=false;
-  FrmAgregarPnc.Visible:=true;}
   MostrarFrame(FrmAgregarPnc);
   IniciarRegistro;
 end;
