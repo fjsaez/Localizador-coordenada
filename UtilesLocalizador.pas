@@ -8,7 +8,7 @@ uses
   {$ENDIF}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
-  System.Permissions, System.Math;
+  System.Permissions, System.Math, System.IniFiles;
 
 type
   TCoord = record
@@ -25,16 +25,23 @@ type
     Azimut,Distancia: double;
   end;
 
+  TSistema = record
+    X,Y: double;
+    ArchivoINI: string;
+  end;
+
 const
   Blanco=4294967295;
   Negro=4278190080;
   Lima=4278255360;
   Chartreuse=$FF7FFF00;
   Rojo=$FFFF0000;
+  //ArchivoINI='/LocSimple.ini';
 
 var
   Coords: TCoord;
   Posc: TPosicion;
+  Sistema: TSistema;
 
   function Grados(Norte1,Norte2,DistH: double): double;
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
@@ -45,6 +52,8 @@ var
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
   procedure IniciarRegistro;
   procedure IniciarRegCoord;
+  procedure CargarINI;
+  procedure GuardarINI(X,Y: integer);
 
 implementation
 
@@ -178,6 +187,36 @@ begin
   Posc.XDest:=0.0;
   Posc.Azimut:=0.0;
   Posc.Distancia:=0.0;
+end;
+
+{Lee los valores guardados del respectivo archivo .ini}
+procedure CargarINI;
+var
+  Ini: TIniFile;
+begin
+  try
+    Ini:=TIniFile.Create(Sistema.ArchivoINI);
+    Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+  finally
+    Ini.Free;
+  end;
+end;
+
+{Crea el archivo ini con los el valor del zoom}
+procedure GuardarINI(X,Y: integer);
+var
+  Ini: TIniFile;
+begin
+  try
+    Ini:=TIniFile.Create(Sistema.ArchivoIni);
+    Ini.WriteString('Valor','Este',X.ToString);
+    Ini.WriteString('Valor','Norte',Y.ToString);
+    Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+  finally
+    Ini.Free;
+  end;
 end;
 
 end.
