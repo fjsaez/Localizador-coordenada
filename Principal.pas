@@ -30,7 +30,7 @@ type
     LayTop: TLayout;
     LayCentral: TLayout;
     LayBottom: TLayout;
-    Rectangle1: TRectangle;
+    RectUbicActual: TRectangle;
     RectCentral: TRectangle;
     Rectangle3: TRectangle;
     Layout4: TLayout;
