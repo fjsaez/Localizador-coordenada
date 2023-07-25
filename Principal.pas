@@ -12,7 +12,7 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
   FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
   UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84, FMX.Effects,
-  System.IOUtils, Acerca;
+  System.IOUtils, Acerca, System.Actions, FMX.ActnList;
 
 type
   TFPrinc = class(TForm)
@@ -107,14 +107,15 @@ type
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
     procedure TimerTimer(Sender: TObject);
-    procedure SBSalirClick(Sender: TObject);
     procedure OrntSensorSensorChoosing(Sender: TObject;
       const Sensors: TSensorArray; var ChoseSensorIndex: Integer);
     procedure LctSensorHeadingChanged(Sender: TObject;
       const AHeading: THeading);
     procedure LstBAcercaClick(Sender: TObject);
-    procedure SBAcercaClick(Sender: TObject);
     procedure FrmAcercaSBVolverClick(Sender: TObject);
+    procedure LstBSalirClick(Sender: TObject);
+    procedure LstBAgregarClick(Sender: TObject);
+    procedure LstBuscarClick(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
@@ -139,15 +140,34 @@ end;
 
 // El menú principal
 
-procedure TFPrinc.LstBAcercaClick(Sender: TObject);
+procedure TFPrinc.LstBuscarClick(Sender: TObject);
 begin
-  MostrarFrame(FrmAcerca);
+  //
 end;
 
 procedure TFPrinc.LstBGuardarClick(Sender: TObject);
 begin
   MostrarFrame(FrmAgregarPnc);
   IniciarRegistro;
+end;
+
+procedure TFPrinc.LstBAgregarClick(Sender: TObject);
+begin
+  //
+end;
+
+procedure TFPrinc.LstBAcercaClick(Sender: TObject);
+begin
+  MostrarFrame(FrmAcerca);
+end;
+
+procedure TFPrinc.LstBSalirClick(Sender: TObject);
+begin
+  {$IF ANDROID}
+    MainActivity.Finish
+  {$ELSE}
+    Application.Terminate;
+  {$ENDIF}
 end;
 
 // fin menú
@@ -217,20 +237,6 @@ begin
       Break;
     end;
   ChoseSensorIndex:=Indice;
-end;
-
-procedure TFPrinc.SBAcercaClick(Sender: TObject);
-begin
-  MostrarFrame(FrmAcerca);
-end;
-
-procedure TFPrinc.SBSalirClick(Sender: TObject);
-begin
-  {$IF ANDROID}
-    MainActivity.Finish
-  {$ELSE}
-    Application.Terminate;
-  {$ENDIF}
 end;
 
 procedure TFPrinc.RotarLetrasPolos(Grados: double);
