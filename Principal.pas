@@ -116,10 +116,13 @@ type
     procedure LstBSalirClick(Sender: TObject);
     procedure LstBAgregarClick(Sender: TObject);
     procedure LstBuscarClick(Sender: TObject);
+    procedure LstBoxMenuItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
     procedure MostrarFrame(Frame: TFrame);
+    procedure MostrarPrincipal;
   public
     { Public declarations }
   end;
@@ -135,10 +138,23 @@ implementation
 procedure TFPrinc.MostrarFrame(Frame: TFrame);
 begin
   LayPrincipal.Visible:=false;
+  ToolBMenu.Visible:=false;
   Frame.Visible:=true;
 end;
 
+procedure TFPrinc.MostrarPrincipal;
+begin
+  ToolBMenu.Visible:=true;
+  LayPrincipal.Visible:=true;
+end;
+
 // El menú principal
+
+procedure TFPrinc.LstBoxMenuItemClick(const Sender: TCustomListBox;
+  const Item: TListBoxItem);
+begin
+  MultiView.HideMaster;
+end;
 
 procedure TFPrinc.LstBuscarClick(Sender: TObject);
 begin
@@ -188,13 +204,13 @@ end;
 procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
 begin
   FrmAcerca.SBVolverClick(Sender);
-  LayPrincipal.Visible:=true;
+  MostrarPrincipal;
 end;
 
 procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
 begin
   FrmAgregarPnc.SBVolverClick(Sender);
-  LayPrincipal.Visible:=true;
+  MostrarPrincipal;
 end;
 
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
