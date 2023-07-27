@@ -257,6 +257,9 @@
         <Android_LauncherIcon192>Imagen\icono_loc_coord_x192.png</Android_LauncherIcon192>
         <IncludeAndroid_Splash>False</IncludeAndroid_Splash>
         <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
+        <MapFile>3</MapFile>
+        <DCC_MapFile>3</DCC_MapFile>
+        <ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -271,8 +274,8 @@
         <DCCReference Include="Principal.pas">
             <Form>FPrinc</Form>
         </DCCReference>
-        <DCCReference Include="AgrCoordenada.pas">
-            <Form>FrmAgregar</Form>
+        <DCCReference Include="SelCoordenada.pas">
+            <Form>FrmSeleccionar</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="UtilesLocalizador.pas"/>
@@ -286,6 +289,11 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="FMX.FontGlyphs.Android.pas"/>
+        <DCCReference Include="AgrCoordenada.pas">
+            <Form>FrmAgregar</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

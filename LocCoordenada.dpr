@@ -10,11 +10,12 @@ uses
   System.SysUtils,
   FMX.Forms,
   Principal in 'Principal.pas' {FPrinc},
-  AgrCoordenada in 'AgrCoordenada.pas' {FrmAgregar: TFrame},
+  SelCoordenada in 'SelCoordenada.pas' {FrmSeleccionar: TFrame},
   UtilesLocalizador in 'UtilesLocalizador.pas',
   DataMod in 'DataMod.pas' {DMod: TDataModule},
   Acerca in 'Acerca.pas' {FrmAcerca: TFrame},
-  FMX.FontGlyphs.Android in 'FMX.FontGlyphs.Android.pas';
+  FMX.FontGlyphs.Android in 'FMX.FontGlyphs.Android.pas',
+  AgrCoordenada in 'AgrCoordenada.pas' {FrmAgregar: TFrame};
 
 {$R *.res}
 

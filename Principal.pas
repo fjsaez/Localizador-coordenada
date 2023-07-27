@@ -10,9 +10,9 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
-  FMX.ListBox, AgrCoordenada, System.Sensors, System.Sensors.Components,
+  FMX.ListBox, SelCoordenada, System.Sensors, System.Sensors.Components,
   UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84, FMX.Effects,
-  System.IOUtils, Acerca, System.Actions, FMX.ActnList;
+  System.IOUtils, Acerca, System.Actions, FMX.ActnList, AgrCoordenada;
 
 type
   TFPrinc = class(TForm)
@@ -25,7 +25,6 @@ type
     LstBGuardar: TListBoxItem;
     LstBSalir: TListBoxItem;
     LstBAcerca: TListBoxItem;
-    FrmAgregarPnc: TFrmAgregar;
     LctSensor: TLocationSensor;
     LayTop: TLayout;
     LayCentral: TLayout;
@@ -101,6 +100,7 @@ type
     LDirActual: TLabel;
     SBAcerca: TSpeedButton;
     FrmAcerca: TFrmAcerca;
+    FrmAgregar: TFrmAgregar;
     procedure LstBGuardarClick(Sender: TObject);
     procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

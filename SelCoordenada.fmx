@@ -1,35 +1,15 @@
-object FrmAgregar: TFrmAgregar
-  Size.Width = 376.000000000000000000
-  Size.Height = 292.000000000000000000
+object FrmSeleccionar: TFrmSeleccionar
+  Size.Width = 432.000000000000000000
+  Size.Height = 573.000000000000000000
   Size.PlatformDefault = False
-  object Layout1: TLayout
+  object LayPrAgregar: TLayout
     Align = Client
-    Size.Width = 376.000000000000000000
-    Size.Height = 292.000000000000000000
+    Size.Width = 432.000000000000000000
+    Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object Layout2: TLayout
-      Position.X = 16.000000000000000000
-      Position.Y = 234.000000000000000000
-      TabOrder = 2
-    end
-    object Layout3: TLayout
-      Position.X = 74.000000000000000000
-      Position.Y = 234.000000000000000000
-      TabOrder = 4
-    end
-    object Layout4: TLayout
-      Position.X = 132.000000000000000000
-      Position.Y = 234.000000000000000000
-      TabOrder = 5
-    end
-    object Layout5: TLayout
-      Position.X = 190.000000000000000000
-      Position.Y = 234.000000000000000000
-      TabOrder = 6
-    end
     object ToolBar1: TToolBar
-      Size.Width = 376.000000000000000000
+      Size.Width = 432.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -45,27 +25,28 @@ object FrmAgregar: TFrmAgregar
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
+        OnClick = SBVolverClick
       end
       object Label1: TLabel
         Align = Client
         Margins.Left = 10.000000000000000000
-        Size.Width = 326.000000000000000000
+        Size.Width = 382.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
-        Text = 'Agregar coordenada'
+        Text = 'Guardar/seleccionar coordenada'
         TabOrder = 0
       end
     end
     object LayGCoords: TLayout
       Align = Top
       Position.Y = 40.000000000000000000
-      Size.Width = 376.000000000000000000
+      Size.Width = 432.000000000000000000
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object LayGuardar: TLayout
         Align = Right
-        Position.X = 276.000000000000000000
+        Position.X = 332.000000000000000000
         Size.Width = 100.000000000000000000
         Size.Height = 100.000000000000000000
         Size.PlatformDefault = False
@@ -77,17 +58,18 @@ object FrmAgregar: TFrmAgregar
           Size.PlatformDefault = False
           StyleLookup = 'addtoolbuttonbordered'
           Text = 'addtoolbuttonbordered'
+          OnClick = SBGuardarClick
         end
       end
       object LayCoords: TLayout
         Align = Client
-        Size.Width = 276.000000000000000000
+        Size.Width = 332.000000000000000000
         Size.Height = 100.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object LayLongitud: TLayout
           Align = Top
-          Size.Width = 276.000000000000000000
+          Size.Width = 332.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -105,7 +87,7 @@ object FrmAgregar: TFrmAgregar
           end
           object LLongitud: TLabel
             Align = Client
-            Size.Width = 146.000000000000000000
+            Size.Width = 202.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -113,7 +95,7 @@ object FrmAgregar: TFrmAgregar
         end
         object LayLatitud: TLayout
           Align = Client
-          Size.Width = 276.000000000000000000
+          Size.Width = 332.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
@@ -131,7 +113,7 @@ object FrmAgregar: TFrmAgregar
           end
           object LLatitud: TLabel
             Align = Client
-            Size.Width = 146.000000000000000000
+            Size.Width = 202.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
@@ -139,28 +121,84 @@ object FrmAgregar: TFrmAgregar
         end
       end
     end
-    object LayDescr: TLayout
-      Align = Top
-      Position.Y = 140.000000000000000000
-      Size.Width = 376.000000000000000000
-      Size.Height = 50.000000000000000000
+    object LayLista: TLayout
+      Align = Client
+      Size.Width = 432.000000000000000000
+      Size.Height = 433.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
-      object MmDescr: TMemo
-        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-        DataDetectorTypes = []
-        MaxLength = 40
-        Align = Client
-        Margins.Left = 3.000000000000000000
-        Margins.Top = 3.000000000000000000
-        Margins.Right = 3.000000000000000000
-        Margins.Bottom = 3.000000000000000000
-        Size.Width = 370.000000000000000000
-        Size.Height = 44.000000000000000000
+      TabOrder = 2
+      object LayDescr: TLayout
+        Align = Top
+        Size.Width = 432.000000000000000000
+        Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
-        Viewport.Width = 366.000000000000000000
-        Viewport.Height = 40.000000000000000000
+        TabOrder = 3
+        object MmDescr: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          MaxLength = 40
+          OnChange = MmDescrChange
+          Align = Client
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Size.Width = 426.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 44.000000000000000000
+        end
+      end
+      object RectGrid: TRectangle
+        Align = Client
+        Fill.Color = claYellow
+        Size.Width = 432.000000000000000000
+        Size.Height = 383.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+        object SGrid: TStringGrid
+          Align = Client
+          CanFocus = True
+          ClipChildren = True
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Size.Width = 426.000000000000000000
+          Size.Height = 377.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+          TabOrder = 0
+          RowCount = 0
+          Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 377.000000000000000000
+          object ColDescr: TStringColumn
+            Header = 'Descripci'#243'n'
+            ReadOnly = True
+            Size.Width = 291.000000000000000000
+          end
+          object ColID: TIntegerColumn
+            Header = 'IDCoord'
+            Visible = False
+            Size.Width = 55.000000000000000000
+          end
+          object ColGeoSex: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+          object ColGeoDec: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+          object ColUTM: TStringColumn
+            Visible = False
+            Size.Width = 40.000000000000000000
+          end
+        end
       end
     end
   end
