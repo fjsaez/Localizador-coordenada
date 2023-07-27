@@ -101,8 +101,9 @@ type
     SBAcerca: TSpeedButton;
     FrmAcerca: TFrmAcerca;
     FrmAgregar: TFrmAgregar;
+    FrmSeleccionar: TFrmSeleccionar;
     procedure LstBGuardarClick(Sender: TObject);
-    procedure FrmAgregarPncSBVolverClick(Sender: TObject);
+    //procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
@@ -163,7 +164,7 @@ end;
 
 procedure TFPrinc.LstBGuardarClick(Sender: TObject);
 begin
-  MostrarFrame(FrmAgregarPnc);
+  //MostrarFrame(FrmAgregarPnc);
   IniciarRegistro;
 end;
 
@@ -191,7 +192,7 @@ end;
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   FrmAcerca.Visible:=false;
-  FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
+  //FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
   LayPrincipal.Visible:=true;     //poner visible la pantalla principal
   OrntSensor.Active:=true;        //se activa el sensor de brújula
   MtnSensor.Active:=true;         //se activa el sensor de movimiento
@@ -207,11 +208,11 @@ begin
   MostrarPrincipal;
 end;
 
-procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
+{procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
 begin
   FrmAgregarPnc.SBVolverClick(Sender);
   MostrarPrincipal;
-end;
+end;}
 
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
   const AHeading: THeading);

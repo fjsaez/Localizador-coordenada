@@ -45,6 +45,7 @@ object FrmAgregar: TFrmAgregar
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
+        OnClick = SBVolverClick
       end
       object Label1: TLabel
         Align = Client
@@ -159,8 +160,8 @@ object FrmAgregar: TFrmAgregar
         Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 366.000000000000000000
-        Viewport.Height = 40.000000000000000000
+        Viewport.Width = 370.000000000000000000
+        Viewport.Height = 44.000000000000000000
       end
     end
   end

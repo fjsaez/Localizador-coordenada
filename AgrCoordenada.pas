@@ -30,6 +30,7 @@ type
     LLatitud: TLabel;
     LayDescr: TLayout;
     MmDescr: TMemo;
+    procedure SBVolverClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,5 +40,10 @@ type
 implementation
 
 {$R *.fmx}
+
+procedure TFrmAgregar.SBVolverClick(Sender: TObject);
+begin
+  Visible:=false;
+end;
 
 end.

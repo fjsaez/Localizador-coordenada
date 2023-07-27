@@ -260,6 +260,7 @@
         <MapFile>3</MapFile>
         <DCC_MapFile>3</DCC_MapFile>
         <ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=Localizador de coordenada;versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -274,26 +275,25 @@
         <DCCReference Include="Principal.pas">
             <Form>FPrinc</Form>
         </DCCReference>
-        <DCCReference Include="SelCoordenada.pas">
-            <Form>FrmSeleccionar</Form>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="UtilesLocalizador.pas"/>
         <DCCReference Include="DataMod.pas">
             <Form>DMod</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Acerca.pas">
-            <Form>FrmAcerca</Form>
-            <FormType>fmx</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="FMX.FontGlyphs.Android.pas"/>
         <DCCReference Include="AgrCoordenada.pas">
             <Form>FrmAgregar</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="SelCoordenada.pas">
+            <Form>FrmSeleccionar</Form>
+						<FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Acerca.pas">
+            <Form>FrmAcerca</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UtilesLocalizador.pas"/>
+        <DCCReference Include="FMX.FontGlyphs.Android.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
