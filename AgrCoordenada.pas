@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Memo.Types, FMX.ScrollBox,
-  FMX.Memo;
+  FMX.Memo, FMX.Objects, FMX.Edit;
 
 type
   TFrmAgregar = class(TFrame)
@@ -24,12 +24,15 @@ type
     LayCoords: TLayout;
     LayLongitud: TLayout;
     Label2: TLabel;
-    LLongitud: TLabel;
     LayLatitud: TLayout;
     Label3: TLabel;
-    LLatitud: TLabel;
     LayDescr: TLayout;
-    MmDescr: TMemo;
+    Label4: TLabel;
+    Rectangle1: TRectangle;
+    SpeedButton1: TSpeedButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
     procedure SBVolverClick(Sender: TObject);
   private
     { Private declarations }

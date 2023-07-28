@@ -22,7 +22,7 @@ type
     MultiView: TMultiView;
     LstBoxMenu: TListBox;
     LstBuscar: TListBoxItem;
-    LstBGuardar: TListBoxItem;
+    LstBSeleccionar: TListBoxItem;
     LstBSalir: TListBoxItem;
     LstBAcerca: TListBoxItem;
     LctSensor: TLocationSensor;
@@ -102,7 +102,7 @@ type
     FrmAcerca: TFrmAcerca;
     FrmAgregar: TFrmAgregar;
     FrmSeleccionar: TFrmSeleccionar;
-    procedure LstBGuardarClick(Sender: TObject);
+    procedure LstBSeleccionarClick(Sender: TObject);
     //procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -119,6 +119,8 @@ type
     procedure LstBuscarClick(Sender: TObject);
     procedure LstBoxMenuItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
+    procedure FrmAgregarSBVolverClick(Sender: TObject);
+    procedure FrmSeleccionarSBVolverClick(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
@@ -162,15 +164,16 @@ begin
   //
 end;
 
-procedure TFPrinc.LstBGuardarClick(Sender: TObject);
+procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
-  //MostrarFrame(FrmAgregarPnc);
+  MostrarFrame(FrmSeleccionar);
   IniciarRegistro;
 end;
 
 procedure TFPrinc.LstBAgregarClick(Sender: TObject);
 begin
-  //
+  IniciarRegistro;
+  MostrarFrame(FrmAgregar);
 end;
 
 procedure TFPrinc.LstBAcercaClick(Sender: TObject);
@@ -205,6 +208,18 @@ end;
 procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
 begin
   FrmAcerca.SBVolverClick(Sender);
+  MostrarPrincipal;
+end;
+
+procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
+begin
+  FrmAgregar.SBVolverClick(Sender);
+  MostrarPrincipal;
+end;
+
+procedure TFPrinc.FrmSeleccionarSBVolverClick(Sender: TObject);
+begin
+  FrmSeleccionar.SBVolverClick(Sender);
   MostrarPrincipal;
 end;
 

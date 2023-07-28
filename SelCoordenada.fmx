@@ -56,7 +56,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Width = 60.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
-          StyleLookup = 'addtoolbuttonbordered'
+          StyleLookup = 'actiontoolbuttonbordered'
           Text = 'addtoolbuttonbordered'
           OnClick = SBGuardarClick
         end
@@ -137,6 +137,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
           DataDetectorTypes = []
           MaxLength = 40
+          ReadOnly = True
           OnChange = MmDescrChange
           Align = Client
           Margins.Left = 3.000000000000000000
