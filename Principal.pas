@@ -248,6 +248,8 @@ begin
   Posc.Y:=UTM.Y;
   Posc.Lon:=NewLocation.Longitude;
   Posc.Lat:=NewLocation.Latitude;
+
+  //ConvertirAGrdUTM(NewLocation);
   //se muestran las coordenadas en sus diferentes formatos:
   LLonAct.Text:=FormatFloat('0.000000',Posc.Lon);
   LLatAct.Text:=FormatFloat('0.000000',Posc.Lat);

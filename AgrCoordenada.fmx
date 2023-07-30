@@ -21,7 +21,7 @@ object FrmAgregar: TFrmAgregar
         Size.Width = 136.000000000000000000
         Size.Height = 51.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 4
+        TabOrder = 3
         object Rectangle1: TRectangle
           Align = Center
           Size.Width = 50.000000000000000000
@@ -110,6 +110,7 @@ object FrmAgregar: TFrmAgregar
           Size.PlatformDefault = False
           StyleLookup = 'addtoolbuttonbordered'
           Text = 'addtoolbuttonbordered'
+          OnClick = SBGuardarClick
         end
       end
       object LayCoords: TLayout
@@ -136,7 +137,7 @@ object FrmAgregar: TFrmAgregar
             Text = 'Longitud:'
             TabOrder = 0
           end
-          object Edit2: TEdit
+          object EEste: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 1
             MaxLength = 10
@@ -171,7 +172,7 @@ object FrmAgregar: TFrmAgregar
             Text = 'Latitud:'
             TabOrder = 0
           end
-          object Edit3: TEdit
+          object ENorte: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 1
             MaxLength = 10

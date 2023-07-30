@@ -8,7 +8,7 @@ uses
   {$ENDIF}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
-  System.Permissions, System.Math, System.IniFiles;
+  System.Permissions, System.Math, System.IniFiles, System.Sensors, UTM_WGS84;
 
 type
   TCoord = record
@@ -43,6 +43,7 @@ var
   Posc: TPosicion;
   Sistema: TSistema;
 
+  procedure ConvertirAGrdUTM(Loc: TLocationCoord2D);
   function Grados(Norte1,Norte2,DistH: double): double;
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
   function Orientacion(Grados: double): string;
@@ -56,6 +57,20 @@ var
   procedure GuardarINI(X,Y: integer);
 
 implementation
+
+procedure ConvertirAGrdUTM(Loc: TLocationCoord2D);
+var
+  LatLon: TRecLatLon;
+  UTM: TRecUTM;
+begin
+  LatLon.Lon:=Loc.Longitude;
+  LatLon.Lat:=Loc.Latitude;
+  LatLon_To_UTM(LatLon,UTM);
+  Posc.X:=UTM.X;
+  Posc.Y:=UTM.Y;
+  Posc.Lon:=Loc.Longitude;
+  Posc.Lat:=Loc.Latitude;
+end;
 
 function CalcularDistancia(X1,Y1,X2,Y2: double): double;
 begin

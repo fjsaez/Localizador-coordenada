@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Memo.Types, FMX.ScrollBox,
-  FMX.Memo, FMX.Objects, FMX.Edit;
+  FMX.Memo, FMX.Objects, FMX.Edit, UtilesLocalizador;
 
 type
   TFrmAgregar = class(TFrame)
@@ -31,9 +31,10 @@ type
     Rectangle1: TRectangle;
     SpeedButton1: TSpeedButton;
     Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
+    EEste: TEdit;
+    ENorte: TEdit;
     procedure SBVolverClick(Sender: TObject);
+    procedure SBGuardarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +44,11 @@ type
 implementation
 
 {$R *.fmx}
+
+procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
+begin
+  //
+end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
 begin
