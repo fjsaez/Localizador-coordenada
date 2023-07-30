@@ -103,7 +103,6 @@ type
     FrmAgregar: TFrmAgregar;
     FrmSeleccionar: TFrmSeleccionar;
     procedure LstBSeleccionarClick(Sender: TObject);
-    //procedure FrmAgregarPncSBVolverClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
       NewLocation: TLocationCoord2D);
@@ -222,12 +221,6 @@ begin
   FrmSeleccionar.SBVolverClick(Sender);
   MostrarPrincipal;
 end;
-
-{procedure TFPrinc.FrmAgregarPncSBVolverClick(Sender: TObject);
-begin
-  FrmAgregarPnc.SBVolverClick(Sender);
-  MostrarPrincipal;
-end;}
 
 procedure TFPrinc.LctSensorHeadingChanged(Sender: TObject;
   const AHeading: THeading);
