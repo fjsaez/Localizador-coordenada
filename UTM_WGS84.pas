@@ -27,9 +27,9 @@ implementation
 
 uses SysUtils, Math;
 
-const  ct_dga = 6378137;      //demi grand axe
-       ct_dpa = 6356752.314;  //demi petit axe
-       ct_UTMScaleFactor = 0.9996; //facteur d'échelle
+const  ct_dga = 6378137;      //semi eje mayor
+       ct_dpa = 6356752.314;  //semi eje menor
+       ct_UTMScaleFactor = 0.9996; //factor de escala
 
 {Convierte grados a formato grados/minutos/segundos}
 function DecAGrados(Valor: Double; EsLatitud: boolean): string;
@@ -195,9 +195,10 @@ end;
 
 procedure LatLon_TO_UTM(LatLon:TrecLatLon; var UTM:TrecUTM);
 begin
-  UTM.OK:=Limits(LatLon); if not UTM.OK then exit;
+  UTM.OK:=Limits(LatLon);
+  if not UTM.OK then exit;
   UTM.CharLat:=CharLat(LatLon);
-  UTM.fuseau := floor((LatLon.lon + 180) / 6) + 1;
+  UTM.fuseau:=floor((LatLon.lon+180)/6)+1;
   LatLon.Lat:=DegToRad(LatLon.Lat);
   LatLon.Lon:=DegToRad(LatLon.Lon);
   UTM.fuseau := LatLonToUTMXY (LatLon,UTM);

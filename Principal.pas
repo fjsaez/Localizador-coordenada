@@ -131,7 +131,7 @@ type
 
 var
   FPrinc: TFPrinc;
-  Posc: TPosicion;
+  //Posc: TPosicion;
 
 implementation
 
@@ -150,7 +150,17 @@ begin
   LayPrincipal.Visible:=true;
 end;
 
-// El menú principal
+procedure TFPrinc.RotarLetrasPolos(Grados: double);
+begin
+  CircPrnc.RotationAngle:=Grados;  //el círculo donde están las letras de polos
+  //las letras giran en sentido contrario a la brújula:
+  CircN.RotationAngle:=-Grados;
+  CircS.RotationAngle:=-Grados;
+  CircE.RotationAngle:=-Grados;
+  CircO.RotationAngle:=-Grados;
+end;
+
+/// El menú principal ///
 
 procedure TFPrinc.LstBoxMenuItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
@@ -189,7 +199,7 @@ begin
   {$ENDIF}
 end;
 
-// fin menú
+/// Eventos ///
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
@@ -234,15 +244,7 @@ var
   LatLon: TRecLatLon;
   UTM: TRecUTM;
 begin
-  LatLon.Lon:=NewLocation.Longitude;
-  LatLon.Lat:=NewLocation.Latitude;
-  LatLon_To_UTM(LatLon,UTM);
-  Posc.X:=UTM.X;
-  Posc.Y:=UTM.Y;
-  Posc.Lon:=NewLocation.Longitude;
-  Posc.Lat:=NewLocation.Latitude;
-
-  //ConvertirAGrdUTM(NewLocation);
+  ConvertirAGrdUTM(NewLocation);
   //se muestran las coordenadas en sus diferentes formatos:
   LLonAct.Text:=FormatFloat('0.000000',Posc.Lon);
   LLatAct.Text:=FormatFloat('0.000000',Posc.Lat);
@@ -264,16 +266,6 @@ begin
       Break;
     end;
   ChoseSensorIndex:=Indice;
-end;
-
-procedure TFPrinc.RotarLetrasPolos(Grados: double);
-begin
-  CircPrnc.RotationAngle:=Grados;  //el círculo donde están las letras de polos
-  //las letras giran en sentido contrario a la brújula:
-  CircN.RotationAngle:=-Grados;
-  CircS.RotationAngle:=-Grados;
-  CircE.RotationAngle:=-Grados;
-  CircO.RotationAngle:=-Grados;
 end;
 
 procedure TFPrinc.TimerTimer(Sender: TObject);
