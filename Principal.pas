@@ -82,7 +82,7 @@ type
     LayDescr: TLayout;
     Layout1: TLayout;
     Label4: TLabel;
-    Label5: TLabel;
+    LDescr: TLabel;
     SBSalir: TSpeedButton;
     MtnSensor: TMotionSensor;
     GlowEffect: TGlowEffect;
@@ -204,8 +204,9 @@ end;
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   FrmAcerca.Visible:=false;
-  //FrmAgregarPnc.Visible:=false;   //ocultar las pantallas secundarias
-  LayPrincipal.Visible:=true;     //poner visible la pantalla principal
+  FrmAgregar.Visible:=false;
+  FrmSeleccionar.Visible:=false;
+  LayPrincipal.Visible:=true;
   OrntSensor.Active:=true;        //se activa el sensor de brújula
   MtnSensor.Active:=true;         //se activa el sensor de movimiento
   ActivarGPS(LctSensor,true);     //se activa el sensor de GPS
@@ -223,6 +224,10 @@ end;
 procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
+  //coordenadas destino:
+  LLonLoc.Text:=FormatFloat('0.00',Coords.EsteUTM);
+  LLatLoc.Text:=FormatFloat('0.00',Coords.NorteUTM);
+  LDescr.Text:=Coords.Descripcion;
   MostrarPrincipal;
 end;
 
