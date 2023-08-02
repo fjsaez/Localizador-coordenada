@@ -8,7 +8,7 @@ uses
   {$ENDIF}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
-  System.Permissions, System.Math, System.IniFiles, System.Sensors, UTM_WGS84;
+  System.Permissions, System.Math, System.IniFiles, {System.Sensors,} UTM_WGS84;
 
 type
   TCoord = record
@@ -43,7 +43,7 @@ var
   Posc: TPosicion;
   Sistema: TSistema;
 
-  procedure ConvertirAGrdUTM(Loc: TLocationCoord2D);
+  function ConvertirAGrdUTM(Lon,Lat: double): TPosicion;
   function Grados(Norte1,Norte2,DistH: double): double;
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
   function Orientacion(Grados: double): string;
@@ -58,18 +58,18 @@ var
 
 implementation
 
-procedure ConvertirAGrdUTM(Loc: TLocationCoord2D);
+function ConvertirAGrdUTM(Lon,Lat: double): TPosicion;
 var
   LatLon: TRecLatLon;
   UTM: TRecUTM;
 begin
-  LatLon.Lon:=Loc.Longitude;
-  LatLon.Lat:=Loc.Latitude;
+  LatLon.Lon:=Lon;
+  LatLon.Lat:=Lat;
   LatLon_To_UTM(LatLon,UTM);
-  Posc.X:=UTM.X;
-  Posc.Y:=UTM.Y;
-  Posc.Lon:=Loc.Longitude;
-  Posc.Lat:=Loc.Latitude;
+  Result.X:=UTM.X;
+  Result.Y:=UTM.Y;
+  Result.Lon:=Lon;
+  Result.Lat:=Lat;
 end;
 
 function CalcularDistancia(X1,Y1,X2,Y2: double): double;

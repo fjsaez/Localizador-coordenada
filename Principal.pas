@@ -245,11 +245,8 @@ end;
 
 procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
-var
-  LatLon: TRecLatLon;
-  UTM: TRecUTM;
 begin
-  ConvertirAGrdUTM(NewLocation);
+  Posc:=ConvertirAGrdUTM(NewLocation.Longitude,NewLocation.Latitude);
   //se muestran las coordenadas en sus diferentes formatos:
   LLonAct.Text:=FormatFloat('0.000000',Posc.Lon);
   LLatAct.Text:=FormatFloat('0.000000',Posc.Lat);
