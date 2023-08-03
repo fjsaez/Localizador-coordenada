@@ -76,10 +76,6 @@ end;
 
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
 begin
-  //Posc.X:=EEste.Text.ToDouble;
-  //Posc.Y:=ENorte.Text.ToDouble;
-  //Posc.XDest:=Posc.X;
-  //Posc.YDest:=Posc.Y;
   Posc.XDest:=EEste.Text.ToDouble;
   Posc.YDest:=ENorte.Text.ToDouble;
   Coords.EsteUTM:=Posc.XDest;
@@ -93,7 +89,6 @@ begin
   Coords.Fecha:=Now;
   //if SwGuardarBD.IsChecked then
     //código para guardar en bd
-  //SBVolverClick(Self);
 end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
