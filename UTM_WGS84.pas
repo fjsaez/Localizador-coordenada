@@ -12,8 +12,8 @@ type
   end;
   TRecUTM = record
     X,Y          : double;
-    fuseau       : integer;
-    OK,southhemi : boolean;
+    Fuseau       : integer;
+    OK,SouthHemi : boolean;
     CharLat      : char;
   end;
 

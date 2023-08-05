@@ -75,7 +75,10 @@ begin
 end;
 
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
+var
+  XDest,YDest: double;
 begin
+  //XDest,YDest:
   Posc.XDest:=EEste.Text.ToDouble;
   Posc.YDest:=ENorte.Text.ToDouble;
   Coords.EsteUTM:=Posc.XDest;

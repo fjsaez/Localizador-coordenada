@@ -103,6 +103,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>LocCoordenada</SanitizedProjectName>
+        <OrientationPortrait>true</OrientationPortrait>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>fmx;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;FireDACCommonDriver;IndyProtocols;IndyIPClient;dbxcds;FmxTeeUI;bindcompfmx;ibmonitor;FireDACSqliteDriver;DbxClientDriver;soapmidas;fmxFireDAC;dbexpress;inet;DataSnapCommon;fmxase;dbrtl;FireDACDBXDriver;CustomIPTransport;DBXInterBaseDriver;IndySystem;ibxbindings;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;RESTComponents;DBXSqliteDriver;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;DataSnapFireDAC;emsclientfiredac;FireDAC;FireDACDSDriver;xmlrtl;tethering;ibxpress;dsnap;CloudService;DataSnapNativeClient;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -261,6 +262,13 @@
         <DCC_MapFile>3</DCC_MapFile>
         <ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
         <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=Localizador de coordenada;versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
+        <AUP_INTERNET>false</AUP_INTERNET>
+        <AUP_CALL_PHONE>false</AUP_CALL_PHONE>
+        <AUP_CAMERA>false</AUP_CAMERA>
+        <AUP_READ_EXTERNAL_STORAGE>false</AUP_READ_EXTERNAL_STORAGE>
+        <AUP_READ_PHONE_STATE>false</AUP_READ_PHONE_STATE>
+        <AUP_WRITE_EXTERNAL_STORAGE>false</AUP_WRITE_EXTERNAL_STORAGE>
+        <AUP_ACCESS_MEDIA_LOCATION>true</AUP_ACCESS_MEDIA_LOCATION>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>

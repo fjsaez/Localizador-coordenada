@@ -198,6 +198,7 @@ object FrmAgregar: TFrmAgregar
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Client
               TabOrder = 0
+              ControlType = Platform
               KeyboardType = NumberPad
               ReturnKeyType = Next
               MaxLength = 10
@@ -250,6 +251,7 @@ object FrmAgregar: TFrmAgregar
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Client
               TabOrder = 0
+              ControlType = Platform
               KeyboardType = NumberPad
               ReturnKeyType = Next
               MaxLength = 10
@@ -281,6 +283,7 @@ object FrmAgregar: TFrmAgregar
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Client
         TabOrder = 0
+        ControlType = Platform
         ReturnKeyType = Done
         MaxLength = 40
         Margins.Left = 3.000000000000000000

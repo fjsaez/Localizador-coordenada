@@ -225,8 +225,8 @@ procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
   //coordenadas destino:
-  LLonLoc.Text:=FormatFloat('0.00',Coords.EsteUTM);
-  LLatLoc.Text:=FormatFloat('0.00',Coords.NorteUTM);
+  LLonLoc.Text:=FormatFloat('0.00',Posc.XDest);
+  LLatLoc.Text:=FormatFloat('0.00',Posc.YDest);
   LDescr.Text:=Coords.Descripcion;
   MostrarPrincipal;
 end;
