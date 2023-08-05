@@ -148,9 +148,9 @@ object FrmAgregar: TFrmAgregar
           XRadius = 10.000000000000000000
           YRadius = 10.000000000000000000
           object SBGuardar: TSpeedButton
-            Align = Center
+            Align = Client
             Size.Width = 60.000000000000000000
-            Size.Height = 60.000000000000000000
+            Size.Height = 72.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'addtoolbuttonbordered'
             Text = 'addtoolbuttonbordered'

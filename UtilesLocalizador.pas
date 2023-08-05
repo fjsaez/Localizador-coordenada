@@ -15,6 +15,7 @@ type
     IDCoord: Cardinal;
     EsteUTM,NorteUTM,Lat,Lon: single;
     LatGMS,LonGMS,LatLon,Descripcion: string;
+    Huso: integer;
     Fecha: TDate;
   end;
 
@@ -23,6 +24,7 @@ type
     X,Y,            //coords UTM
     XDest,YDest,    //coords UTM destino
     Azimut,Distancia: double;
+    Huso: integer;  //huso horario UTM (comprendido entre 1 y 60)
   end;
 
   TSistema = record

@@ -80,8 +80,8 @@ begin
   Posc.YDest:=ENorte.Text.ToDouble;
   Coords.EsteUTM:=Posc.XDest;
   Coords.NorteUTM:=Posc.YDest;
-  Coords.Lat:=Posc.Lat;
-  Coords.Lon:=Posc.Lon;
+  Coords.Lat:=Posc.YDest;   //aquí hay que convertir las c. destino de utm a geo
+  Coords.Lon:=Posc.XDest;
   Coords.LatGMS:=DecAGrados(Posc.Y,true);
   Coords.LonGMS:=DecAGrados(Posc.X,false);
   Coords.LatLon:=Format('%2.6f',[Posc.Lon])+', '+Format('%2.6f',[Posc.Lat]);
