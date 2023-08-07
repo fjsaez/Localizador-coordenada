@@ -78,11 +78,12 @@ procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
 var
   XDest,YDest: double;
 begin
-  //XDest,YDest:
-  Posc.XDest:=EEste.Text.ToDouble;
-  Posc.YDest:=ENorte.Text.ToDouble;
-  Coords.EsteUTM:=Posc.XDest;
-  Coords.NorteUTM:=Posc.YDest;
+  XDest:=EEste.Text.ToDouble;
+  YDest:=ENorte.Text.ToDouble;
+  Posc.XDest:=XDest;
+  Posc.YDest:=YDest;
+  Coords.EsteUTM:=XDest;
+  Coords.NorteUTM:=YDest;
   Coords.Lat:=Posc.YDest;   //aquí hay que convertir las c. destino de utm a geo
   Coords.Lon:=Posc.XDest;
   Coords.LatGMS:=DecAGrados(Posc.Y,true);
