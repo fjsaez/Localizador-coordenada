@@ -102,6 +102,14 @@ type
     FrmAcerca: TFrmAcerca;
     FrmAgregar: TFrmAgregar;
     FrmSeleccionar: TFrmSeleccionar;
+    Layout2: TLayout;
+    Layout3: TLayout;
+    Layout24: TLayout;
+    Label5: TLabel;
+    Layout25: TLayout;
+    LZona: TLabel;
+    LEx: TLabel;
+    LNy: TLabel;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -207,6 +215,8 @@ begin
   FrmAgregar.Visible:=false;
   FrmSeleccionar.Visible:=false;
   LayPrincipal.Visible:=true;
+  IniciarRegistro;
+  IniciarRegCoord;
   OrntSensor.Active:=true;        //se activa el sensor de brújula
   MtnSensor.Active:=true;         //se activa el sensor de movimiento
   ActivarGPS(LctSensor,true);     //se activa el sensor de GPS
@@ -247,11 +257,20 @@ procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
 begin
   Posc:=ConvertirAGrdUTM(NewLocation.Longitude,NewLocation.Latitude);
+  Posc.XDest:=Coords.EsteUTM;
+  Posc.YDest:=Coords.NorteUTM;
   //se muestran las coordenadas en sus diferentes formatos:
   LLonAct.Text:=FormatFloat('0.000000',Posc.Lon);
   LLatAct.Text:=FormatFloat('0.000000',Posc.Lat);
   LEsteAct.Text:=FormatFloat('0.00',Posc.X);
   LNorteAct.Text:=FormatFloat('0.00',Posc.Y);
+  LZona.Text:=Posc.Huso.ToString;
+  //LEx.Text:=FormatFloat('0.00',Posc.X);
+  //LNy.Text:=FormatFloat('0.00',Posc.Y);
+  //LEx.Text:=FormatFloat('0.00',Posc.XDest);
+  //LNy.Text:=FormatFloat('0.00',Posc.YDest);
+  LEx.Text:=Posc.XDest.ToString;
+  LNy.Text:=Posc.YDest.ToString;
 end;
 
 procedure TFPrinc.OrntSensorSensorChoosing(Sender: TObject;
@@ -288,7 +307,11 @@ begin
       else
         if (Y>=0) and (X>0) then Deg:=360-Deg;
   RotarLetrasPolos(360-Deg);
-  Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
+
+  //LEx.Text:=Posc.XDest.ToString;
+  //LNy.Text:=Posc.YDest.ToString;
+
+  Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Coords.EsteUTM,Coords.NorteUTM);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
   //se alinea la flecha de búsqueda con la brújula:
   if (Posc.X>Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=Grd+180

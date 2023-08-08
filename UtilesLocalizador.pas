@@ -70,6 +70,7 @@ begin
   LatLon_To_UTM(LatLon,UTM);
   Result.X:=UTM.X;
   Result.Y:=UTM.Y;
+  Result.Huso:=UTM.Fuseau;
   Result.Lon:=Lon;
   Result.Lat:=Lat;
 end;
