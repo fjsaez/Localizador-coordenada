@@ -29,7 +29,6 @@ type
     SBSelGPS: TSpeedButton;
     EDescr: TEdit;
     Label5: TLabel;
-    Layout8: TLayout;
     Layout6: TLayout;
     Label2: TLabel;
     Layout7: TLayout;

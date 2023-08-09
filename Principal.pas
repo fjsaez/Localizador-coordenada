@@ -137,7 +137,6 @@ type
 
 var
   FPrinc: TFPrinc;
-  //Posc: TPosicion;
 
 implementation
 
@@ -171,6 +170,7 @@ end;
 procedure TFPrinc.LstBoxMenuItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
+  Item.IsSelected:=false;
   MultiView.HideMaster;
 end;
 

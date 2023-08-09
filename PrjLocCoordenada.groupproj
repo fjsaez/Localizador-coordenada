@@ -12,6 +12,9 @@
         <Projects Include="Giro brújula\GiroBrujula.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\MultiView\MultiViewDemo.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +50,23 @@
     <Target Name="GiroBrujula:Make">
         <MSBuild Projects="Giro brújula\GiroBrujula.dproj" Targets="Make"/>
     </Target>
+    <Target Name="MultiViewDemo">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\MultiView\MultiViewDemo.dproj"/>
+    </Target>
+    <Target Name="MultiViewDemo:Clean">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\MultiView\MultiViewDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MultiViewDemo:Make">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Samples\Object Pascal\Multi-Device Samples\User Interface\MultiView\MultiViewDemo.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="LocCoordenada;LocSimple;GiroBrujula"/>
+        <CallTarget Targets="LocCoordenada;LocSimple;GiroBrujula;MultiViewDemo"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="LocCoordenada:Clean;LocSimple:Clean;GiroBrujula:Clean"/>
+        <CallTarget Targets="LocCoordenada:Clean;LocSimple:Clean;GiroBrujula:Clean;MultiViewDemo:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="LocCoordenada:Make;LocSimple:Make;GiroBrujula:Make"/>
+        <CallTarget Targets="LocCoordenada:Make;LocSimple:Make;GiroBrujula:Make;MultiViewDemo:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
