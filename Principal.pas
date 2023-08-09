@@ -108,8 +108,6 @@ type
     Label5: TLabel;
     Layout25: TLayout;
     LZona: TLabel;
-    LEx: TLabel;
-    LNy: TLabel;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -265,12 +263,6 @@ begin
   LEsteAct.Text:=FormatFloat('0.00',Posc.X);
   LNorteAct.Text:=FormatFloat('0.00',Posc.Y);
   LZona.Text:=Posc.Huso.ToString;
-  //LEx.Text:=FormatFloat('0.00',Posc.X);
-  //LNy.Text:=FormatFloat('0.00',Posc.Y);
-  //LEx.Text:=FormatFloat('0.00',Posc.XDest);
-  //LNy.Text:=FormatFloat('0.00',Posc.YDest);
-  LEx.Text:=Posc.XDest.ToString;
-  LNy.Text:=Posc.YDest.ToString;
 end;
 
 procedure TFPrinc.OrntSensorSensorChoosing(Sender: TObject;
@@ -294,9 +286,10 @@ var
   X,Y,D,Deg,Grd: double;
   Nivel,Ubic: string;
 begin
+  //se obtienen los datos para orientar las brújulas:
   X:=OrntSensor.Sensor.HeadingX;
   Y:=OrntSensor.Sensor.HeadingY;
-  if Y=0 then D:=Abs(X/1)  //se evita una división por cero
+  if Y=0 then D:=Abs(X/1)  //<-- se evita una división por cero
          else D:=Abs(X/Y);
   Deg:=RadToDeg(ArcTan(D));
   if (Y>=0) and (X<=0) then Deg:=Deg
@@ -307,11 +300,8 @@ begin
       else
         if (Y>=0) and (X>0) then Deg:=360-Deg;
   RotarLetrasPolos(360-Deg);
-
-  //LEx.Text:=Posc.XDest.ToString;
-  //LNy.Text:=Posc.YDest.ToString;
-
-  Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Coords.EsteUTM,Coords.NorteUTM);
+  //distancia y grados entre ubicación actual y destino:
+  Posc.Distancia:=CalcularDistancia(Posc.X,Posc.Y,Posc.XDest,Posc.YDest);
   Grd:=Grados(Posc.Y,Posc.YDest,Posc.Distancia);
   //se alinea la flecha de búsqueda con la brújula:
   if (Posc.X>Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=Grd+180

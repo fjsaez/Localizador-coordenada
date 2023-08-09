@@ -82,13 +82,14 @@ begin
   YDest:=ENorte.Text.ToDouble;
   Posc.XDest:=XDest;
   Posc.YDest:=YDest;
+  //el registro a guardar en la BD:
   Coords.EsteUTM:=XDest;
   Coords.NorteUTM:=YDest;
-  Coords.Lat:=Posc.YDest;   //aquí hay que convertir las c. destino de utm a geo
-  Coords.Lon:=Posc.XDest;
-  Coords.LatGMS:=DecAGrados(Posc.Y,true);
-  Coords.LonGMS:=DecAGrados(Posc.X,false);
-  Coords.LatLon:=Format('%2.6f',[Posc.Lon])+', '+Format('%2.6f',[Posc.Lat]);
+  Coords.Lat:=YDest;  //aquí hay que convertir las c. destino de utm a geo
+  Coords.Lon:=XDest;
+  Coords.LatGMS:=DecAGrados(YDest,true);
+  Coords.LonGMS:=DecAGrados(XDest,false);
+  Coords.LatLon:=Format('%2.6f',[XDest])+', '+Format('%2.6f',[YDest]);
   Coords.Descripcion:=EDescr.Text.Trim;
   Coords.Fecha:=Now;
   //if SwGuardarBD.IsChecked then
