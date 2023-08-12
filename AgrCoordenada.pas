@@ -30,23 +30,28 @@ type
     EDescr: TEdit;
     Label5: TLabel;
     Layout6: TLayout;
-    Label2: TLabel;
+    LLon: TLabel;
     Layout7: TLayout;
-    Label3: TLabel;
+    LLat: TLabel;
     Layout9: TLayout;
-    EEste: TEdit;
+    ELonEste: TEdit;
     Layout5: TLayout;
-    ENorte: TEdit;
+    ELatNorte: TEdit;
     Layout10: TLayout;
     SwGuardarBD: TSwitch;
     Rectangle2: TRectangle;
     Label6: TLabel;
+    Layout8: TLayout;
+    LGeoUTM: TLabel;
+    Layout11: TLayout;
+    SwGeoUTM: TSwitch;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure SBSelGPSClick(Sender: TObject);
-    procedure EEsteChange(Sender: TObject);
-    procedure EEsteEnter(Sender: TObject);
-    procedure EEsteExit(Sender: TObject);
+    procedure ELonEsteChange(Sender: TObject);
+    procedure ELonEsteEnter(Sender: TObject);
+    procedure ELonEsteExit(Sender: TObject);
+    procedure SwGeoUTMSwitch(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,18 +62,18 @@ implementation
 
 {$R *.fmx}
 
-procedure TFrmAgregar.EEsteChange(Sender: TObject);
+procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
-  SBGuardar.Visible:=(EEste.Text<>'0') and (ENorte.Text<>'0')
-      and not EEste.Text.IsEmpty and not ENorte.Text.IsEmpty;
+  SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
+      and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty;
 end;
 
-procedure TFrmAgregar.EEsteEnter(Sender: TObject);
+procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);
 begin
   if TEdit(Sender).Text='0' then TEdit(Sender).Text:='';
 end;
 
-procedure TFrmAgregar.EEsteExit(Sender: TObject);
+procedure TFrmAgregar.ELonEsteExit(Sender: TObject);
 begin
   if TEdit(Sender).Text='' then TEdit(Sender).Text:='0';
 end;
@@ -77,8 +82,8 @@ procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
 var
   XDest,YDest: double;
 begin
-  XDest:=EEste.Text.ToDouble;
-  YDest:=ENorte.Text.ToDouble;
+  XDest:=ELonEste.Text.ToDouble;
+  YDest:=ELatNorte.Text.ToDouble;
   Posc.XDest:=XDest;
   Posc.YDest:=YDest;
   //el registro a guardar en la BD:
@@ -97,13 +102,29 @@ end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
 begin
-  EEste.Text:=Round(Posc.X).ToString;
-  ENorte.Text:=Round(Posc.Y).ToString;
+  ELonEste.Text:=Round(Posc.X).ToString;
+  ELatNorte.Text:=Round(Posc.Y).ToString;
 end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
 begin
   Visible:=false;
+end;
+
+procedure TFrmAgregar.SwGeoUTMSwitch(Sender: TObject);
+begin
+  if SwGeoUTM.IsChecked then
+  begin
+    LGeoUTM.Text:='Coordenadas Geográficas:';
+    LLon.Text:='Longitud:';
+    LLat.Text:='Latitud:';
+  end
+  else
+  begin
+    LGeoUTM.Text:='Coordenadas UTM:';
+    LLon.Text:='Este:';
+    LLat.Text:='Norte:';
+  end;
 end;
 
 end.

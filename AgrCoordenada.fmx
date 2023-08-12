@@ -11,7 +11,7 @@ object FrmAgregar: TFrmAgregar
     TabStop = False
     object Layout2: TLayout
       Align = Top
-      Position.Y = 40.000000000000000000
+      Position.Y = 90.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 51.000000000000000000
       Size.PlatformDefault = False
@@ -56,11 +56,11 @@ object FrmAgregar: TFrmAgregar
     end
     object Layout4: TLayout
       Align = Top
-      Position.Y = 256.000000000000000000
+      Position.Y = 306.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 4
+      TabOrder = 5
       TabStop = False
       object Label5: TLabel
         Align = Left
@@ -127,7 +127,7 @@ object FrmAgregar: TFrmAgregar
     end
     object LayGCoords: TLayout
       Align = Top
-      Position.Y = 91.000000000000000000
+      Position.Y = 141.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
@@ -186,7 +186,7 @@ object FrmAgregar: TFrmAgregar
             Size.PlatformDefault = False
             TabOrder = 6
             TabStop = False
-            object Label2: TLabel
+            object LLon: TLabel
               Align = Client
               StyledSettings = [Family, Size, FontColor]
               Margins.Left = 10.000000000000000000
@@ -194,7 +194,7 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = 'Longitud (E):'
+              Text = 'Este:'
               TabOrder = 0
             end
           end
@@ -204,7 +204,7 @@ object FrmAgregar: TFrmAgregar
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 5
-            object EEste: TEdit
+            object ELonEste: TEdit
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Client
               TabOrder = 0
@@ -221,9 +221,9 @@ object FrmAgregar: TFrmAgregar
               Size.Width = 155.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
-              OnChange = EEsteChange
-              OnEnter = EEsteEnter
-              OnExit = EEsteExit
+              OnChange = ELonEsteChange
+              OnEnter = ELonEsteEnter
+              OnExit = ELonEsteExit
             end
           end
         end
@@ -240,7 +240,7 @@ object FrmAgregar: TFrmAgregar
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 7
-            object Label3: TLabel
+            object LLat: TLabel
               Align = Client
               StyledSettings = [Family, Size, FontColor]
               Margins.Left = 10.000000000000000000
@@ -248,7 +248,7 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = 'Latitud (N):'
+              Text = 'Norte:'
               TabOrder = 0
             end
           end
@@ -258,7 +258,7 @@ object FrmAgregar: TFrmAgregar
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
-            object ENorte: TEdit
+            object ELatNorte: TEdit
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Client
               TabOrder = 0
@@ -275,9 +275,9 @@ object FrmAgregar: TFrmAgregar
               Size.Width = 155.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
-              OnChange = EEsteChange
-              OnEnter = EEsteEnter
-              OnExit = EEsteExit
+              OnChange = ELonEsteChange
+              OnEnter = ELonEsteEnter
+              OnExit = ELonEsteExit
             end
           end
         end
@@ -285,7 +285,7 @@ object FrmAgregar: TFrmAgregar
     end
     object LayDescr: TLayout
       Align = Top
-      Position.Y = 191.000000000000000000
+      Position.Y = 241.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 65.000000000000000000
       Size.PlatformDefault = False
@@ -315,6 +315,49 @@ object FrmAgregar: TFrmAgregar
         TextSettings.HorzAlign = Center
         Text = 'Descripci'#243'n:'
         TabOrder = 7
+      end
+    end
+    object Layout8: TLayout
+      Align = Top
+      Position.Y = 40.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      TabStop = False
+      object LGeoUTM: TLabel
+        Align = Left
+        StyledSettings = [Family, Size, FontColor]
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 223.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Coordenadas UTM:'
+        TabOrder = 0
+      end
+      object Layout11: TLayout
+        Align = Right
+        Position.X = 296.000000000000000000
+        Size.Width = 136.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        TabStop = False
+        object SwGeoUTM: TSwitch
+          Align = Center
+          IsChecked = False
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 78.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnSwitch = SwGeoUTMSwitch
+        end
       end
     end
   end
