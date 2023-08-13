@@ -81,19 +81,24 @@ end;
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
 var
   XDest,YDest: double;
+  Psc: TPosicion;
 begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
-  Posc.XDest:=XDest;
-  Posc.YDest:=YDest;
+  //if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
+  //else ;
+  Posc.XDest:=Psc.XDest;
+  Posc.YDest:=Psc.YDest;
+  Posc.Huso:=Psc.Huso;
   //el registro a guardar en la BD:
-  Coords.EsteUTM:=XDest;
-  Coords.NorteUTM:=YDest;
-  Coords.Lat:=YDest;  //aquí hay que convertir las c. destino de utm a geo
-  Coords.Lon:=XDest;
-  Coords.LatGMS:=DecAGrados(YDest,true);
-  Coords.LonGMS:=DecAGrados(XDest,false);
-  Coords.LatLon:=Format('%2.6f',[XDest])+', '+Format('%2.6f',[YDest]);
+  Coords.EsteUTM:=Psc.XDest;
+  Coords.NorteUTM:=Psc.YDest;
+  Coords.Huso:=Psc.Huso;
+  Coords.Lat:=Psc.Lat;  //aquí hay que convertir las c. destino de utm a geo
+  Coords.Lon:=Psc.Lon;
+  Coords.LatGMS:=DecAGrados(Psc.Lat,true);
+  Coords.LonGMS:=DecAGrados(Psc.Lon,false);
+  Coords.LatLon:=Format('%2.6f',[Psc.Lon])+', '+Format('%2.6f',[Psc.Lat]);
   Coords.Descripcion:=EDescr.Text.Trim;
   Coords.Fecha:=Now;
   //if SwGuardarBD.IsChecked then
@@ -118,12 +123,16 @@ begin
     LGeoUTM.Text:='Coordenadas Geográficas:';
     LLon.Text:='Longitud:';
     LLat.Text:='Latitud:';
+    ELonEste.FilterChar:='0123456789.-';
+    ELatNorte.FilterChar:='0123456789.-';
   end
   else
   begin
     LGeoUTM.Text:='Coordenadas UTM:';
     LLon.Text:='Este:';
     LLat.Text:='Norte:';
+    ELonEste.FilterChar:='0123456789';
+    ELatNorte.FilterChar:='0123456789';
   end;
 end;
 

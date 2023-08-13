@@ -254,8 +254,7 @@ begin
   UTM_TO_LatLon(UTM,LatLon);
   if LatLon.OK then
   begin
-    Result:=FormatFloat(Fmt7,LatLon.Lon)+','+
-            FormatFloat(Fmt7,LatLon.Lat)+',0';
+    Result:=FormatFloat(Fmt7,LatLon.Lon)+','+FormatFloat(Fmt7,LatLon.Lat)+',0';
     P:=pos(C,Result);
     if P <> 0 then Result[P]:=S;
     P:=pos(C,Result);
