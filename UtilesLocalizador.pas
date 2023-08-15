@@ -46,6 +46,7 @@ var
   Sistema: TSistema;
 
   function ConvertirAGrdUTM(Lon,Lat: double): TPosicion;
+  function ConvertirAGrdGeo(Este,Norte: double; Huso: integer): TPosicion;
   function Grados(Norte1,Norte2,DistH: double): double;
   function CalcularDistancia(X1,Y1,X2,Y2: double): double;
   function Orientacion(Grados: double): string;
@@ -73,6 +74,22 @@ begin
   Result.Huso:=UTM.Fuseau;
   Result.Lon:=Lon;
   Result.Lat:=Lat;
+end;
+
+function ConvertirAGrdGeo(Este,Norte: double; Huso: integer): TPosicion;
+var
+  LatLon: TRecLatLon;
+  UTM: TRecUTM;
+begin
+  UTM.X:=Este;
+  UTM.Y:=Norte;
+  UTM.Fuseau:=Huso;
+  UTM_To_LatLon(UTM,LatLon);
+  Result.X:=UTM.X;
+  Result.Y:=UTM.Y;
+  Result.Huso:=UTM.Fuseau;
+  Result.Lon:=LatLon.Lon;
+  Result.Lat:=LatLon.Lat;
 end;
 
 function CalcularDistancia(X1,Y1,X2,Y2: double): double;

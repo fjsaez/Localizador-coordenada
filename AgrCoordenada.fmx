@@ -2,7 +2,7 @@ object FrmAgregar: TFrmAgregar
   Size.Width = 432.000000000000000000
   Size.Height = 480.000000000000000000
   Size.PlatformDefault = False
-  object Layout1: TLayout
+  object LayAgrPrinc: TLayout
     Align = Client
     Size.Width = 432.000000000000000000
     Size.Height = 480.000000000000000000
@@ -55,8 +55,7 @@ object FrmAgregar: TFrmAgregar
       end
     end
     object Layout4: TLayout
-      Align = Top
-      Position.Y = 306.000000000000000000
+      Position.Y = 402.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -129,7 +128,7 @@ object FrmAgregar: TFrmAgregar
       Align = Top
       Position.Y = 141.000000000000000000
       Size.Width = 432.000000000000000000
-      Size.Height = 100.000000000000000000
+      Size.Height = 150.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       TabStop = False
@@ -137,7 +136,7 @@ object FrmAgregar: TFrmAgregar
         Align = Right
         Position.X = 296.000000000000000000
         Size.Width = 136.000000000000000000
-        Size.Height = 100.000000000000000000
+        Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         TabStop = False
@@ -150,7 +149,7 @@ object FrmAgregar: TFrmAgregar
           Position.X = 66.000000000000000000
           Position.Y = 10.000000000000000000
           Size.Width = 60.000000000000000000
-          Size.Height = 80.000000000000000000
+          Size.Height = 130.000000000000000000
           Size.PlatformDefault = False
           XRadius = 10.000000000000000000
           YRadius = 10.000000000000000000
@@ -167,8 +166,9 @@ object FrmAgregar: TFrmAgregar
         end
       end
       object LayCoords: TLayout
+        Position.X = 8.000000000000000000
         Size.Width = 296.000000000000000000
-        Size.Height = 100.000000000000000000
+        Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         TabStop = False
@@ -179,7 +179,7 @@ object FrmAgregar: TFrmAgregar
           Size.PlatformDefault = False
           TabOrder = 0
           TabStop = False
-          object Layout6: TLayout
+          object Layout1: TLayout
             Align = Left
             Size.Width = 121.000000000000000000
             Size.Height = 50.000000000000000000
@@ -198,7 +198,7 @@ object FrmAgregar: TFrmAgregar
               TabOrder = 0
             end
           end
-          object Layout9: TLayout
+          object Layout6: TLayout
             Align = Client
             Size.Width = 175.000000000000000000
             Size.Height = 50.000000000000000000
@@ -228,11 +228,12 @@ object FrmAgregar: TFrmAgregar
           end
         end
         object LayLatitud: TLayout
+          Align = Top
           Position.Y = 50.000000000000000000
           Size.Width = 296.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 1
+          TabOrder = 2
           TabStop = False
           object Layout7: TLayout
             Align = Left
@@ -281,11 +282,62 @@ object FrmAgregar: TFrmAgregar
             end
           end
         end
+        object LayHuso: TLayout
+          Align = Client
+          Size.Width = 296.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          TabStop = False
+          object Layout9: TLayout
+            Align = Left
+            Size.Width = 121.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 7
+            object Label2: TLabel
+              Align = Client
+              StyledSettings = [Family, Size, FontColor]
+              Margins.Left = 10.000000000000000000
+              Size.Width = 111.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Huso:'
+              TabOrder = 0
+            end
+          end
+          object Layout12: TLayout
+            Align = Client
+            Size.Width = 175.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 6
+            object NBHuso: TNumberBox
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Left
+              StyleLookup = 'numberboxstyle'
+              TabOrder = 0
+              Cursor = crIBeam
+              Min = 1.000000000000000000
+              Max = 60.000000000000000000
+              Value = 1.000000000000000000
+              Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Size.Width = 44.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
       end
     end
     object LayDescr: TLayout
-      Align = Top
-      Position.Y = 241.000000000000000000
+      Position.Y = 300.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 65.000000000000000000
       Size.PlatformDefault = False

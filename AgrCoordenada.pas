@@ -6,11 +6,12 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Memo.Types, FMX.ScrollBox,
-  FMX.Memo, FMX.Objects, FMX.Edit, UtilesLocalizador, UTM_WGS84;
+  FMX.Memo, FMX.Objects, FMX.Edit, UtilesLocalizador, UTM_WGS84, FMX.EditBox,
+  FMX.NumberBox;
 
 type
   TFrmAgregar = class(TFrame)
-    Layout1: TLayout;
+    LayAgrPrinc: TLayout;
     Layout2: TLayout;
     Layout3: TLayout;
     Layout4: TLayout;
@@ -20,23 +21,12 @@ type
     LayGCoords: TLayout;
     LayGuardar: TLayout;
     SBGuardar: TSpeedButton;
-    LayCoords: TLayout;
-    LayLongitud: TLayout;
-    LayLatitud: TLayout;
     LayDescr: TLayout;
     Label4: TLabel;
     Rectangle1: TRectangle;
     SBSelGPS: TSpeedButton;
     EDescr: TEdit;
     Label5: TLabel;
-    Layout6: TLayout;
-    LLon: TLabel;
-    Layout7: TLayout;
-    LLat: TLabel;
-    Layout9: TLayout;
-    ELonEste: TEdit;
-    Layout5: TLayout;
-    ELatNorte: TEdit;
     Layout10: TLayout;
     SwGuardarBD: TSwitch;
     Rectangle2: TRectangle;
@@ -45,6 +35,22 @@ type
     LGeoUTM: TLabel;
     Layout11: TLayout;
     SwGeoUTM: TSwitch;
+    LayCoords: TLayout;
+    LayLongitud: TLayout;
+    Layout1: TLayout;
+    LLon: TLabel;
+    Layout6: TLayout;
+    ELonEste: TEdit;
+    LayLatitud: TLayout;
+    Layout7: TLayout;
+    LLat: TLabel;
+    Layout5: TLayout;
+    ELatNorte: TEdit;
+    LayHuso: TLayout;
+    Layout9: TLayout;
+    Label2: TLabel;
+    Layout12: TLayout;
+    NBHuso: TNumberBox;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure SBSelGPSClick(Sender: TObject);
@@ -85,8 +91,8 @@ var
 begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
-  //if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
-  //else ;
+  if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
+                        else Psc:=ConvertirAGrdGeo(XDest,YDest,19);  //prueba
   Posc.XDest:=Psc.XDest;
   Posc.YDest:=Psc.YDest;
   Posc.Huso:=Psc.Huso;
@@ -137,3 +143,5 @@ begin
 end;
 
 end.
+
+// TODO: agregar componente para obtener huso UTM
