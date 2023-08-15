@@ -88,11 +88,13 @@ procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
 var
   XDest,YDest: double;
   Psc: TPosicion;
+  Huso: integer;
 begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
+  Huso:=Trunc(NBHuso.Value);
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
-                        else Psc:=ConvertirAGrdGeo(XDest,YDest,19);  //prueba
+  else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
   Posc.XDest:=Psc.XDest;
   Posc.YDest:=Psc.YDest;
   Posc.Huso:=Psc.Huso;
@@ -131,6 +133,8 @@ begin
     LLat.Text:='Latitud:';
     ELonEste.FilterChar:='0123456789.-';
     ELatNorte.FilterChar:='0123456789.-';
+    LayHuso.Visible:=false;
+    LayGCoords.Size.Height:=100;
   end
   else
   begin
@@ -139,6 +143,8 @@ begin
     LLat.Text:='Norte:';
     ELonEste.FilterChar:='0123456789';
     ELatNorte.FilterChar:='0123456789';
+    LayGCoords.Size.Height:=150;
+    LayHuso.Visible:=true;
   end;
 end;
 
