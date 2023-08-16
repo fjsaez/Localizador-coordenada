@@ -55,7 +55,8 @@ object FrmAgregar: TFrmAgregar
       end
     end
     object Layout4: TLayout
-      Position.Y = 402.000000000000000000
+      Align = Top
+      Position.Y = 356.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -313,31 +314,37 @@ object FrmAgregar: TFrmAgregar
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
-            object NBHuso: TNumberBox
+            object CTBHuso: TComboTrackBar
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Left
-              StyleLookup = 'numberboxstyle'
+              StyleLookup = 'comboeditstyle'
               TabOrder = 0
               Cursor = crIBeam
+              DecimalDigits = 0
               Min = 1.000000000000000000
               Max = 60.000000000000000000
               Value = 1.000000000000000000
+              KeyboardType = NumberPad
+              Frequency = 0.000000000000000000
               Position.X = 5.000000000000000000
               Position.Y = 5.000000000000000000
+              StyledSettings = []
               Margins.Left = 5.000000000000000000
               Margins.Top = 5.000000000000000000
               Margins.Right = 5.000000000000000000
               Margins.Bottom = 5.000000000000000000
-              Size.Width = 44.000000000000000000
+              Size.Width = 54.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
+              KillFocusByReturn = True
             end
           end
         end
       end
     end
     object LayDescr: TLayout
-      Position.Y = 300.000000000000000000
+      Align = Top
+      Position.Y = 291.000000000000000000
       Size.Width = 432.000000000000000000
       Size.Height = 65.000000000000000000
       Size.PlatformDefault = False

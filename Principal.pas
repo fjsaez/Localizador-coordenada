@@ -188,6 +188,7 @@ end;
 procedure TFPrinc.LstBAgregarClick(Sender: TObject);
 begin
   IniciarRegistro;
+  FrmAgregar.CTBHuso.Value:=Posc.Huso;
   MostrarFrame(FrmAgregar);
 end;
 

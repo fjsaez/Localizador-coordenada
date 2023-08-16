@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Memo.Types, FMX.ScrollBox,
   FMX.Memo, FMX.Objects, FMX.Edit, UtilesLocalizador, UTM_WGS84, FMX.EditBox,
-  FMX.NumberBox;
+  FMX.NumberBox, FMX.ComboTrackBar;
 
 type
   TFrmAgregar = class(TFrame)
@@ -50,7 +50,7 @@ type
     Layout9: TLayout;
     Label2: TLabel;
     Layout12: TLayout;
-    NBHuso: TNumberBox;
+    CTBHuso: TComboTrackBar;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure SBSelGPSClick(Sender: TObject);
@@ -92,9 +92,9 @@ var
 begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
-  Huso:=Trunc(NBHuso.Value);
+  Huso:=Trunc(CTBHuso.Value);
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
-  else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
+                        else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
   Posc.XDest:=Psc.XDest;
   Posc.YDest:=Psc.YDest;
   Posc.Huso:=Psc.Huso;
@@ -144,6 +144,7 @@ begin
     ELonEste.FilterChar:='0123456789';
     ELatNorte.FilterChar:='0123456789';
     LayGCoords.Size.Height:=150;
+    CTBHuso.Value:=Posc.Huso;
     LayHuso.Visible:=true;
   end;
 end;

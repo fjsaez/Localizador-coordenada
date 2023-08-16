@@ -5,7 +5,7 @@ interface
 uses
   {$IFDEF ANDROID}
   FMX.FontGlyphs.Android,
-  {$ENDIF}
+  {$ENDIF}                          FMX.dialogs,
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
   System.Permissions, System.Math, System.IniFiles, {System.Sensors,} UTM_WGS84;
@@ -85,8 +85,8 @@ begin
   UTM.Y:=Norte;
   UTM.Fuseau:=Huso;
   UTM_To_LatLon(UTM,LatLon);
-  Result.X:=UTM.X;
-  Result.Y:=UTM.Y;
+  Result.XDest:=UTM.X;
+  Result.YDest:=UTM.Y;
   Result.Huso:=UTM.Fuseau;
   Result.Lon:=LatLon.Lon;
   Result.Lat:=LatLon.Lat;
