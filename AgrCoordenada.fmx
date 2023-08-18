@@ -132,7 +132,6 @@ object FrmAgregar: TFrmAgregar
       Size.Height = 150.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      TabStop = False
       object LayGuardar: TLayout
         Align = Right
         Position.X = 296.000000000000000000
@@ -234,7 +233,7 @@ object FrmAgregar: TFrmAgregar
           Size.Width = 296.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 2
+          TabOrder = 1
           TabStop = False
           object Layout7: TLayout
             Align = Left
@@ -288,7 +287,7 @@ object FrmAgregar: TFrmAgregar
           Size.Width = 296.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 1
+          TabOrder = 2
           TabStop = False
           object Layout9: TLayout
             Align = Left

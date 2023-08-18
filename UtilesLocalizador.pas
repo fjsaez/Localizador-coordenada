@@ -28,8 +28,8 @@ type
   end;
 
   TSistema = record
+    ArchivoINI,Descripcion: string;
     X,Y: double;
-    ArchivoINI: string;
   end;
 
 const
@@ -38,7 +38,6 @@ const
   Lima=4278255360;
   Chartreuse=$FF7FFF00;
   Rojo=$FFFF0000;
-  //ArchivoINI='/LocSimple.ini';
 
 var
   Coords: TCoord;
@@ -57,7 +56,7 @@ var
   procedure IniciarRegistro;
   procedure IniciarRegCoord;
   procedure CargarINI;
-  procedure GuardarINI(X,Y: integer);
+  procedure GuardarINI(X,Y: integer; Descr: string);
 
 implementation
 
@@ -233,13 +232,14 @@ begin
     Ini:=TIniFile.Create(Sistema.ArchivoINI);
     Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
     Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
   finally
     Ini.Free;
   end;
 end;
 
 {Crea el archivo ini con los el valor del zoom}
-procedure GuardarINI(X,Y: integer);
+procedure GuardarINI(X,Y: integer; Descr: string);
 var
   Ini: TIniFile;
 begin
@@ -247,8 +247,10 @@ begin
     Ini:=TIniFile.Create(Sistema.ArchivoIni);
     Ini.WriteString('Valor','Este',X.ToString);
     Ini.WriteString('Valor','Norte',Y.ToString);
+    Ini.WriteString('Valor','Descripcion',Descr);
     Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
     Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
   finally
     Ini.Free;
   end;

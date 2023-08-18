@@ -222,6 +222,16 @@ begin
   Timer.Enabled:=true;            //se activa el temporizador
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_brujula.png'));
+  //se crea/carga el archivo .ini:
+  Sistema.ArchivoIni:=TPath.GetHomePath+'/LocCoord.ini';
+  if FileExists(Sistema.ArchivoIni) then CargarINI
+                                    else GuardarINI(0,0,'');
+  LLonLoc.Text:=Sistema.X.ToString;
+  LLatLoc.Text:=Sistema.Y.ToString;
+  LDescr.Text:=Sistema.Descripcion;
+  Posc.XDest:=Sistema.X;
+  Posc.YDest:=Sistema.Y;
+  //cargar aquí el resto del registro Posc:
 end;
 
 procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
@@ -256,8 +266,10 @@ procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
 begin
   Posc:=ConvertirAGrdUTM(NewLocation.Longitude,NewLocation.Latitude);
-  Posc.XDest:=Coords.EsteUTM;
-  Posc.YDest:=Coords.NorteUTM;
+  //Posc.XDest:=Coords.EsteUTM;
+  //Posc.YDest:=Coords.NorteUTM;
+  Posc.XDest:=Sistema.X;
+  Posc.YDest:=Sistema.Y;
   //se muestran las coordenadas en sus diferentes formatos:
   LLonAct.Text:=FormatFloat('0.000000',Posc.Lon);
   LLatAct.Text:=FormatFloat('0.000000',Posc.Lat);

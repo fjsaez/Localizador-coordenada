@@ -98,6 +98,10 @@ begin
   Posc.XDest:=Psc.XDest;
   Posc.YDest:=Psc.YDest;
   Posc.Huso:=Psc.Huso;
+  //se guardan los datos en el archivo .ini:
+  Sistema.X:=Psc.XDest;
+  Sistema.Y:=Psc.YDest;
+  GuardarINI(Trunc(Sistema.X),Trunc(Sistema.Y),EDescr.Text.Trim);
   //el registro a guardar en la BD:
   Coords.EsteUTM:=Psc.XDest;
   Coords.NorteUTM:=Psc.YDest;
