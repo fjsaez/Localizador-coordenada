@@ -102,7 +102,7 @@ begin
   Coords.EsteUTM:=Psc.XDest;
   Coords.NorteUTM:=Psc.YDest;
   Coords.Huso:=Psc.Huso;
-  Coords.Lat:=Psc.Lat;  //aquí hay que convertir las c. destino de utm a geo
+  Coords.Lat:=Psc.Lat;
   Coords.Lon:=Psc.Lon;
   Coords.LatGMS:=DecAGrados(Psc.Lat,true);
   Coords.LonGMS:=DecAGrados(Psc.Lon,false);
@@ -150,5 +150,3 @@ begin
 end;
 
 end.
-
-// TODO: agregar componente para obtener huso UTM
