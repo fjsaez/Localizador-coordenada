@@ -266,8 +266,6 @@ procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
 begin
   Posc:=ConvertirAGrdUTM(NewLocation.Longitude,NewLocation.Latitude);
-  //Posc.XDest:=Coords.EsteUTM;
-  //Posc.YDest:=Coords.NorteUTM;
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
   //se muestran las coordenadas en sus diferentes formatos:
