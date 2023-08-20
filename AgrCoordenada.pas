@@ -12,9 +12,9 @@ uses
 type
   TFrmAgregar = class(TFrame)
     LayAgrPrinc: TLayout;
-    Layout2: TLayout;
+    LaySelGPS: TLayout;
     Layout3: TLayout;
-    Layout4: TLayout;
+    LayGuardarEnBD: TLayout;
     ToolBar1: TToolBar;
     SBVolver: TSpeedButton;
     Label1: TLabel;
@@ -31,7 +31,7 @@ type
     SwGuardarBD: TSwitch;
     Rectangle2: TRectangle;
     Label6: TLabel;
-    Layout8: TLayout;
+    LayTipoCoord: TLayout;
     LGeoUTM: TLabel;
     Layout11: TLayout;
     SwGeoUTM: TSwitch;

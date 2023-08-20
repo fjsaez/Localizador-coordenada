@@ -2584,7 +2584,7 @@ object FPrinc: TFPrinc
     Visible = False
     inherited LayAgrPrinc: TLayout
       Size.Height = 525.000000000000000000
-      inherited Layout2: TLayout
+      inherited LaySelGPS: TLayout
         Position.Y = 313.000000000000000000
         inherited Layout3: TLayout
           inherited Rectangle1: TRectangle

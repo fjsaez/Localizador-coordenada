@@ -9,7 +9,7 @@ object FrmAgregar: TFrmAgregar
     Size.PlatformDefault = False
     TabOrder = 0
     TabStop = False
-    object Layout2: TLayout
+    object LaySelGPS: TLayout
       Align = Top
       Position.Y = 90.000000000000000000
       Size.Width = 432.000000000000000000
@@ -54,7 +54,7 @@ object FrmAgregar: TFrmAgregar
         TabOrder = 0
       end
     end
-    object Layout4: TLayout
+    object LayGuardarEnBD: TLayout
       Align = Top
       Position.Y = 356.000000000000000000
       Size.Width = 432.000000000000000000
@@ -375,7 +375,7 @@ object FrmAgregar: TFrmAgregar
         TabOrder = 7
       end
     end
-    object Layout8: TLayout
+    object LayTipoCoord: TLayout
       Align = Top
       Position.Y = 40.000000000000000000
       Size.Width = 432.000000000000000000
