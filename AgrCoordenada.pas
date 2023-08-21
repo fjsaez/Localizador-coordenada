@@ -110,9 +110,7 @@ begin
   Coords.Lon:=Psc.Lon;
   Coords.LatGMS:=DecAGrados(Psc.Lat,true);
   Coords.LonGMS:=DecAGrados(Psc.Lon,false);
-  Coords.LatLon:=Format('%2.6f',[Psc.Lon])+', '+Format('%2.6f',[Psc.Lat]);
   Coords.Descripcion:=EDescr.Text.Trim;
-  Coords.Fecha:=Now;
   //if SwGuardarBD.IsChecked then
     //código para guardar en bd
 end;

@@ -138,7 +138,7 @@ object FrmAgregar: TFrmAgregar
         Size.Width = 136.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
+        TabOrder = 1
         TabStop = False
         object Rectangle2: TRectangle
           Align = Right
@@ -170,7 +170,7 @@ object FrmAgregar: TFrmAgregar
         Size.Width = 296.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 1
+        TabOrder = 0
         TabStop = False
         object LayLongitud: TLayout
           Align = Top
