@@ -60,13 +60,28 @@ type
     procedure SwGeoUTMSwitch(Sender: TObject);
   private
     { Private declarations }
+    procedure CargarRegCoordenada(Psc: TPosicion);
   public
     { Public declarations }
   end;
 
 implementation
 
+uses DataMod;
+
 {$R *.fmx}
+
+procedure TFrmAgregar.CargarRegCoordenada(Psc: TPosicion);
+begin
+  Coords.EsteUTM:=Psc.XDest;
+  Coords.NorteUTM:=Psc.YDest;
+  Coords.Huso:=Psc.Huso;
+  Coords.Lat:=Psc.Lat;
+  Coords.Lon:=Psc.Lon;
+  Coords.LatGMS:=DecAGrados(Psc.Lat,true);
+  Coords.LonGMS:=DecAGrados(Psc.Lon,false);
+  Coords.Descripcion:=EDescr.Text.Trim;
+end;
 
 procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
@@ -102,17 +117,23 @@ begin
   Sistema.X:=Psc.XDest;
   Sistema.Y:=Psc.YDest;
   GuardarINI(Trunc(Sistema.X),Trunc(Sistema.Y),EDescr.Text.Trim);
-  //el registro a guardar en la BD:
-  Coords.EsteUTM:=Psc.XDest;
-  Coords.NorteUTM:=Psc.YDest;
-  Coords.Huso:=Psc.Huso;
-  Coords.Lat:=Psc.Lat;
-  Coords.Lon:=Psc.Lon;
-  Coords.LatGMS:=DecAGrados(Psc.Lat,true);
-  Coords.LonGMS:=DecAGrados(Psc.Lon,false);
-  Coords.Descripcion:=EDescr.Text.Trim;
-  //if SwGuardarBD.IsChecked then
-    //código para guardar en bd
+  CargarRegCoordenada(Psc); //el registro a guardar en la BD
+  if SwGuardarBD.IsChecked then
+  begin
+    DMod.Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Huso,Lat,'+
+      'Lon,LatGMS,LonGMS,Descripcion) values (:est,:nrt,:hus,:lat,:lon,:ltg,'+
+      ':lng,:dsc)';
+    DMod.Query.ParamByName('est').AsFloat:=Coords.EsteUTM;
+    DMod.Query.ParamByName('nrt').AsFloat:=Coords.NorteUTM;
+    DMod.Query.ParamByName('hus').AsByte:=Coords.Huso;
+    DMod.Query.ParamByName('lat').AsFloat:=Coords.Lat;
+    DMod.Query.ParamByName('lon').AsFloat:=Coords.Lon;
+    DMod.Query.ParamByName('ltg').AsString:=Coords.LatGMS;
+    DMod.Query.ParamByName('lng').AsString:=Coords.LonGMS;
+    DMod.Query.ParamByName('dsc').AsString:=Coords.Descripcion;
+    DMod.Query.ExecSQL;
+    ShowMessage('Coordenada guardada');
+  end;
 end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
