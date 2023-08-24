@@ -15,7 +15,7 @@ type
     LaySelGPS: TLayout;
     Layout3: TLayout;
     LayGuardarEnBD: TLayout;
-    ToolBar1: TToolBar;
+    ToolBarAgregar: TToolBar;
     SBVolver: TSpeedButton;
     Label1: TLabel;
     LayGCoords: TLayout;
@@ -89,15 +89,15 @@ begin
   DMod.Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Huso,Lat,'+
       'Lon,LatGMS,LonGMS,Descripcion) values (:est,:nrt,:hus,:lat,:lon,:ltg,'+
       ':lng,:dsc)';
-    DMod.Query.ParamByName('est').AsFloat:=Coords.EsteUTM;
-    DMod.Query.ParamByName('nrt').AsFloat:=Coords.NorteUTM;
-    DMod.Query.ParamByName('hus').AsByte:=Coords.Huso;
-    DMod.Query.ParamByName('lat').AsFloat:=Coords.Lat;
-    DMod.Query.ParamByName('lon').AsFloat:=Coords.Lon;
-    DMod.Query.ParamByName('ltg').AsString:=Coords.LatGMS;
-    DMod.Query.ParamByName('lng').AsString:=Coords.LonGMS;
-    DMod.Query.ParamByName('dsc').AsString:=Coords.Descripcion;
-    DMod.Query.ExecSQL;
+  DMod.Query.ParamByName('est').AsFloat:=Coords.EsteUTM;
+  DMod.Query.ParamByName('nrt').AsFloat:=Coords.NorteUTM;
+  DMod.Query.ParamByName('hus').AsByte:=Coords.Huso;
+  DMod.Query.ParamByName('lat').AsFloat:=Coords.Lat;
+  DMod.Query.ParamByName('lon').AsFloat:=Coords.Lon;
+  DMod.Query.ParamByName('ltg').AsString:=Coords.LatGMS;
+  DMod.Query.ParamByName('lng').AsString:=Coords.LonGMS;
+  DMod.Query.ParamByName('dsc').AsString:=Coords.Descripcion;
+  DMod.Query.ExecSQL;
 end;
 
 procedure TFrmAgregar.ELonEsteChange(Sender: TObject);

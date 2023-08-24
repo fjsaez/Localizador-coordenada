@@ -96,7 +96,7 @@ object FrmAgregar: TFrmAgregar
         end
       end
     end
-    object ToolBar1: TToolBar
+    object ToolBarAgregar: TToolBar
       Size.Width = 432.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
