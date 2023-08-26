@@ -5,7 +5,7 @@ interface
 uses
   {$IFDEF ANDROID}
   FMX.FontGlyphs.Android,
-  {$ENDIF}                          FMX.dialogs,
+  {$ENDIF}                          {FMX.dialogs,}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
   System.Permissions, System.Math, System.IniFiles, {System.Sensors,} UTM_WGS84;
@@ -168,6 +168,7 @@ begin
   Result:=((X>=-Rng) and (X<=Rng)) and ((Y>=-Rng) and (Y<=Rng));
 end;
 
+{Carga fuente tipográfica externa a un TLabel}
 procedure CargarFuente(Etq: TLabel);
 var
   Recursos: TResourceStream;
