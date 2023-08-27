@@ -2750,6 +2750,7 @@ object FPrinc: TFPrinc
     TabOrder = 1
     object LstBoxMenu: TListBox
       Align = Top
+      Position.Y = 50.000000000000000000
       Size.Width = 297.000000000000000000
       Size.Height = 241.000000000000000000
       Size.PlatformDefault = False
@@ -2793,6 +2794,25 @@ object FPrinc: TFPrinc
         TabOrder = 2
         Text = 'Salir'
         OnClick = LstBSalirClick
+      end
+    end
+    object Rectangle1: TRectangle
+      Align = Top
+      Fill.Color = claSkyblue
+      Size.Width = 297.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      object Label14: TLabel
+        Align = Client
+        StyledSettings = [Family, FontColor]
+        Size.Width = 297.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Men'#250
+        TabOrder = 0
       end
     end
   end

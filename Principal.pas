@@ -108,6 +108,8 @@ type
     Label5: TLabel;
     Layout25: TLayout;
     LZona: TLabel;
+    Rectangle1: TRectangle;
+    Label14: TLabel;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
