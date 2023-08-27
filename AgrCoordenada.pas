@@ -144,8 +144,16 @@ end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
 begin
-  ELonEste.Text:=Round(Posc.X).ToString;
-  ELatNorte.Text:=Round(Posc.Y).ToString;
+  if SwGeoUTM.IsChecked then
+  begin
+    ELonEste.Text:=FormatFloat('0.000000',Posc.Lon);
+    ELatNorte.Text:=FormatFloat('0.000000',Posc.Lat);
+  end
+  else
+  begin
+    ELonEste.Text:=FormatFloat('0.00',Posc.X);
+    ELatNorte.Text:=FormatFloat('0.00',Posc.Y);
+  end;
 end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);

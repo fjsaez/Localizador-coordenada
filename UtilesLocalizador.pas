@@ -5,10 +5,10 @@ interface
 uses
   {$IFDEF ANDROID}
   FMX.FontGlyphs.Android,
-  {$ENDIF}                          {FMX.dialogs,}
+  {$ENDIF}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
-  System.Permissions, System.Math, System.IniFiles, {System.Sensors,} UTM_WGS84;
+  System.Permissions, System.Math, System.IniFiles, UTM_WGS84;
 
 type
   TCoord = record
