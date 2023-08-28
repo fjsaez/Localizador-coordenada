@@ -144,6 +144,8 @@ end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
 begin
+  ELonEste.FilterChar:='0123456789.-';
+  ELatNorte.FilterChar:='0123456789.-';
   if SwGeoUTM.IsChecked then
   begin
     ELonEste.Text:=FormatFloat('0.000000',Posc.Lon);
