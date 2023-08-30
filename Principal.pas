@@ -247,10 +247,10 @@ begin
     Sistema.Descripcion:='';
     GuardarINI(Sistema);
   end;
-  LLonDest.Text:=Sistema.X.ToString;
-  LLatDest.Text:=Sistema.Y.ToString;
-  LEsteDest.Text:=Sistema.X.ToString;
-  LNorteDest.Text:=Sistema.Y.ToString;
+  LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);//.ToString;
+  LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);//.ToString;
+  LEsteDest.Text:=FormatFloat('0.00',Sistema.X);//.ToString;
+  LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);//.ToString;
   LDescr.Text:=Sistema.Descripcion;
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
