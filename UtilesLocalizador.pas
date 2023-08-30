@@ -29,7 +29,8 @@ type
 
   TSistema = record
     ArchivoINI,Descripcion: string;
-    X,Y: double;
+    Lat,Lon,X,Y: double;
+    Huso: byte;
   end;
 
 const
@@ -56,7 +57,8 @@ var
   procedure IniciarRegistro;
   procedure IniciarRegCoord;
   procedure CargarINI;
-  procedure GuardarINI(X,Y: integer; Descr: string);
+  //procedure GuardarINI(X,Y: integer; Descr: string);
+  procedure GuardarINI(Sist: TSistema);
 
 implementation
 
@@ -231,26 +233,38 @@ var
 begin
   try
     Ini:=TIniFile.Create(Sistema.ArchivoINI);
-    Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
-    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+    Sistema.Lon:=Ini.ReadString('Valor','Lon','').ToDouble;
+    Sistema.Lat:=Ini.ReadString('Valor','Lat','').ToDouble;
+    Sistema.X:=Ini.ReadString('Valor','Este','').ToDouble;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
+    Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
     Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
+    {Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');}
   finally
     Ini.Free;
   end;
 end;
 
-{Crea el archivo ini con los el valor del zoom}
-procedure GuardarINI(X,Y: integer; Descr: string);
+{Crea el archivo ini con los últimos valores}
+procedure GuardarINI(Sist: TSistema);
 var
   Ini: TIniFile;
 begin
   try
     Ini:=TIniFile.Create(Sistema.ArchivoIni);
-    Ini.WriteString('Valor','Este',X.ToString);
-    Ini.WriteString('Valor','Norte',Y.ToString);
-    Ini.WriteString('Valor','Descripcion',Descr);
-    Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
-    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
+    Ini.WriteString('Valor','Lon',Sist.Lon.ToString);
+    Ini.WriteString('Valor','Lat',Sist.Lat.ToString);
+    Ini.WriteString('Valor','Este',Sist.X.ToString);
+    Ini.WriteString('Valor','Norte',Sist.Y.ToString);
+    Ini.WriteString('Valor','Huso',Sist.Huso.ToString);
+    Ini.WriteString('Valor','Descripcion',Sist.Descripcion);
+    Sistema.Lon:=Ini.ReadString('Valor','Lon','').ToDouble;
+    Sistema.Lat:=Ini.ReadString('Valor','Lat','').ToDouble;
+    Sistema.X:=Ini.ReadString('Valor','Este','').ToDouble;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
+    Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
     Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
   finally
     Ini.Free;

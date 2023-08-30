@@ -131,9 +131,14 @@ begin
   Posc.YDest:=Psc.YDest;
   Posc.Huso:=Psc.Huso;
   //se guardan los datos en el archivo .ini:
+  Sistema.Lon:=Psc.Lon;
+  Sistema.Lat:=Psc.Lat;
   Sistema.X:=Psc.XDest;
   Sistema.Y:=Psc.YDest;
-  GuardarINI(Trunc(Sistema.X),Trunc(Sistema.Y),EDescr.Text.Trim);
+  Sistema.Huso:=Psc.Huso;
+  Sistema.Descripcion:=EDescr.Text.Trim;
+  //GuardarINI(Trunc(Sistema.X),Trunc(Sistema.Y),EDescr.Text.Trim);
+  GuardarINI(Sistema);
   CargarRegCoordenada(Psc); //el registro a guardar en la BD
   if SwGuardarBD.IsChecked then
   begin

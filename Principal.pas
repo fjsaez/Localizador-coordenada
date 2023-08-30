@@ -41,10 +41,8 @@ type
     Layout9: TLayout;
     Layout10: TLayout;
     Layout11: TLayout;
-    Label2: TLabel;
-    Label3: TLabel;
-    LLonLoc: TLabel;
-    LLatLoc: TLabel;
+    LLonDest: TLabel;
+    LEsteDest: TLabel;
     CrcFlecha: TCircle;
     LayIndicadores: TLayout;
     RectCoordAct: TRectangle;
@@ -110,6 +108,18 @@ type
     LZona: TLabel;
     Rectangle1: TRectangle;
     Label14: TLabel;
+    Layout26: TLayout;
+    Layout27: TLayout;
+    Layout28: TLayout;
+    LLatDest: TLabel;
+    Layout29: TLayout;
+    Layout30: TLayout;
+    Layout31: TLayout;
+    LNorteDest: TLabel;
+    Label15: TLabel;
+    Label17: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -227,9 +237,20 @@ begin
   //se crea/carga el archivo .ini:
   Sistema.ArchivoIni:=TPath.GetHomePath+'/LocCoord.ini';
   if FileExists(Sistema.ArchivoIni) then CargarINI
-                                    else GuardarINI(0,0,'');
-  LLonLoc.Text:=Sistema.X.ToString;
-  LLatLoc.Text:=Sistema.Y.ToString;
+  else
+  begin
+    Sistema.Lon:=0.0;
+    Sistema.Lat:=0.0;
+    Sistema.X:=0.0;
+    Sistema.Y:=0.0;
+    Sistema.Huso:=1;
+    Sistema.Descripcion:='';
+    GuardarINI(Sistema);
+  end;
+  LLonDest.Text:=Sistema.X.ToString;
+  LLatDest.Text:=Sistema.Y.ToString;
+  LEsteDest.Text:=Sistema.X.ToString;
+  LNorteDest.Text:=Sistema.Y.ToString;
   LDescr.Text:=Sistema.Descripcion;
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
@@ -246,8 +267,8 @@ procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
   //coordenadas destino:
-  LLonLoc.Text:=FormatFloat('0.00',Posc.XDest);
-  LLatLoc.Text:=FormatFloat('0.00',Posc.YDest);
+  LLonDest.Text:=FormatFloat('0.00',Posc.XDest);
+  LLatDest.Text:=FormatFloat('0.00',Posc.YDest);
   LDescr.Text:=Coords.Descripcion;
   MostrarPrincipal;
 end;
@@ -348,3 +369,8 @@ begin
 end;
 
 end.
+
+{ TODO : Configuración
+- Distancia (metros)
+- Siempre pantalla activa
+}
