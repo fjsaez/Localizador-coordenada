@@ -239,9 +239,6 @@ begin
     Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
     Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
     Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
-    {Sistema.X:=Ini.ReadString('Valor','Este','').ToInteger;
-    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToInteger;
-    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');}
   finally
     Ini.Free;
   end;
