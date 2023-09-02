@@ -267,8 +267,10 @@ procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
   //coordenadas destino:
-  LLonDest.Text:=FormatFloat('0.00',Posc.XDest);
-  LLatDest.Text:=FormatFloat('0.00',Posc.YDest);
+  LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
+  LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);
+  LEsteDest.Text:=FormatFloat('0.00',Sistema.X);
+  LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
   LDescr.Text:=Coords.Descripcion;
   MostrarPrincipal;
 end;

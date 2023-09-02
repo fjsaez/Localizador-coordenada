@@ -121,12 +121,24 @@ var
   XDest,YDest: double;
   Psc: TPosicion;
   Huso: integer;
+
+  procedure MostrarResultado(Activo: boolean);
+  begin
+    if Activo then
+      ShowMessage('Este: '+FormatFloat('0.00',Psc.XDest)+#13#10+
+                  'Norte: '+FormatFloat('0.00',Psc.YDest))
+    else
+      ShowMessage('Lon: '+FormatFloat('0.000000',Psc.Lon)+#13#10+
+                  'Lat: '+FormatFloat('0.000000',Psc.Lat))
+  end;
+
 begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
   Huso:=Trunc(CTBHuso.Value);
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
                         else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
+  MostrarResultado(SwGeoUTM.IsChecked);
   Posc.XDest:=Psc.XDest;
   Posc.YDest:=Psc.YDest;
   Posc.Huso:=Psc.Huso;
@@ -137,7 +149,6 @@ begin
   Sistema.Y:=Psc.YDest;
   Sistema.Huso:=Psc.Huso;
   Sistema.Descripcion:=EDescr.Text.Trim;
-  //GuardarINI(Trunc(Sistema.X),Trunc(Sistema.Y),EDescr.Text.Trim);
   GuardarINI(Sistema);
   CargarRegCoordenada(Psc); //el registro a guardar en la BD
   if SwGuardarBD.IsChecked then
