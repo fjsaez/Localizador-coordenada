@@ -139,9 +139,10 @@ begin
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
                         else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
   MostrarResultado(SwGeoUTM.IsChecked);
-  Posc.XDest:=Psc.XDest;
+  {Posc.XDest:=Psc.XDest;
   Posc.YDest:=Psc.YDest;
-  Posc.Huso:=Psc.Huso;
+  Posc.Huso:=Psc.Huso;}
+  Posc:=Psc;
   //se guardan los datos en el archivo .ini:
   Sistema.Lon:=Psc.Lon;
   Sistema.Lat:=Psc.Lat;
