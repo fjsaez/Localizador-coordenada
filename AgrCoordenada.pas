@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Memo.Types, FMX.ScrollBox,
   FMX.Memo, FMX.Objects, FMX.Edit, UtilesLocalizador, UTM_WGS84, FMX.EditBox,
-  FMX.NumberBox, FMX.ComboTrackBar;
+  FMX.NumberBox, FMX.ComboTrackBar, FireDAC.Stan.Param;
 
 type
   TFrmAgregar = class(TFrame)
