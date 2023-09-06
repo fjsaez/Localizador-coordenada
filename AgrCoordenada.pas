@@ -157,19 +157,23 @@ begin
 end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
+var
+  Filtro: string;
 begin
-  ELonEste.FilterChar:='0123456789.-';
-  ELatNorte.FilterChar:='0123456789.-';
   if SwGeoUTM.IsChecked then
   begin
     ELonEste.Text:=FormatFloat('0.000000',Posc.Lon);
     ELatNorte.Text:=FormatFloat('0.000000',Posc.Lat);
+    Filtro:='0123456789.-';
   end
   else
   begin
     ELonEste.Text:=FormatFloat('0.00',Posc.X);
     ELatNorte.Text:=FormatFloat('0.00',Posc.Y);
+    Filtro:='0123456789.';
   end;
+  ELonEste.FilterChar:=Filtro;
+  ELatNorte.FilterChar:=Filtro;
 end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
