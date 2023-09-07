@@ -16,6 +16,7 @@ type
     FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
     Query: TFDQuery;
     QrLista: TFDQuery;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,5 +31,11 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDMod.DataModuleCreate(Sender: TObject);
+begin
+  FDConn.Params.Values['Database']:='$(DOC)/DBLocalizador.db';
+  FDConn.Connected:=true;
+end;
 
 end.

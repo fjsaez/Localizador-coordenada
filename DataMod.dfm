@@ -1,4 +1,5 @@
 object DMod: TDMod
+  OnCreate = DataModuleCreate
   Height = 306
   Width = 444
   object FDConn: TFDConnection

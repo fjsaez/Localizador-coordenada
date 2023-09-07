@@ -31,7 +31,7 @@ type
     LayBottom: TLayout;
     RectUbicActual: TRectangle;
     RectCentral: TRectangle;
-    Rectangle3: TRectangle;
+    RectDestino: TRectangle;
     Layout4: TLayout;
     Layout5: TLayout;
     Label1: TLabel;
@@ -152,6 +152,8 @@ var
 
 implementation
 
+uses DataMod;
+
 {$R *.fmx}
 
 procedure TFPrinc.MostrarFrame(Frame: TFrame);
@@ -211,6 +213,7 @@ end;
 
 procedure TFPrinc.LstBSalirClick(Sender: TObject);
 begin
+  DMod.FDConn.Connected:=false;
   {$IF ANDROID}
     MainActivity.Finish
   {$ELSE}

@@ -59,6 +59,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Database\DBLocalizador.db" Condition="'$(Config)'=='Release'">
+            <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
+            <RemoteName>DBLocalizador.db</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Imagen\flc_noniv_crc.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
             <RemoteName>flc_noniv_crc.png</RemoteName>
