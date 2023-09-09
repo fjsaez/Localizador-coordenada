@@ -35,6 +35,9 @@ type
     ColGeoDec: TStringColumn;
     ColUTM: TStringColumn;
     MmDescr: TMemo;
+    Layout1: TLayout;
+    ToolBar2: TToolBar;
+    LTotPtos: TLabel;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -42,7 +45,7 @@ type
     procedure MmDescrChange(Sender: TObject);
   private
     { Private declarations }
-    procedure Guardar;
+    //procedure Guardar;
   public
     { Public declarations }
     procedure CargarLista;
@@ -62,29 +65,32 @@ var
   Ind: word;
 begin
   SGrid.BeginUpdate;
-  DMod.QrLista.Open;
-  DMod.QrLista.Refresh;
-  //LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
-  DMod.QrLista.First;
-  Ind:=0;
-  SGrid.RowCount:=0;
-  while not DMod.QrLista.Eof do
+  with DMod do
   begin
-    SGrid.RowCount:=SGrid.RowCount+1;
-    SGrid.Cells[0,Ind]:=DMod.QrLista.FieldByName('Descripcion').AsString;
-    SGrid.Cells[1,Ind]:=DMod.QrLista.FieldByName('IDCoord').AsString;
-    SGrid.Cells[2,Ind]:=DMod.QrLista.FieldByName('LonGMS').AsString+', '+
-                        DMod.QrLista.FieldByName('LatGMS').AsString;
-    SGrid.Cells[3,Ind]:=DMod.QrLista.FieldByName('LatLon').AsString;
-    SGrid.Cells[4,Ind]:=FormatFloat('#0.00',DMod.QrLista.FieldByName('EsteUTM').AsFloat)+
-              ', '+FormatFloat('#0.00',DMod.QrLista.FieldByName('NorteUTM').AsFloat);
-    Inc(Ind);
-    DMod.QrLista.Next;
+    QrLista.Open;
+    QrLista.Refresh;
+    LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
+    QrLista.First;
+    Ind:=0;
+    SGrid.RowCount:=0;
+    while not QrLista.Eof do
+    begin
+      SGrid.RowCount:=SGrid.RowCount+1;
+      SGrid.Cells[0,Ind]:=QrLista.FieldByName('Descripcion').AsString;
+      SGrid.Cells[1,Ind]:=QrLista.FieldByName('IDCoord').AsString;
+      SGrid.Cells[2,Ind]:=QrLista.FieldByName('LonGMS').AsString+', '+
+                          QrLista.FieldByName('LatGMS').AsString;
+      SGrid.Cells[3,Ind]:=QrLista.FieldByName('LatLon').AsString;
+      SGrid.Cells[4,Ind]:=FormatFloat('#0.00',QrLista.FieldByName('EsteUTM').AsFloat)+
+                ', '+FormatFloat('#0.00',QrLista.FieldByName('NorteUTM').AsFloat);
+      Inc(Ind);
+      QrLista.Next;
+    end;
   end;
   SGrid.EndUpdate;
 end;
 
-procedure TFrmSeleccionar.Guardar;
+{procedure TFrmSeleccionar.Guardar;
 begin
   Coords.Descripcion:=Trim(MmDescr.Text);
   Coords.Fecha:=Now;
@@ -102,7 +108,7 @@ begin
   DMod.QrLista.Close;
   ShowMessage('Coordenada agregada');
   SBVolver.OnClick(Self);
-end;
+end; }
 
 procedure TFrmSeleccionar.LctSensorLocationChanged(Sender: TObject;
   const OldLocation, NewLocation: TLocationCoord2D);

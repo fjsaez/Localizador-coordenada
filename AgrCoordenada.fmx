@@ -19,8 +19,8 @@ object FrmAgregar: TFrmAgregar
       TabStop = False
       object Layout3: TLayout
         Align = Right
-        Position.X = 296.000000000000000000
-        Size.Width = 136.000000000000000000
+        Position.X = 322.000000000000000000
+        Size.Width = 110.000000000000000000
         Size.Height = 51.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -46,7 +46,7 @@ object FrmAgregar: TFrmAgregar
         Align = Client
         StyledSettings = [Family, Size, FontColor]
         Margins.Left = 10.000000000000000000
-        Size.Width = 286.000000000000000000
+        Size.Width = 312.000000000000000000
         Size.Height = 51.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -76,8 +76,8 @@ object FrmAgregar: TFrmAgregar
       end
       object Layout10: TLayout
         Align = Right
-        Position.X = 296.000000000000000000
-        Size.Width = 136.000000000000000000
+        Position.X = 322.000000000000000000
+        Size.Width = 110.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
@@ -134,29 +134,27 @@ object FrmAgregar: TFrmAgregar
       TabOrder = 0
       object LayGuardar: TLayout
         Align = Right
-        Position.X = 296.000000000000000000
-        Size.Width = 136.000000000000000000
+        Position.X = 322.000000000000000000
+        Size.Width = 110.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         TabStop = False
         object Rectangle2: TRectangle
-          Align = Right
+          Align = Center
           Margins.Left = 10.000000000000000000
           Margins.Top = 10.000000000000000000
           Margins.Right = 10.000000000000000000
           Margins.Bottom = 10.000000000000000000
-          Position.X = 66.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 60.000000000000000000
-          Size.Height = 130.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           XRadius = 10.000000000000000000
           YRadius = 10.000000000000000000
           object SBGuardar: TSpeedButton
-            Align = Client
-            Size.Width = 60.000000000000000000
-            Size.Height = 72.000000000000000000
+            Align = Center
+            Size.Width = 55.000000000000000000
+            Size.Height = 55.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'addtoolbuttonbordered'
             Text = 'addtoolbuttonbordered'
@@ -166,22 +164,22 @@ object FrmAgregar: TFrmAgregar
         end
       end
       object LayCoords: TLayout
-        Position.X = 8.000000000000000000
-        Size.Width = 296.000000000000000000
+        Align = Client
+        Size.Width = 322.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         TabStop = False
         object LayLongitud: TLayout
           Align = Top
-          Size.Width = 296.000000000000000000
+          Size.Width = 322.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           TabStop = False
           object Layout1: TLayout
             Align = Left
-            Size.Width = 121.000000000000000000
+            Size.Width = 110.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
@@ -190,7 +188,7 @@ object FrmAgregar: TFrmAgregar
               Align = Client
               StyledSettings = [Family, Size, FontColor]
               Margins.Left = 10.000000000000000000
-              Size.Width = 111.000000000000000000
+              Size.Width = 100.000000000000000000
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -200,7 +198,7 @@ object FrmAgregar: TFrmAgregar
           end
           object Layout6: TLayout
             Align = Client
-            Size.Width = 175.000000000000000000
+            Size.Width = 212.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 5
@@ -216,9 +214,9 @@ object FrmAgregar: TFrmAgregar
               Text = '0'
               Margins.Left = 5.000000000000000000
               Margins.Top = 5.000000000000000000
-              Margins.Right = 15.000000000000000000
+              Margins.Right = 5.000000000000000000
               Margins.Bottom = 5.000000000000000000
-              Size.Width = 155.000000000000000000
+              Size.Width = 202.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
@@ -230,14 +228,14 @@ object FrmAgregar: TFrmAgregar
         object LayLatitud: TLayout
           Align = Top
           Position.Y = 50.000000000000000000
-          Size.Width = 296.000000000000000000
+          Size.Width = 322.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           TabStop = False
           object Layout7: TLayout
             Align = Left
-            Size.Width = 121.000000000000000000
+            Size.Width = 110.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 7
@@ -245,7 +243,7 @@ object FrmAgregar: TFrmAgregar
               Align = Client
               StyledSettings = [Family, Size, FontColor]
               Margins.Left = 10.000000000000000000
-              Size.Width = 111.000000000000000000
+              Size.Width = 100.000000000000000000
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -255,7 +253,7 @@ object FrmAgregar: TFrmAgregar
           end
           object Layout5: TLayout
             Align = Client
-            Size.Width = 175.000000000000000000
+            Size.Width = 212.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
@@ -271,9 +269,9 @@ object FrmAgregar: TFrmAgregar
               Text = '0'
               Margins.Left = 5.000000000000000000
               Margins.Top = 5.000000000000000000
-              Margins.Right = 15.000000000000000000
+              Margins.Right = 5.000000000000000000
               Margins.Bottom = 5.000000000000000000
-              Size.Width = 155.000000000000000000
+              Size.Width = 202.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
@@ -284,14 +282,14 @@ object FrmAgregar: TFrmAgregar
         end
         object LayHuso: TLayout
           Align = Client
-          Size.Width = 296.000000000000000000
+          Size.Width = 322.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           TabStop = False
           object Layout9: TLayout
             Align = Left
-            Size.Width = 121.000000000000000000
+            Size.Width = 110.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 7
@@ -299,7 +297,7 @@ object FrmAgregar: TFrmAgregar
               Align = Client
               StyledSettings = [Family, Size, FontColor]
               Margins.Left = 10.000000000000000000
-              Size.Width = 111.000000000000000000
+              Size.Width = 100.000000000000000000
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -309,7 +307,7 @@ object FrmAgregar: TFrmAgregar
           end
           object Layout12: TLayout
             Align = Client
-            Size.Width = 175.000000000000000000
+            Size.Width = 212.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
@@ -397,8 +395,8 @@ object FrmAgregar: TFrmAgregar
       end
       object Layout11: TLayout
         Align = Right
-        Position.X = 296.000000000000000000
-        Size.Width = 136.000000000000000000
+        Position.X = 322.000000000000000000
+        Size.Width = 110.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5

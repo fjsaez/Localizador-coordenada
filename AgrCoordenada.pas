@@ -103,7 +103,8 @@ end;
 procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
   SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
-      and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty;
+      and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty
+      //and not EDescr.Text.IsEmpty;
 end;
 
 procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);
@@ -162,18 +163,21 @@ var
 begin
   if SwGeoUTM.IsChecked then
   begin
+    Filtro:='0123456789.-';
+    ELonEste.FilterChar:=Filtro;
+    ELatNorte.FilterChar:=Filtro;
     ELonEste.Text:=FormatFloat('0.000000',Posc.Lon);
     ELatNorte.Text:=FormatFloat('0.000000',Posc.Lat);
-    Filtro:='0123456789.-';
   end
   else
   begin
+    Filtro:='0123456789.';
+    ELonEste.FilterChar:=Filtro;
+    ELatNorte.FilterChar:=Filtro;
     ELonEste.Text:=FormatFloat('0.00',Posc.X);
     ELatNorte.Text:=FormatFloat('0.00',Posc.Y);
-    Filtro:='0123456789.';
   end;
-  ELonEste.FilterChar:=Filtro;
-  ELatNorte.FilterChar:=Filtro;
+  CTBHuso.Value:=Posc.Huso;
 end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
@@ -183,6 +187,9 @@ end;
 
 procedure TFrmAgregar.SwGeoUTMSwitch(Sender: TObject);
 begin
+  ELonEste.Text:='0';
+  ELatNorte.Text:='0';
+  EDescr.Text:='';
   if SwGeoUTM.IsChecked then
   begin
     LGeoUTM.Text:='Coordenadas Geográficas:';
@@ -198,8 +205,8 @@ begin
     LGeoUTM.Text:='Coordenadas UTM:';
     LLon.Text:='Este:';
     LLat.Text:='Norte:';
-    ELonEste.FilterChar:='0123456789';
-    ELatNorte.FilterChar:='0123456789';
+    ELonEste.FilterChar:='0123456789.';
+    ELatNorte.FilterChar:='0123456789.';
     LayGCoords.Size.Height:=150;
     CTBHuso.Value:=Posc.Huso;
     LayHuso.Visible:=true;

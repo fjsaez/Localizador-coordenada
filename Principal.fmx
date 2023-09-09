@@ -14,6 +14,7 @@ object FPrinc: TFPrinc
     Size.Width = 432.000000000000000000
     Size.Height = 525.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 2
     object LayTop: TLayout
       Align = Top
@@ -2674,11 +2675,10 @@ object FPrinc: TFPrinc
     Size.Width = 432.000000000000000000
     Size.Height = 525.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     inherited LayAgrPrinc: TLayout
       Size.Height = 525.000000000000000000
       inherited LaySelGPS: TLayout
-        Position.Y = 313.000000000000000000
+        Position.Y = 98.000000000000000000
         inherited Layout3: TLayout
           inherited Rectangle1: TRectangle
             inherited SBSelGPS: TSpeedButton
@@ -2699,12 +2699,18 @@ object FPrinc: TFPrinc
         inherited Label5: TLabel
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
+        inherited Layout10: TLayout
+          inherited SwGuardarBD: TSwitch
+            Size.Width = 44.000000000000000000
+            Size.Height = 26.000000000000000000
+          end
+        end
       end
       inherited ToolBarAgregar: TToolBar
         Size.Height = 48.000000000000000000
         inherited SBVolver: TSpeedButton
           Size.Width = 48.000000000000000000
-          Size.Height = 38.000000000000000000
+          Size.Height = 48.000000000000000000
           OnClick = FrmAgregarSBVolverClick
         end
         inherited Label1: TLabel
@@ -2713,7 +2719,7 @@ object FPrinc: TFPrinc
         end
       end
       inherited LayGCoords: TLayout
-        Position.Y = 98.000000000000000000
+        Position.Y = 149.000000000000000000
         inherited LayCoords: TLayout
           inherited LayLongitud: TLayout
             inherited Layout1: TLayout
@@ -2735,11 +2741,17 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
+            inherited Layout12: TLayout
+              inherited CTBHuso: TComboTrackBar
+                Position.Y = 9.000000000000000000
+                Size.Height = 32.000000000000000000
+              end
+            end
           end
         end
       end
       inherited LayDescr: TLayout
-        Position.Y = 248.000000000000000000
+        Position.Y = 299.000000000000000000
         inherited Label6: TLabel
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
@@ -2748,6 +2760,12 @@ object FPrinc: TFPrinc
         Position.Y = 48.000000000000000000
         inherited LGeoUTM: TLabel
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited Layout11: TLayout
+          inherited SwGeoUTM: TSwitch
+            Size.Width = 44.000000000000000000
+            Size.Height = 26.000000000000000000
+          end
         end
       end
     end
@@ -2804,11 +2822,11 @@ object FPrinc: TFPrinc
           end
         end
         inherited RectGrid: TRectangle
-          Size.Height = 327.000000000000000000
+          Size.Height = 297.000000000000000000
           inherited SGrid: TStringGrid
-            Size.Height = 321.000000000000000000
+            Size.Height = 291.000000000000000000
             Viewport.Width = 426.000000000000000000
-            Viewport.Height = 321.000000000000000000
+            Viewport.Height = 291.000000000000000000
             inherited ColDescr: TStringColumn
               Size.Width = 291.000000000000000000
             end
@@ -2823,6 +2841,13 @@ object FPrinc: TFPrinc
             end
             inherited ColUTM: TStringColumn
               Size.Width = 40.000000000000000000
+            end
+          end
+        end
+        inherited Layout1: TLayout
+          inherited ToolBar2: TToolBar
+            inherited LTotPtos: TLabel
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
           end
         end
