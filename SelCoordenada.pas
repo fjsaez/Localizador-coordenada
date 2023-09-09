@@ -45,6 +45,7 @@ type
     procedure Guardar;
   public
     { Public declarations }
+    procedure CargarLista;
   end;
 var
   UTM: TRecUTM;
@@ -55,6 +56,33 @@ implementation
 uses DataMod;
 
 {$R *.fmx}
+
+procedure TFrmSeleccionar.CargarLista;
+var
+  Ind: word;
+begin
+  SGrid.BeginUpdate;
+  DMod.QrLista.Open;
+  DMod.QrLista.Refresh;
+  //LTotPtos.Text:='Total puntos: '+QrLista.RecordCount.ToString;
+  DMod.QrLista.First;
+  Ind:=0;
+  SGrid.RowCount:=0;
+  while not DMod.QrLista.Eof do
+  begin
+    SGrid.RowCount:=SGrid.RowCount+1;
+    SGrid.Cells[0,Ind]:=DMod.QrLista.FieldByName('Descripcion').AsString;
+    SGrid.Cells[1,Ind]:=DMod.QrLista.FieldByName('IDCoord').AsString;
+    SGrid.Cells[2,Ind]:=DMod.QrLista.FieldByName('LonGMS').AsString+', '+
+                        DMod.QrLista.FieldByName('LatGMS').AsString;
+    SGrid.Cells[3,Ind]:=DMod.QrLista.FieldByName('LatLon').AsString;
+    SGrid.Cells[4,Ind]:=FormatFloat('#0.00',DMod.QrLista.FieldByName('EsteUTM').AsFloat)+
+              ', '+FormatFloat('#0.00',DMod.QrLista.FieldByName('NorteUTM').AsFloat);
+    Inc(Ind);
+    DMod.QrLista.Next;
+  end;
+  SGrid.EndUpdate;
+end;
 
 procedure TFrmSeleccionar.Guardar;
 begin

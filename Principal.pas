@@ -196,6 +196,7 @@ end;
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
   MostrarFrame(FrmSeleccionar);
+  FrmSeleccionar.CargarLista;
   IniciarRegistro;
 end;
 

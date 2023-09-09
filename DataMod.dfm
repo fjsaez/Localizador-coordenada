@@ -6,6 +6,7 @@ object DMod: TDMod
     ConnectionName = 'Conex'
     Params.Strings = (
       'DriverID=SQLite')
+    Connected = True
     LoginPrompt = False
     Left = 40
     Top = 24
@@ -21,6 +22,8 @@ object DMod: TDMod
   end
   object QrLista: TFDQuery
     Connection = FDConn
+    SQL.Strings = (
+      'select * from Coordenadas order by Descripcion asc')
     Left = 144
     Top = 224
   end

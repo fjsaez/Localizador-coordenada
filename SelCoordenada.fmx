@@ -140,6 +140,7 @@ object FrmSeleccionar: TFrmSeleccionar
           ReadOnly = True
           OnChange = MmDescrChange
           Align = Client
+          CanFocus = False
           Margins.Left = 3.000000000000000000
           Margins.Top = 3.000000000000000000
           Margins.Right = 3.000000000000000000
