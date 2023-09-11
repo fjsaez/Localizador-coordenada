@@ -90,26 +90,6 @@ begin
   SGrid.EndUpdate;
 end;
 
-{procedure TFrmSeleccionar.Guardar;
-begin
-  Coords.Descripcion:=Trim(MmDescr.Text);
-  Coords.Fecha:=Now;
-  DMod.Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Lat,Lon,LatGMS,'+
-    'LonGMS,LatLon,Descripcion) values (:esu,:nou,:lat,:lon,:lag,:log,:lln,:dsc)';
-  DMod.Query.ParamByName('esu').AsSingle:=Coords.EsteUTM;
-  DMod.Query.ParamByName('nou').AsSingle:=Coords.NorteUTM;
-  DMod.Query.ParamByName('lat').AsSingle:=Coords.Lat;
-  DMod.Query.ParamByName('lon').AsSingle:=Coords.Lon;
-  DMod.Query.ParamByName('lag').AsString:=Coords.LatGMS;
-  DMod.Query.ParamByName('log').AsString:=Coords.LonGMS;
-  DMod.Query.ParamByName('lln').AsString:=Coords.LatLon;
-  DMod.Query.ParamByName('dsc').AsString:=Coords.Descripcion;
-  DMod.Query.ExecSQL;
-  DMod.QrLista.Close;
-  ShowMessage('Coordenada agregada');
-  SBVolver.OnClick(Self);
-end; }
-
 procedure TFrmSeleccionar.LctSensorLocationChanged(Sender: TObject;
   const OldLocation, NewLocation: TLocationCoord2D);
 begin
