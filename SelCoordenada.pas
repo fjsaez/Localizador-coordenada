@@ -31,13 +31,20 @@ type
     SGrid: TStringGrid;
     ColDescr: TStringColumn;
     ColID: TIntegerColumn;
-    ColGeoSex: TStringColumn;
-    ColGeoDec: TStringColumn;
-    ColUTM: TStringColumn;
+    ColLon: TStringColumn;
+    ColLat: TStringColumn;
+    ColEste: TStringColumn;
     MmDescr: TMemo;
     Layout1: TLayout;
-    ToolBar2: TToolBar;
+    LayNorte: TLayout;
+    Label4: TLabel;
+    LNorte: TLabel;
+    LayEste: TLayout;
+    Label6: TLabel;
+    LEste: TLabel;
+    Panel1: TPanel;
     LTotPtos: TLabel;
+    ColNorte: TFloatColumn;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -64,6 +71,7 @@ procedure TFrmSeleccionar.CargarLista;
 var
   Ind: word;
 begin
+  ColDescr.Width:=SGrid.Width;
   SGrid.BeginUpdate;
   with DMod do
   begin
@@ -78,11 +86,10 @@ begin
       SGrid.RowCount:=SGrid.RowCount+1;
       SGrid.Cells[0,Ind]:=QrLista.FieldByName('Descripcion').AsString;
       SGrid.Cells[1,Ind]:=QrLista.FieldByName('IDCoord').AsString;
-      SGrid.Cells[2,Ind]:=QrLista.FieldByName('LonGMS').AsString+', '+
-                          QrLista.FieldByName('LatGMS').AsString;
-      SGrid.Cells[3,Ind]:=QrLista.FieldByName('LatLon').AsString;
-      SGrid.Cells[4,Ind]:=FormatFloat('#0.00',QrLista.FieldByName('EsteUTM').AsFloat)+
-                ', '+FormatFloat('#0.00',QrLista.FieldByName('NorteUTM').AsFloat);
+      SGrid.Cells[2,Ind]:=QrLista.FieldByName('Lon').AsString;
+      SGrid.Cells[3,Ind]:=QrLista.FieldByName('Lat').AsString;
+      SGrid.Cells[4,Ind]:=QrLista.FieldByName('EsteUTM').AsString;
+      SGrid.Cells[5,Ind]:=QrLista.FieldByName('NorteUTM').AsString;
       Inc(Ind);
       QrLista.Next;
     end;

@@ -70,7 +70,7 @@ object FrmSeleccionar: TFrmSeleccionar
         object LayLongitud: TLayout
           Align = Top
           Size.Width = 332.000000000000000000
-          Size.Height = 50.000000000000000000
+          Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object Label2: TLabel
@@ -78,8 +78,8 @@ object FrmSeleccionar: TFrmSeleccionar
             StyledSettings = [Family, Size, FontColor]
             Margins.Left = 10.000000000000000000
             Position.X = 10.000000000000000000
-            Size.Width = 120.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Width = 110.000000000000000000
+            Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'Longitud:'
@@ -87,25 +87,26 @@ object FrmSeleccionar: TFrmSeleccionar
           end
           object LLongitud: TLabel
             Align = Client
-            Size.Width = 202.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Width = 212.000000000000000000
+            Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
           end
         end
         object LayLatitud: TLayout
-          Align = Client
+          Align = Top
+          Position.Y = 25.000000000000000000
           Size.Width = 332.000000000000000000
-          Size.Height = 50.000000000000000000
+          Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 1
+          TabOrder = 3
           object Label3: TLabel
             Align = Left
             StyledSettings = [Family, Size, FontColor]
             Margins.Left = 10.000000000000000000
             Position.X = 10.000000000000000000
-            Size.Width = 120.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Width = 110.000000000000000000
+            Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'Latitud:'
@@ -113,8 +114,62 @@ object FrmSeleccionar: TFrmSeleccionar
           end
           object LLatitud: TLabel
             Align = Client
-            Size.Width = 202.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Width = 212.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+          end
+        end
+        object LayNorte: TLayout
+          Align = Top
+          Position.Y = 75.000000000000000000
+          Size.Width = 332.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object Label4: TLabel
+            Align = Left
+            StyledSettings = [Family, Size, FontColor]
+            Margins.Left = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Size.Width = 110.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Norte:'
+            TabOrder = 0
+          end
+          object LNorte: TLabel
+            Align = Client
+            Size.Width = 212.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+          end
+        end
+        object LayEste: TLayout
+          Align = Top
+          Position.Y = 50.000000000000000000
+          Size.Width = 332.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Label6: TLabel
+            Align = Left
+            StyledSettings = [Family, Size, FontColor]
+            Margins.Left = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Size.Width = 110.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Este:'
+            TabOrder = 0
+          end
+          object LEste: TLabel
+            Align = Client
+            Size.Width = 212.000000000000000000
+            Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
           end
@@ -181,24 +236,26 @@ object FrmSeleccionar: TFrmSeleccionar
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
-            Size.Width = 291.000000000000000000
+            Size.Width = 161.000000000000000000
           end
           object ColID: TIntegerColumn
             Header = 'IDCoord'
             Visible = False
-            Size.Width = 55.000000000000000000
+            Size.Width = 63.000000000000000000
           end
-          object ColGeoSex: TStringColumn
+          object ColLon: TStringColumn
             Visible = False
             Size.Width = 40.000000000000000000
           end
-          object ColGeoDec: TStringColumn
+          object ColLat: TStringColumn
             Visible = False
             Size.Width = 40.000000000000000000
           end
-          object ColUTM: TStringColumn
+          object ColEste: TStringColumn
             Visible = False
             Size.Width = 40.000000000000000000
+          end
+          object ColNorte: TFloatColumn
           end
         end
       end
@@ -209,7 +266,7 @@ object FrmSeleccionar: TFrmSeleccionar
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        object ToolBar2: TToolBar
+        object Panel1: TPanel
           Align = Client
           Size.Width = 432.000000000000000000
           Size.Height = 30.000000000000000000
