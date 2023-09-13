@@ -46,9 +46,9 @@ type
     LTotPtos: TLabel;
     ColNorte: TFloatColumn;
     procedure SBVolverClick(Sender: TObject);
-    procedure SBGuardarClick(Sender: TObject);
-    procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
-      NewLocation: TLocationCoord2D);
+    //procedure SBGuardarClick(Sender: TObject);
+    {procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
+      NewLocation: TLocationCoord2D); }
     procedure MmDescrChange(Sender: TObject);
   private
     { Private declarations }
@@ -97,43 +97,16 @@ begin
   SGrid.EndUpdate;
 end;
 
-procedure TFrmSeleccionar.LctSensorLocationChanged(Sender: TObject;
+{procedure TFrmSeleccionar.LctSensorLocationChanged(Sender: TObject;
   const OldLocation, NewLocation: TLocationCoord2D);
 begin
   LatLon.Lat:=NewLocation.Latitude;
   LatLon.Lon:=NewLocation.Longitude;
-end;
+end;}
 
 procedure TFrmSeleccionar.MmDescrChange(Sender: TObject);
 begin
   SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
-end;
-
-procedure TFrmSeleccionar.SBGuardarClick(Sender: TObject);
-var
-  PuntoLon,PuntoLat: string;
-begin
-  if LatLon.Lon>=0 then PuntoLon:=' N'
-                   else PuntoLon:=' S';
-  if LatLon.Lat>=0 then PuntoLon:=' E'
-                   else PuntoLon:=' O';
-  //se completa el registro a guardar:
-  LatLon_To_UTM(LatLon,UTM);
-  Coords.Lat:=LatLon.Lat;
-  Coords.Lon:=LatLon.Lon;
-  Coords.EsteUTM:=UTM.X;
-  Coords.NorteUTM:=UTM.Y;
-  Coords.LatGMS:=DecAGrados(Coords.Lat,true);
-  Coords.LonGMS:=DecAGrados(Coords.Lon,false);
-  Coords.LatLon:=FormatFloat('0.000000',LatLon.Lon)+PuntoLon+','+
-                 FormatFloat('0.000000',LatLon.Lat)+PuntoLat;
-  Coords.Descripcion:=MmDescr.Text.Trim;
-  Coords.Fecha:=Date;
-  //se guarda el registro en la BD:
-  DMod.Query.SQL.Text:='';
-  DMod.Query.ParamByName('');
-  DMod.Query.ExecSQL;
-  IniciarRegistro;  //se limpia el registro
 end;
 
 procedure TFrmSeleccionar.SBVolverClick(Sender: TObject);
