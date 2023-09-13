@@ -137,6 +137,7 @@ begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
   Huso:=Trunc(CTBHuso.Value);
+  showmessage(Huso.ToString);
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
                         else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
   MostrarResultado(SwGeoUTM.IsChecked);

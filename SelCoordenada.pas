@@ -97,13 +97,6 @@ begin
   SGrid.EndUpdate;
 end;
 
-{procedure TFrmSeleccionar.LctSensorLocationChanged(Sender: TObject;
-  const OldLocation, NewLocation: TLocationCoord2D);
-begin
-  LatLon.Lat:=NewLocation.Latitude;
-  LatLon.Lon:=NewLocation.Longitude;
-end;}
-
 procedure TFrmSeleccionar.MmDescrChange(Sender: TObject);
 begin
   SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
