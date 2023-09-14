@@ -46,13 +46,9 @@ type
     LTotPtos: TLabel;
     ColNorte: TFloatColumn;
     procedure SBVolverClick(Sender: TObject);
-    //procedure SBGuardarClick(Sender: TObject);
-    {procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
-      NewLocation: TLocationCoord2D); }
     procedure MmDescrChange(Sender: TObject);
   private
     { Private declarations }
-    //procedure Guardar;
   public
     { Public declarations }
     procedure CargarLista;
