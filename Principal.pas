@@ -195,6 +195,7 @@ end;
 
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
+  FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   MostrarFrame(FrmSeleccionar);
   FrmSeleccionar.CargarLista;
   IniciarRegistro;
