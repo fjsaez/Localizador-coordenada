@@ -108,15 +108,15 @@ end;
 procedure TFrmSeleccionar.SGridCellClick(const Column: TColumn;
   const Row: Integer);
 begin
-  LLongitud.Text:=SGrid.Cells[2,Row];
-  LLatitud.Text:=SGrid.Cells[3,Row];;
   MmDescr.Text:=SGrid.Cells[0,Row];
+  IDCoord:=SGrid.Cells[1,Row].ToInteger;
+  LLongitud.Text:=SGrid.Cells[2,Row];
+  LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
-  IDCoord:=SGrid.Cells[1,Row].ToInteger;
   //SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   SBGuardar.StyleLookup:='trashtoolbuttonbordered';
-  SBGuardar.Text:='Quitar';
+  //SBGuardar.Text:='Quitar';
 end;
 
 end.
