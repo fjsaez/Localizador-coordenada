@@ -283,6 +283,7 @@ end;
 procedure TFPrinc.FrmSeleccionarSBVolverClick(Sender: TObject);
 begin
   FrmSeleccionar.SBVolverClick(Sender);
+  FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   MostrarPrincipal;
 end;
 
