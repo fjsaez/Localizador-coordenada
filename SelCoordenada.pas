@@ -114,9 +114,7 @@ begin
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
-  //SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   SBGuardar.StyleLookup:='trashtoolbuttonbordered';
-  //SBGuardar.Text:='Quitar';
 end;
 
 end.
