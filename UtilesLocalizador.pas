@@ -57,7 +57,6 @@ var
   procedure IniciarRegistro;
   procedure IniciarRegCoord;
   procedure CargarINI;
-  //procedure GuardarINI(X,Y: integer; Descr: string);
   procedure GuardarINI(Sist: TSistema);
 
 implementation
