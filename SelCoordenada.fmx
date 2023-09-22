@@ -237,7 +237,7 @@ object FrmSeleccionar: TFrmSeleccionar
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
-            Size.Width = 161.000000000000000000
+            Size.Width = 115.000000000000000000
           end
           object ColID: TIntegerColumn
             Header = 'IDCoord'
@@ -261,6 +261,11 @@ object FrmSeleccionar: TFrmSeleccionar
           end
           object ColNorte: TFloatColumn
             Header = 'Norte'
+            Size.Width = 58.000000000000000000
+          end
+          object ColHuso: TIntegerColumn
+            Header = 'Huso'
+            Size.Width = 118.000000000000000000
           end
         end
       end

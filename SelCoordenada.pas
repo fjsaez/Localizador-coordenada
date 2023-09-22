@@ -45,12 +45,14 @@ type
     Panel1: TPanel;
     LTotPtos: TLabel;
     ColNorte: TFloatColumn;
+    ColHuso: TIntegerColumn;
     procedure SBVolverClick(Sender: TObject);
     procedure MmDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
     procedure SBGuardarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure LimpiarComponentes;
   public
     { Public declarations }
     IDCoord: integer;
@@ -65,6 +67,16 @@ implementation
 uses DataMod;
 
 {$R *.fmx}
+
+procedure TFrmSeleccionar.LimpiarComponentes;
+begin
+  LLongitud.Text:='';
+  LLatitud.Text:='';
+  LEste.Text:='';
+  LNorte.Text:='';
+  MmDescr.Text:='';
+  SBGuardar.StyleLookup:='actiontoolbuttonbordered';
+end;
 
 procedure TFrmSeleccionar.CargarLista;
 var
@@ -85,10 +97,11 @@ begin
       SGrid.RowCount:=SGrid.RowCount+1;
       SGrid.Cells[0,Ind]:=QrLista.FieldByName('Descripcion').AsString;
       SGrid.Cells[1,Ind]:=QrLista.FieldByName('IDCoord').AsString;
-      SGrid.Cells[2,Ind]:=QrLista.FieldByName('Lon').AsString;
-      SGrid.Cells[3,Ind]:=QrLista.FieldByName('Lat').AsString;
-      SGrid.Cells[4,Ind]:=QrLista.FieldByName('EsteUTM').AsString;
-      SGrid.Cells[5,Ind]:=QrLista.FieldByName('NorteUTM').AsString;
+      SGrid.Cells[2,Ind]:=FormatFloat('0.000000',QrLista.FieldByName('Lon').AsSingle);
+      SGrid.Cells[3,Ind]:=FormatFloat('0.000000',QrLista.FieldByName('Lat').AsSingle);
+      SGrid.Cells[4,Ind]:=FormatFloat('0.00',QrLista.FieldByName('EsteUTM').AsSingle);
+      SGrid.Cells[5,Ind]:=FormatFloat('0.00',QrLista.FieldByName('NorteUTM').AsSingle);
+      SGrid.Cells[6,Ind]:=QrLista.FieldByName('Huso').AsString;
       Inc(Ind);
       QrLista.Next;
     end;
@@ -106,6 +119,8 @@ begin
   DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
   DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
   DMod.Query.ExecSQL;
+  CargarLista;
+  LimpiarComponentes;
   ShowMessage('La coordenada fue eliminada');
 end;
 
@@ -117,8 +132,15 @@ end;
 procedure TFrmSeleccionar.SGridCellClick(const Column: TColumn;
   const Row: Integer);
 begin
-  MmDescr.Text:=SGrid.Cells[0,Row];
+  Sistema.Descripcion:=SGrid.Cells[0,Row];
   IDCoord:=SGrid.Cells[1,Row].ToInteger;
+  Sistema.Lon:=SGrid.Cells[2,Row].ToDouble;
+  Sistema.Lat:=SGrid.Cells[3,Row].ToDouble;
+  Sistema.X:=SGrid.Cells[4,Row].ToDouble;
+  Sistema.Y:=SGrid.Cells[5,Row].ToDouble;
+  Sistema.Huso:=SGrid.Cells[6,Row].ToInteger;
+  //se cargan los componentes:
+  MmDescr.Text:=Sistema.Descripcion;
   LLongitud.Text:=SGrid.Cells[2,Row];
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];

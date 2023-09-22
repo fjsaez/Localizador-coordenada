@@ -74,8 +74,8 @@ uses DataMod;
 
 procedure TFrmAgregar.CargarRegCoordenada(Psc: TPosicion);
 begin
-  Coords.EsteUTM:=Psc.XDest;
-  Coords.NorteUTM:=Psc.YDest;
+  Coords.EsteUTM:=Psc.X;
+  Coords.NorteUTM:=Psc.Y;
   Coords.Huso:=Psc.Huso;
   Coords.Lat:=Psc.Lat;
   Coords.Lon:=Psc.Lon;
@@ -126,8 +126,8 @@ var
   procedure MostrarResultado(Activo: boolean);
   begin
     if Activo then
-      ShowMessage('Este: '+FormatFloat('0.00',Psc.XDest)+#13#10+
-                  'Norte: '+FormatFloat('0.00',Psc.YDest))
+      ShowMessage('Este: '+FormatFloat('0.00',Psc.X)+#13#10+
+                  'Norte: '+FormatFloat('0.00',Psc.Y))
     else
       ShowMessage('Lon: '+FormatFloat('0.000000',Psc.Lon)+#13#10+
                   'Lat: '+FormatFloat('0.000000',Psc.Lat))
@@ -137,7 +137,6 @@ begin
   XDest:=ELonEste.Text.ToDouble;
   YDest:=ELatNorte.Text.ToDouble;
   Huso:=Trunc(CTBHuso.Value);
-  showmessage(Huso.ToString);
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
                         else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
   MostrarResultado(SwGeoUTM.IsChecked);
@@ -145,8 +144,8 @@ begin
   //se guardan los datos en el archivo .ini:
   Sistema.Lon:=Psc.Lon;
   Sistema.Lat:=Psc.Lat;
-  Sistema.X:=Psc.XDest;
-  Sistema.Y:=Psc.YDest;
+  Sistema.X:=Psc.X;
+  Sistema.Y:=Psc.Y;
   Sistema.Huso:=Psc.Huso;
   Sistema.Descripcion:=EDescr.Text.Trim;
   GuardarINI(Sistema);
