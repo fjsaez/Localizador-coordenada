@@ -48,6 +48,7 @@ type
     procedure SBVolverClick(Sender: TObject);
     procedure MmDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
+    procedure SBGuardarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -98,6 +99,14 @@ end;
 procedure TFrmSeleccionar.MmDescrChange(Sender: TObject);
 begin
   SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
+end;
+
+procedure TFrmSeleccionar.SBGuardarClick(Sender: TObject);
+begin
+  DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
+  DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
+  DMod.Query.ExecSQL;
+  ShowMessage('La coordenada fue eliminada');
 end;
 
 procedure TFrmSeleccionar.SBVolverClick(Sender: TObject);

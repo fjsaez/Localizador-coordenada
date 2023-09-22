@@ -58,6 +58,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.PlatformDefault = False
           StyleLookup = 'actiontoolbuttonbordered'
           Text = 'addtoolbuttonbordered'
+          OnClick = SBGuardarClick
         end
       end
       object LayCoords: TLayout
