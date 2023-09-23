@@ -132,6 +132,8 @@ end;
 procedure TFrmSeleccionar.SGridCellClick(const Column: TColumn;
   const Row: Integer);
 begin
+  IniciarRegSistema;
+  //se carga el registro:
   Sistema.Descripcion:=SGrid.Cells[0,Row];
   IDCoord:=SGrid.Cells[1,Row].ToInteger;
   Sistema.Lon:=SGrid.Cells[2,Row].ToDouble;

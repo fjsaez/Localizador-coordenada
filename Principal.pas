@@ -143,6 +143,7 @@ type
     procedure RotarLetrasPolos(Grados: double);
     procedure MostrarFrame(Frame: TFrame);
     procedure MostrarPrincipal;
+    procedure CargarCoordsDestino;
   public
     { Public declarations }
   end;
@@ -177,6 +178,16 @@ begin
   CircS.RotationAngle:=-Grados;
   CircE.RotationAngle:=-Grados;
   CircO.RotationAngle:=-Grados;
+end;
+
+procedure TFPrinc.CargarCoordsDestino;
+begin
+  LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
+  LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);
+  LEsteDest.Text:=FormatFloat('0.00',Sistema.X);
+  LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
+  LDescr.Text:=Sistema.Descripcion;
+  MostrarPrincipal;
 end;
 
 /// El menú principal ///
@@ -252,11 +263,12 @@ begin
     Sistema.Descripcion:='';
     GuardarINI(Sistema);
   end;
-  LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
+  CargarCoordsDestino;
+  {LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
   LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);
   LEsteDest.Text:=FormatFloat('0.00',Sistema.X);
   LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
-  LDescr.Text:=Sistema.Descripcion;
+  LDescr.Text:=Sistema.Descripcion;}
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
   //cargar aquí el resto del registro Posc:
@@ -272,11 +284,12 @@ procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
   //coordenadas destino:
-  LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
+  CargarCoordsDestino;
+  {LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
   LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);
   LEsteDest.Text:=FormatFloat('0.00',Sistema.X);
   LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
-  LDescr.Text:=Coords.Descripcion;
+  LDescr.Text:=Coords.Descripcion;}
   MostrarPrincipal;
 end;
 
@@ -284,6 +297,12 @@ procedure TFPrinc.FrmSeleccionarSBVolverClick(Sender: TObject);
 begin
   FrmSeleccionar.SBVolverClick(Sender);
   FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
+  CargarCoordsDestino;
+  {LLonDest.Text:=
+  LLatDest.Text:=
+  LEsteDest.Text:=
+  LNorteDest.Text:=
+  LDescr.Text:=}
   MostrarPrincipal;
 end;
 
@@ -376,7 +395,7 @@ begin
   LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
 end;
 
-end.
+end.      //384
 
 { TODO : Configuración
 - Distancia (metros)

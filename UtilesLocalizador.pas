@@ -11,6 +11,7 @@ uses
   System.Permissions, System.Math, System.IniFiles, UTM_WGS84;
 
 type
+  //el registro a guardar en la BD:
   TCoord = record
     IDCoord: Cardinal;
     EsteUTM,NorteUTM,Lat,Lon: single;
@@ -18,7 +19,7 @@ type
     Huso: integer;
     Fecha: TDate;
   end;
-
+  //el registro de los cálculos:
   TPosicion = record
     Lat,Lon,        //coords geográficas
     X,Y,            //coords UTM
@@ -26,7 +27,7 @@ type
     Azimut,Distancia: double;
     Huso: integer;  //huso horario UTM (comprendido entre 1 y 60)
   end;
-
+  //el registro destino a cargar en la pantalla principal:
   TSistema = record
     ArchivoINI,Descripcion: string;
     Lat,Lon,X,Y: double;
@@ -56,6 +57,7 @@ var
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
   procedure IniciarRegistro;
   procedure IniciarRegCoord;
+  procedure IniciarRegSistema;
   procedure CargarINI;
   procedure GuardarINI(Sist: TSistema);
 
@@ -223,6 +225,16 @@ begin
   Posc.XDest:=0.0;
   Posc.Azimut:=0.0;
   Posc.Distancia:=0.0;
+end;
+
+procedure IniciarRegSistema;
+begin
+  Sistema.Descripcion:='';
+  Sistema.Lon:=0.0;
+  Sistema.Lat:=0.0;
+  Sistema.X:=0.0;
+  Sistema.Y:=0.0;
+  Sistema.Huso:=0;
 end;
 
 {Lee los valores guardados del respectivo archivo .ini}
