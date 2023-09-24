@@ -141,6 +141,8 @@ begin
   Sistema.X:=SGrid.Cells[4,Row].ToDouble;
   Sistema.Y:=SGrid.Cells[5,Row].ToDouble;
   Sistema.Huso:=SGrid.Cells[6,Row].ToInteger;
+  Posc.XDest:=Sistema.X;
+  Posc.YDest:=Sistema.Y;
   //se cargan los componentes:
   MmDescr.Text:=Sistema.Descripcion;
   LLongitud.Text:=SGrid.Cells[2,Row];

@@ -84,7 +84,7 @@ object FrmAgregar: TFrmAgregar
         TabStop = False
         object SwGuardarBD: TSwitch
           Align = Center
-          IsChecked = False
+          IsChecked = True
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000

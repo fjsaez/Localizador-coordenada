@@ -104,7 +104,7 @@ procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
   SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
       and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty
-      //and not EDescr.Text.IsEmpty;
+      //and EDescr.Text.IsEmpty;
 end;
 
 procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);
@@ -150,6 +150,8 @@ begin
   Sistema.Descripcion:=EDescr.Text.Trim;
   GuardarINI(Sistema);
   CargarRegCoordenada(Psc); //el registro a guardar en la BD
+  Posc.XDest:=Sistema.X;
+  Posc.YDest:=Sistema.Y;
   if SwGuardarBD.IsChecked then
   begin
     GuardarCoordenada;

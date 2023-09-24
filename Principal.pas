@@ -397,7 +397,16 @@ end;
 
 end.      //384
 
-{ TODO : Configuración
-- Distancia (metros)
+{ TODO :
+Configuración
+- Distancia mínima del destino (metros)
+- Magnitud (metros o kilómetros)
 - Siempre pantalla activa
+- Coords UTM/Geográficas (mód. Seleccionar coordenada)
+- Guardar en BD (mód. Seleccionar coordenada)
+
+Otras:
+- Validar que entren una sola vez los caracteres . y -
+- Hacer funcionar el TabOrder en módulo Seleccionar coordenada
+- Poner opción de compartir coordenada
 }
