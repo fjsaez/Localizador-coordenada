@@ -103,14 +103,8 @@ object FrmAgregar: TFrmAgregar
       TabOrder = 2
       object SBVolver: TSpeedButton
         Align = Left
-        Margins.Left = 5.000000000000000000
-        Margins.Top = 5.000000000000000000
-        Margins.Right = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.X = 5.000000000000000000
-        Position.Y = 5.000000000000000000
         Size.Width = 30.000000000000000000
-        Size.Height = 30.000000000000000000
+        Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
         OnClick = SBVolverClick
@@ -118,7 +112,7 @@ object FrmAgregar: TFrmAgregar
       object Label1: TLabel
         Align = Client
         Margins.Left = 10.000000000000000000
-        Size.Width = 382.000000000000000000
+        Size.Width = 392.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         Text = 'Agregar coordenada'

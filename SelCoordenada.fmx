@@ -15,14 +15,8 @@ object FrmSeleccionar: TFrmSeleccionar
       TabOrder = 0
       object SBVolver: TSpeedButton
         Align = Left
-        Margins.Left = 5.000000000000000000
-        Margins.Top = 5.000000000000000000
-        Margins.Right = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.X = 5.000000000000000000
-        Position.Y = 5.000000000000000000
         Size.Width = 30.000000000000000000
-        Size.Height = 30.000000000000000000
+        Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
         OnClick = SBVolverClick
@@ -30,7 +24,7 @@ object FrmSeleccionar: TFrmSeleccionar
       object Label1: TLabel
         Align = Client
         Margins.Left = 10.000000000000000000
-        Size.Width = 382.000000000000000000
+        Size.Width = 392.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         Text = 'Seleccionar coordenada'
@@ -204,8 +198,8 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Height = 44.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 422.000000000000000000
-          Viewport.Height = 40.000000000000000000
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 44.000000000000000000
         end
       end
       object RectGrid: TRectangle
@@ -234,8 +228,8 @@ object FrmSeleccionar: TFrmSeleccionar
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 422.000000000000000000
-          Viewport.Height = 322.000000000000000000
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 347.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
