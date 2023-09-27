@@ -58,6 +58,8 @@ type
     procedure ELonEsteEnter(Sender: TObject);
     procedure ELonEsteExit(Sender: TObject);
     procedure SwGeoUTMSwitch(Sender: TObject);
+    procedure ELonEsteKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     procedure CargarRegCoordenada(Psc: TPosicion);
@@ -115,6 +117,12 @@ end;
 procedure TFrmAgregar.ELonEsteExit(Sender: TObject);
 begin
   if TEdit(Sender).Text='' then TEdit(Sender).Text:='0';
+end;
+
+procedure TFrmAgregar.ELonEsteKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  //
 end;
 
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);

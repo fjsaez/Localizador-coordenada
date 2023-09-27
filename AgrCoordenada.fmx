@@ -142,10 +142,6 @@ object FrmAgregar: TFrmAgregar
         TabStop = False
         object Rectangle2: TRectangle
           Align = Center
-          Margins.Left = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
-          Margins.Right = 10.000000000000000000
-          Margins.Bottom = 10.000000000000000000
           Size.Width = 65.000000000000000000
           Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
@@ -220,6 +216,7 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
+              OnKeyDown = ELonEsteKeyDown
               OnEnter = ELonEsteEnter
               OnExit = ELonEsteExit
             end

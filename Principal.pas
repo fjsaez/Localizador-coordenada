@@ -7,12 +7,12 @@ uses
     FMX.Platform.Android,
   {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.ListView,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.MultiView,
-  FMX.ListBox, SelCoordenada, System.Sensors, System.Sensors.Components,
-  UtilesLocalizador, FMX.Objects, System.Math, UTM_WGS84, FMX.Effects,
-  System.IOUtils, Acerca, System.Actions, FMX.ActnList, AgrCoordenada;
+  FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts, FMX.ListBox,
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListView.Types, FMX.MultiView,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView, FMX.Types,
+  FMX.ActnList, FMX.Objects, FMX.Effects, System.Sensors.Components, System.Math,
+  System.Sensors, System.IOUtils, System.Actions, UTM_WGS84, UtilesLocalizador,
+  SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList;
 
 type
   TFPrinc = class(TForm)
@@ -21,7 +21,6 @@ type
     SBMenu: TSpeedButton;
     MultiView: TMultiView;
     LstBoxMenu: TListBox;
-    LstBuscar: TListBoxItem;
     LstBSeleccionar: TListBoxItem;
     LstBSalir: TListBoxItem;
     LstBAcerca: TListBoxItem;
@@ -120,6 +119,8 @@ type
     Label17: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    ImageList: TImageList;
+    LstBConfig: TListBoxItem;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -264,11 +265,6 @@ begin
     GuardarINI(Sistema);
   end;
   CargarCoordsDestino;
-  {LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
-  LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);
-  LEsteDest.Text:=FormatFloat('0.00',Sistema.X);
-  LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
-  LDescr.Text:=Sistema.Descripcion;}
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
   //cargar aquí el resto del registro Posc:
@@ -283,13 +279,7 @@ end;
 procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
-  //coordenadas destino:
   CargarCoordsDestino;
-  {LLonDest.Text:=FormatFloat('0.000000',Sistema.Lon);
-  LLatDest.Text:=FormatFloat('0.000000',Sistema.Lat);
-  LEsteDest.Text:=FormatFloat('0.00',Sistema.X);
-  LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
-  LDescr.Text:=Coords.Descripcion;}
   MostrarPrincipal;
 end;
 
@@ -298,11 +288,6 @@ begin
   FrmSeleccionar.SBVolverClick(Sender);
   FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   CargarCoordsDestino;
-  {LLonDest.Text:=
-  LLatDest.Text:=
-  LEsteDest.Text:=
-  LNorteDest.Text:=
-  LDescr.Text:=}
   MostrarPrincipal;
 end;
 
@@ -395,7 +380,7 @@ begin
   LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
 end;
 
-end.      //384
+end.      //384  383
 
 { TODO :
 Configuración
