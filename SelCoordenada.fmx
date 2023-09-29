@@ -52,14 +52,14 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object SBSeleccionar: TSpeedButton
+          object SBEliminar: TSpeedButton
             Align = Center
             Size.Width = 53.000000000000000000
             Size.Height = 42.000000000000000000
             Size.PlatformDefault = False
-            StyleLookup = 'actiontoolbuttonbordered'
+            StyleLookup = 'trashtoolbuttonbordered'
             Text = 'addtoolbuttonbordered'
-            OnClick = SBSeleccionarClick
+            OnClick = SBEliminarClick
           end
         end
         object Layout3: TLayout
@@ -212,7 +212,6 @@ object FrmSeleccionar: TFrmSeleccionar
           DataDetectorTypes = []
           MaxLength = 40
           ReadOnly = True
-          OnChange = MmDescrChange
           Align = Client
           CanFocus = False
           Margins.Left = 3.000000000000000000

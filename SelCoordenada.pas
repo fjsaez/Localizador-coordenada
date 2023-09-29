@@ -27,7 +27,7 @@ type
     Label3: TLabel;
     LLongitud: TLabel;
     LLatitud: TLabel;
-    SBSeleccionar: TSpeedButton;
+    SBEliminar: TSpeedButton;
     RectGrid: TRectangle;
     SGrid: TStringGrid;
     ColDescr: TStringColumn;
@@ -53,9 +53,8 @@ type
     ActionList: TActionList;
     ShowShareSheetAction1: TShowShareSheetAction;
     procedure SBVolverClick(Sender: TObject);
-    procedure MmDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
-    procedure SBSeleccionarClick(Sender: TObject);
+    procedure SBEliminarClick(Sender: TObject);
     procedure ShowShareSheetAction1BeforeExecute(Sender: TObject);
   private
     { Private declarations }
@@ -82,7 +81,6 @@ begin
   LEste.Text:='';
   LNorte.Text:='';
   MmDescr.Text:='';
-  //SBGuardar.StyleLookup:='actiontoolbuttonbordered';
 end;
 
 procedure TFrmSeleccionar.CargarLista;
@@ -116,12 +114,7 @@ begin
   SGrid.EndUpdate;
 end;
 
-procedure TFrmSeleccionar.MmDescrChange(Sender: TObject);
-begin
-  //SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
-end;
-
-procedure TFrmSeleccionar.SBSeleccionarClick(Sender: TObject);
+procedure TFrmSeleccionar.SBEliminarClick(Sender: TObject);
 begin
   DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
   DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
@@ -157,20 +150,21 @@ begin
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
-  //SBGuardar.StyleLookup:='trashtoolbuttonbordered';
 end;
 
 procedure TFrmSeleccionar.ShowShareSheetAction1BeforeExecute(Sender: TObject);
 var
   CoordGeo,CoordUTM,Descripcion: string;
 begin
-  CoordGeo:='Lon: '+FormatFloat('0.000000',Sistema.Lon)+'; Lat: '+
+  CoordGeo:='─ Lon: '+FormatFloat('0.000000',Sistema.Lon)+'; Lat: '+
     FormatFloat('0.000000',Sistema.Lat);
-  CoordUTM:='Este: '+FormatFloat('0.00',Sistema.X)+'; Norte: '+
+  CoordUTM:='─ Este: '+FormatFloat('0.00',Sistema.X)+'; Norte: '+
     FormatFloat('0.00',Sistema.Y)+'; Huso: '+Sistema.Huso.ToString;
-  Descripcion:=Sistema.Descripcion;
-  ShowShareSheetAction1.TextMessage:='Coordenadas geográficas: '+CoordGeo+
-    #13#10+'Coordenadas UTM: '+CoordUTM+#13#10+'Descripción: '+Descripcion;
+  Descripcion:='─ '+Sistema.Descripcion;
+  //se comparte el texto (WhatsApp, Bluetooth, etc, etc...)
+  ShowShareSheetAction1.TextMessage:='● Descripción:'+#13#10+Descripcion+
+    #13#10+'● Coordenadas geográficas:'+#13#10+CoordGeo+#13#10+
+    '● Coordenadas UTM:'+#13#10+CoordUTM+#13#10;
 end;
 
 end.

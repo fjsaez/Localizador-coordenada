@@ -207,7 +207,7 @@ end;
 
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
-  FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
+  //FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   MostrarFrame(FrmSeleccionar);
   FrmSeleccionar.CargarLista;
   IniciarRegistro;
@@ -286,7 +286,7 @@ end;
 procedure TFPrinc.FrmSeleccionarSBVolverClick(Sender: TObject);
 begin
   FrmSeleccionar.SBVolverClick(Sender);
-  FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
+  //FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   CargarCoordsDestino;
   MostrarPrincipal;
 end;
