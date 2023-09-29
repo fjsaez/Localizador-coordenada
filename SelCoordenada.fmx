@@ -38,21 +38,46 @@ object FrmSeleccionar: TFrmSeleccionar
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object LayGuardar: TLayout
+      object LaySeleccionar: TLayout
         Align = Right
         Position.X = 332.000000000000000000
         Size.Width = 100.000000000000000000
         Size.Height = 100.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        object SBGuardar: TSpeedButton
-          Align = Center
-          Size.Width = 60.000000000000000000
-          Size.Height = 60.000000000000000000
+        object Layout2: TLayout
+          Align = Bottom
+          Position.Y = 50.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          StyleLookup = 'actiontoolbuttonbordered'
-          Text = 'addtoolbuttonbordered'
-          OnClick = SBGuardarClick
+          TabOrder = 0
+          object SBSeleccionar: TSpeedButton
+            Align = Center
+            Size.Width = 53.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'actiontoolbuttonbordered'
+            Text = 'addtoolbuttonbordered'
+            OnClick = SBSeleccionarClick
+          end
+        end
+        object Layout3: TLayout
+          Align = Client
+          Size.Width = 100.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object SBCompartir: TSpeedButton
+            Action = ShowShareSheetAction1
+            Align = Center
+            Enabled = True
+            ImageIndex = -1
+            Size.Width = 53.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'actiontoolbuttonbordered'
+          end
         end
       end
       object LayCoords: TLayout
@@ -198,8 +223,8 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Height = 44.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 44.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 40.000000000000000000
         end
       end
       object RectGrid: TRectangle
@@ -228,8 +253,8 @@ object FrmSeleccionar: TFrmSeleccionar
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 347.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 322.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
@@ -291,6 +316,14 @@ object FrmSeleccionar: TFrmSeleccionar
           end
         end
       end
+    end
+  end
+  object ActionList: TActionList
+    Left = 217
+    Top = 358
+    object ShowShareSheetAction1: TShowShareSheetAction
+      Category = 'Media Library'
+      OnBeforeExecute = ShowShareSheetAction1BeforeExecute
     end
   end
 end

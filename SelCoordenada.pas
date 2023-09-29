@@ -6,8 +6,9 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Rtti, FMX.Grid.Style, FMX.Grid,
-  FMX.ScrollBox, FMX.Objects, System.Sensors, System.Sensors.Components,
-  UTM_WGS84, UtilesLocalizador, FMX.Memo.Types, FMX.Memo, FireDAC.Stan.Param;
+  FMX.ScrollBox, FMX.Objects, FMX.Memo, System.Sensors, System.Sensors.Components,
+  FMX.Memo.Types, FireDAC.Stan.Param, UTM_WGS84, UtilesLocalizador,
+  System.Actions, FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions;
 
 type
   TFrmSeleccionar = class(TFrame)
@@ -17,7 +18,7 @@ type
     LayGCoords: TLayout;
     LayLongitud: TLayout;
     LayLatitud: TLayout;
-    LayGuardar: TLayout;
+    LaySeleccionar: TLayout;
     LayCoords: TLayout;
     LayLista: TLayout;
     LayDescr: TLayout;
@@ -26,7 +27,7 @@ type
     Label3: TLabel;
     LLongitud: TLabel;
     LLatitud: TLabel;
-    SBGuardar: TSpeedButton;
+    SBSeleccionar: TSpeedButton;
     RectGrid: TRectangle;
     SGrid: TStringGrid;
     ColDescr: TStringColumn;
@@ -46,10 +47,16 @@ type
     LTotPtos: TLabel;
     ColNorte: TFloatColumn;
     ColHuso: TIntegerColumn;
+    Layout2: TLayout;
+    Layout3: TLayout;
+    SBCompartir: TSpeedButton;
+    ActionList: TActionList;
+    ShowShareSheetAction1: TShowShareSheetAction;
     procedure SBVolverClick(Sender: TObject);
     procedure MmDescrChange(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
-    procedure SBGuardarClick(Sender: TObject);
+    procedure SBSeleccionarClick(Sender: TObject);
+    procedure ShowShareSheetAction1BeforeExecute(Sender: TObject);
   private
     { Private declarations }
     procedure LimpiarComponentes;
@@ -75,7 +82,7 @@ begin
   LEste.Text:='';
   LNorte.Text:='';
   MmDescr.Text:='';
-  SBGuardar.StyleLookup:='actiontoolbuttonbordered';
+  //SBGuardar.StyleLookup:='actiontoolbuttonbordered';
 end;
 
 procedure TFrmSeleccionar.CargarLista;
@@ -111,10 +118,10 @@ end;
 
 procedure TFrmSeleccionar.MmDescrChange(Sender: TObject);
 begin
-  SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
+  //SBGuardar.Enabled:=MmDescr.Text.Trim<>'';
 end;
 
-procedure TFrmSeleccionar.SBGuardarClick(Sender: TObject);
+procedure TFrmSeleccionar.SBSeleccionarClick(Sender: TObject);
 begin
   DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
   DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
@@ -150,7 +157,20 @@ begin
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
-  SBGuardar.StyleLookup:='trashtoolbuttonbordered';
+  //SBGuardar.StyleLookup:='trashtoolbuttonbordered';
+end;
+
+procedure TFrmSeleccionar.ShowShareSheetAction1BeforeExecute(Sender: TObject);
+var
+  CoordGeo,CoordUTM,Descripcion: string;
+begin
+  CoordGeo:='Lon: '+FormatFloat('0.000000',Sistema.Lon)+'; Lat: '+
+    FormatFloat('0.000000',Sistema.Lat);
+  CoordUTM:='Este: '+FormatFloat('0.00',Sistema.X)+'; Norte: '+
+    FormatFloat('0.00',Sistema.Y)+'; Huso: '+Sistema.Huso.ToString;
+  Descripcion:=Sistema.Descripcion;
+  ShowShareSheetAction1.TextMessage:='Coordenadas geográficas: '+CoordGeo+
+    #13#10+'Coordenadas UTM: '+CoordUTM+#13#10+'Descripción: '+Descripcion;
 end;
 
 end.
