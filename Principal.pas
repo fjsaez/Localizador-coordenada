@@ -173,7 +173,8 @@ end;
 
 procedure TFPrinc.RotarLetrasPolos(Grados: double);
 begin
-  CircPrnc.RotationAngle:=Grados;  //el círculo donde están las letras de polos
+  //el círculo donde están las letras de polos
+  CircPrnc.RotationAngle:=Grados;
   //las letras giran en sentido contrario a la brújula:
   CircN.RotationAngle:=-Grados;
   CircS.RotationAngle:=-Grados;
@@ -207,7 +208,6 @@ end;
 
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
-  //FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   MostrarFrame(FrmSeleccionar);
   FrmSeleccionar.SBCompartir.Enabled:=false;
   FrmSeleccionar.SBEliminar.Enabled:=false;
@@ -258,12 +258,13 @@ begin
   if FileExists(Sistema.ArchivoIni) then CargarINI
   else
   begin
-    Sistema.Lon:=0.0;
+    {Sistema.Lon:=0.0;
     Sistema.Lat:=0.0;
     Sistema.X:=0.0;
     Sistema.Y:=0.0;
     Sistema.Huso:=1;
-    Sistema.Descripcion:='';
+    Sistema.Descripcion:='';}
+    IniciarRegSistema;
     GuardarINI(Sistema);
   end;
   CargarCoordsDestino;
@@ -395,5 +396,4 @@ Configuración
 Otras:
 - Validar que entren una sola vez los caracteres . y -
 - Hacer funcionar el TabOrder en módulo Seleccionar coordenada
-- Poner opción de compartir coordenada
 }

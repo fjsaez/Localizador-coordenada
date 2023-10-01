@@ -234,7 +234,7 @@ begin
   Sistema.Lat:=0.0;
   Sistema.X:=0.0;
   Sistema.Y:=0.0;
-  Sistema.Huso:=0;
+  Sistema.Huso:=1;
 end;
 
 {Lee los valores guardados del respectivo archivo .ini}
