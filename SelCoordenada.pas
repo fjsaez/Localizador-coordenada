@@ -7,8 +7,8 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Rtti, FMX.Grid.Style, FMX.Grid,
   FMX.ScrollBox, FMX.Objects, FMX.Memo, System.Sensors, System.Sensors.Components,
-  FMX.Memo.Types, FireDAC.Stan.Param, UTM_WGS84, UtilesLocalizador,
-  System.Actions, FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions;
+  FMX.Memo.Types, FireDAC.Stan.Param, System.Actions, FMX.ActnList, FMX.StdActns,
+  FMX.MediaLibrary.Actions, UTM_WGS84, UtilesLocalizador;
 
 type
   TFrmSeleccionar = class(TFrame)
@@ -150,6 +150,8 @@ begin
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
+  SBCompartir.Enabled:=SGrid.RowCount>0;
+  SBEliminar.Enabled:=SGrid.RowCount>0;
 end;
 
 procedure TFrmSeleccionar.ShowShareSheetAction1BeforeExecute(Sender: TObject);
@@ -162,6 +164,7 @@ begin
     FormatFloat('0.00',Sistema.Y)+'; Huso: '+Sistema.Huso.ToString;
   Descripcion:='─ '+Sistema.Descripcion;
   //se comparte el texto (WhatsApp, Bluetooth, etc, etc...)
+  ShowShareSheetAction1.Caption:='Compartir coordenada:';
   ShowShareSheetAction1.TextMessage:='● Descripción:'+#13#10+Descripcion+
     #13#10+'● Coordenadas geográficas:'+#13#10+CoordGeo+#13#10+
     '● Coordenadas UTM:'+#13#10+CoordUTM+#13#10;

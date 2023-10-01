@@ -209,6 +209,8 @@ procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
   //FrmSeleccionar.SBGuardar.StyleLookup:='actiontoolbuttonbordered';
   MostrarFrame(FrmSeleccionar);
+  FrmSeleccionar.SBCompartir.Enabled:=false;
+  FrmSeleccionar.SBEliminar.Enabled:=false;
   FrmSeleccionar.CargarLista;
   IniciarRegistro;
 end;
