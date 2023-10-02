@@ -209,8 +209,8 @@ end;
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
   MostrarFrame(FrmSeleccionar);
-  FrmSeleccionar.SBCompartir.Enabled:=false;
-  FrmSeleccionar.SBEliminar.Enabled:=false;
+  FrmSeleccionar.SBCompartir.Visible:=false;
+  FrmSeleccionar.SBEliminar.Visible:=false;
   FrmSeleccionar.CargarLista;
   IniciarRegistro;
 end;

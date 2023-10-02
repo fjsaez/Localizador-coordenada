@@ -59,6 +59,7 @@ object FrmSeleccionar: TFrmSeleccionar
             Size.PlatformDefault = False
             StyleLookup = 'trashtoolbuttonbordered'
             Text = 'addtoolbuttonbordered'
+            Visible = False
             OnClick = SBEliminarClick
           end
         end
@@ -77,6 +78,7 @@ object FrmSeleccionar: TFrmSeleccionar
             Size.Height = 42.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'actiontoolbuttonbordered'
+            Visible = False
           end
         end
       end
@@ -222,8 +224,8 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Height = 44.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 44.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 40.000000000000000000
         end
       end
       object RectGrid: TRectangle
@@ -252,8 +254,8 @@ object FrmSeleccionar: TFrmSeleccionar
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 347.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 322.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True

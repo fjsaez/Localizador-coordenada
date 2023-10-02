@@ -150,8 +150,8 @@ begin
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
-  SBCompartir.Enabled:=SGrid.RowCount>0;
-  SBEliminar.Enabled:=SGrid.RowCount>0;
+  SBCompartir.Visible:=SGrid.RowCount>0;
+  SBEliminar.Visible:=SGrid.RowCount>0;
 end;
 
 procedure TFrmSeleccionar.ShowShareSheetAction1BeforeExecute(Sender: TObject);
