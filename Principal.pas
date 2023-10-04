@@ -258,12 +258,6 @@ begin
   if FileExists(Sistema.ArchivoIni) then CargarINI
   else
   begin
-    {Sistema.Lon:=0.0;
-    Sistema.Lat:=0.0;
-    Sistema.X:=0.0;
-    Sistema.Y:=0.0;
-    Sistema.Huso:=1;
-    Sistema.Descripcion:='';}
     IniciarRegSistema;
     GuardarINI(Sistema);
   end;
