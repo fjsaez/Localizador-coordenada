@@ -161,10 +161,20 @@ begin
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
   if SwGuardarBD.IsChecked then
-  begin
-    GuardarCoordenada;
-    ShowMessage('Coordenada guardada');
-  end;
+    MessageDlg('¿Desea guardar esta coordenada?',System.UITypes.TMsgDlgType.mtInformation,
+    [System.UITypes.TMsgDlgBtn.mbYes,System.UITypes.TMsgDlgBtn.mbNo],0,
+    procedure(const AResult: System.UITypes.TModalResult)
+    begin
+      case AResult of
+        mrYES:
+          begin
+            GuardarCoordenada;
+            ShowMessage('La coordenada fue guardada exitosamente');
+          end;
+        mrNo:
+          ShowMessage('La coordenada no fue guardada');
+      end;
+    end);
 end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
@@ -224,3 +234,50 @@ begin
 end;
 
 end.
+
+{
+
+procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
+var
+  XDest,YDest: double;
+  Psc: TPosicion;
+  Huso: integer;
+
+  procedure MostrarResultado(Activo: boolean);
+  begin
+    if Activo then
+      ShowMessage('Este: '+FormatFloat('0.00',Psc.X)+#13#10+
+                  'Norte: '+FormatFloat('0.00',Psc.Y))
+    else
+      ShowMessage('Lon: '+FormatFloat('0.000000',Psc.Lon)+#13#10+
+                  'Lat: '+FormatFloat('0.000000',Psc.Lat))
+  end;
+
+begin
+
+  XDest:=ELonEste.Text.ToDouble;
+  YDest:=ELatNorte.Text.ToDouble;
+  Huso:=Trunc(CTBHuso.Value);
+  if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
+                        else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
+  MostrarResultado(SwGeoUTM.IsChecked);
+  Posc:=Psc;
+  //se guardan los datos en el archivo .ini:
+  Sistema.Lon:=Psc.Lon;
+  Sistema.Lat:=Psc.Lat;
+  Sistema.X:=Psc.X;
+  Sistema.Y:=Psc.Y;
+  Sistema.Huso:=Psc.Huso;
+  Sistema.Descripcion:=EDescr.Text.Trim;
+  GuardarINI(Sistema);
+  CargarRegCoordenada(Psc); //el registro a guardar en la BD
+  Posc.XDest:=Sistema.X;
+  Posc.YDest:=Sistema.Y;
+  if SwGuardarBD.IsChecked then
+  begin
+    GuardarCoordenada;
+    ShowMessage('Coordenada guardada');
+  end;
+end;
+
+}
