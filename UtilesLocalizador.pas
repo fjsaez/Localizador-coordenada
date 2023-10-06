@@ -87,6 +87,8 @@ begin
   UTM.Y:=Norte;
   UTM.Fuseau:=Huso;
   UTM_To_LatLon(UTM,LatLon);
+  Result.X:=UTM.X;
+  Result.Y:=UTM.Y;
   Result.XDest:=UTM.X;
   Result.YDest:=UTM.Y;
   Result.Huso:=UTM.Fuseau;
