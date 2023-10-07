@@ -116,12 +116,24 @@ end;
 
 procedure TFrmSeleccionar.SBEliminarClick(Sender: TObject);
 begin
-  DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
-  DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
-  DMod.Query.ExecSQL;
-  CargarLista;
-  LimpiarComponentes;
-  ShowMessage('La coordenada fue eliminada');
+  MessageDlg('¿Desea eliminar esta coordenada?',System.UITypes.TMsgDlgType.mtInformation,
+    [System.UITypes.TMsgDlgBtn.mbYes,System.UITypes.TMsgDlgBtn.mbNo],0,
+    procedure(const AResult: System.UITypes.TModalResult)
+    begin
+      case AResult of
+        mrYES:
+          begin
+            DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
+            DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
+            DMod.Query.ExecSQL;
+            CargarLista;
+            LimpiarComponentes;
+            ShowMessage('La coordenada fue eliminada');
+          end;
+        mrNo:
+          ShowMessage('La coordenada no fue eliminada');
+      end;
+    end);
 end;
 
 procedure TFrmSeleccionar.SBVolverClick(Sender: TObject);
