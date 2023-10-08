@@ -21,7 +21,6 @@ type
     LaySeleccionar: TLayout;
     LayCoords: TLayout;
     LayLista: TLayout;
-    LayDescr: TLayout;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -35,7 +34,6 @@ type
     ColLon: TStringColumn;
     ColLat: TStringColumn;
     ColEste: TStringColumn;
-    MmDescr: TMemo;
     Layout1: TLayout;
     LayNorte: TLayout;
     Label4: TLabel;
@@ -52,6 +50,11 @@ type
     SBCompartir: TSpeedButton;
     ActionList: TActionList;
     ShowShareSheetAction1: TShowShareSheetAction;
+    LayDescr: TLayout;
+    MmDescr: TMemo;
+    Layout4: TLayout;
+    Label5: TLabel;
+    LHuso: TLabel;
     procedure SBVolverClick(Sender: TObject);
     procedure SGridCellClick(const Column: TColumn; const Row: Integer);
     procedure SBEliminarClick(Sender: TObject);
@@ -162,6 +165,7 @@ begin
   LLatitud.Text:=SGrid.Cells[3,Row];
   LEste.Text:=SGrid.Cells[4,Row];
   LNorte.Text:=SGrid.Cells[5,Row];
+  LHuso.Text:=SGrid.Cells[6,Row];
   SBCompartir.Visible:=SGrid.RowCount>0;
   SBEliminar.Visible:=SGrid.RowCount>0;
 end;

@@ -1,4 +1,5 @@
 object FrmSeleccionar: TFrmSeleccionar
+  Align = Client
   Size.Width = 432.000000000000000000
   Size.Height = 573.000000000000000000
   Size.PlatformDefault = False
@@ -35,21 +36,21 @@ object FrmSeleccionar: TFrmSeleccionar
       Align = Top
       Position.Y = 40.000000000000000000
       Size.Width = 432.000000000000000000
-      Size.Height = 100.000000000000000000
+      Size.Height = 125.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object LaySeleccionar: TLayout
         Align = Right
         Position.X = 332.000000000000000000
         Size.Width = 100.000000000000000000
-        Size.Height = 100.000000000000000000
+        Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object Layout2: TLayout
           Align = Bottom
-          Position.Y = 50.000000000000000000
+          Position.Y = 62.500000000000000000
           Size.Width = 100.000000000000000000
-          Size.Height = 50.000000000000000000
+          Size.Height = 62.500000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object SBEliminar: TSpeedButton
@@ -66,7 +67,7 @@ object FrmSeleccionar: TFrmSeleccionar
         object Layout3: TLayout
           Align = Client
           Size.Width = 100.000000000000000000
-          Size.Height = 50.000000000000000000
+          Size.Height = 62.500000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object SBCompartir: TSpeedButton
@@ -85,7 +86,7 @@ object FrmSeleccionar: TFrmSeleccionar
       object LayCoords: TLayout
         Align = Client
         Size.Width = 332.000000000000000000
-        Size.Height = 100.000000000000000000
+        Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object LayLongitud: TLayout
@@ -120,7 +121,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Width = 332.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 3
+          TabOrder = 4
           object Label3: TLabel
             Align = Left
             StyledSettings = [Family, Size, FontColor]
@@ -147,7 +148,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Size.Width = 332.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 2
+          TabOrder = 3
           object Label4: TLabel
             Align = Left
             StyledSettings = [Family, Size, FontColor]
@@ -195,44 +196,46 @@ object FrmSeleccionar: TFrmSeleccionar
             TabOrder = 1
           end
         end
+        object Layout4: TLayout
+          Align = Top
+          Position.Y = 100.000000000000000000
+          Size.Width = 332.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object Label5: TLabel
+            Align = Left
+            StyledSettings = [Family, Size, FontColor]
+            Margins.Left = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Size.Width = 110.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Zona:'
+            TabOrder = 0
+          end
+          object LHuso: TLabel
+            Align = Client
+            Size.Width = 212.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+          end
+        end
       end
     end
     object LayLista: TLayout
       Align = Client
       Size.Width = 432.000000000000000000
-      Size.Height = 433.000000000000000000
+      Size.Height = 358.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
-      object LayDescr: TLayout
-        Align = Top
-        Size.Width = 432.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        object MmDescr: TMemo
-          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-          DataDetectorTypes = []
-          MaxLength = 40
-          ReadOnly = True
-          Align = Client
-          CanFocus = False
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 426.000000000000000000
-          Size.Height = 44.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 44.000000000000000000
-        end
-      end
       object RectGrid: TRectangle
         Align = Client
         Fill.Color = claYellow
         Size.Width = 432.000000000000000000
-        Size.Height = 353.000000000000000000
+        Size.Height = 328.000000000000000000
         Size.PlatformDefault = False
         XRadius = 3.000000000000000000
         YRadius = 3.000000000000000000
@@ -245,7 +248,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 426.000000000000000000
-          Size.Height = 347.000000000000000000
+          Size.Height = 322.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'gridstyle'
           StyledSettings = [Family, Style, FontColor]
@@ -254,8 +257,8 @@ object FrmSeleccionar: TFrmSeleccionar
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 347.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 297.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
@@ -293,11 +296,10 @@ object FrmSeleccionar: TFrmSeleccionar
       end
       object Layout1: TLayout
         Align = Top
-        Position.Y = 50.000000000000000000
         Size.Width = 432.000000000000000000
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 4
+        TabOrder = 3
         object Panel1: TPanel
           Align = Client
           Size.Width = 432.000000000000000000
@@ -316,6 +318,32 @@ object FrmSeleccionar: TFrmSeleccionar
             TabOrder = 0
           end
         end
+      end
+    end
+    object LayDescr: TLayout
+      Align = Top
+      Position.Y = 165.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object MmDescr: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        MaxLength = 40
+        ReadOnly = True
+        Align = Client
+        CanFocus = False
+        Margins.Left = 3.000000000000000000
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 3.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Size.Width = 426.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 422.000000000000000000
+        Viewport.Height = 40.000000000000000000
       end
     end
   end
