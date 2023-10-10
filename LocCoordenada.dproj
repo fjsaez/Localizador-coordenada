@@ -302,6 +302,11 @@
         </DCCReference>
         <DCCReference Include="UtilesLocalizador.pas"/>
         <DCCReference Include="FMX.FontGlyphs.Android.pas"/>
+        <DCCReference Include="Configuracion.pas">
+            <Form>FrmConfig</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -15,7 +15,8 @@ uses
   SelCoordenada in 'SelCoordenada.pas' {FrmSeleccionar: TFrame},
   Acerca in 'Acerca.pas' {FrmAcerca: TFrame},
   UtilesLocalizador in 'UtilesLocalizador.pas',
-  FMX.FontGlyphs.Android in 'FMX.FontGlyphs.Android.pas';
+  FMX.FontGlyphs.Android in 'FMX.FontGlyphs.Android.pas',
+  Configuracion in 'Configuracion.pas' {FrmConfig: TFrame};
 
 {$R *.res}
 

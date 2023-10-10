@@ -1,0 +1,12 @@
+object FrmConfig: TFrmConfig
+  Size.Width = 432.000000000000000000
+  Size.Height = 573.000000000000000000
+  Size.PlatformDefault = False
+  object LayConfig: TLayout
+    Align = Client
+    Size.Width = 432.000000000000000000
+    Size.Height = 573.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+  end
+end
