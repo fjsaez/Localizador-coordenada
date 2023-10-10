@@ -12,7 +12,8 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView, FMX.Types,
   FMX.ActnList, FMX.Objects, FMX.Effects, System.Sensors.Components, System.Math,
   System.Sensors, System.IOUtils, System.Actions, UTM_WGS84, UtilesLocalizador,
-  SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList;
+  SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList,
+  Configuracion;
 
 type
   TFPrinc = class(TForm)
@@ -121,6 +122,7 @@ type
     Label3: TLabel;
     ImageList: TImageList;
     LstBConfig: TListBoxItem;
+    FrmConfig: TFrmConfig;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -139,6 +141,8 @@ type
       const Item: TListBoxItem);
     procedure FrmAgregarSBVolverClick(Sender: TObject);
     procedure FrmSeleccionarSBVolverClick(Sender: TObject);
+    procedure LstBConfigClick(Sender: TObject);
+    procedure FrmConfigSBVolverClick(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
@@ -222,6 +226,11 @@ begin
   MostrarFrame(FrmAgregar);
 end;
 
+procedure TFPrinc.LstBConfigClick(Sender: TObject);
+begin
+  MostrarFrame(FrmConfig);
+end;
+
 procedure TFPrinc.LstBAcercaClick(Sender: TObject);
 begin
   MostrarFrame(FrmAcerca);
@@ -244,6 +253,7 @@ begin
   FrmAcerca.Visible:=false;
   FrmAgregar.Visible:=false;
   FrmSeleccionar.Visible:=false;
+  FrmConfig.Visible:=false;
   LayPrincipal.Visible:=true;
   IniciarRegistro;
   IniciarRegCoord;
@@ -277,6 +287,12 @@ procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
   CargarCoordsDestino;
+  MostrarPrincipal;
+end;
+
+procedure TFPrinc.FrmConfigSBVolverClick(Sender: TObject);
+begin
+  FrmConfig.SBVolverClick(Sender);
   MostrarPrincipal;
 end;
 
@@ -376,15 +392,17 @@ begin
   LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
 end;
 
-end.      //384  383
+end.      //384  383  395
 
 { TODO :
 Configuración
+  General:
 - Distancia mínima del destino (metros)
 - Magnitud (metros o kilómetros)
-- Siempre pantalla activa
 - Coords UTM/Geográficas (mód. Seleccionar coordenada)
+  Sistema:
 - Guardar en BD (mód. Seleccionar coordenada)
+- Siempre pantalla activa
 
 Otras:
 - Validar que entren una sola vez los caracteres . y -

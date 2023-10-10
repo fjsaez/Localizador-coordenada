@@ -8,5 +8,416 @@ object FrmConfig: TFrmConfig
     Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
+    object ToolBarConfig: TToolBar
+      Size.Width = 432.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object SBVolver: TSpeedButton
+        Align = Left
+        Size.Width = 30.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'arrowlefttoolbuttonbordered'
+        OnClick = SBVolverClick
+      end
+      object Label1: TLabel
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Size.Width = 392.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Configuraci'#243'n'
+        TabOrder = 0
+      end
+    end
+    object LaySep1: TLayout
+      Align = Top
+      Position.Y = 40.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object LayGeneral: TLayout
+      Align = Top
+      Position.Y = 70.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 200.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object Layout1: TLayout
+        Align = Top
+        Size.Width = 432.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object PnlTitulo1: TPanel
+          Align = Client
+          Size.Width = 432.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Label2: TLabel
+            Align = Client
+            StyledSettings = [Family]
+            Size.Width = 432.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 24.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claBlue
+            TextSettings.HorzAlign = Center
+            Text = 'General'
+            TabOrder = 0
+          end
+        end
+      end
+      object PnlGeneral: TPanel
+        Align = Client
+        Size.Width = 432.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Layout2: TLayout
+          Align = Top
+          Position.Y = 40.000000000000000000
+          Size.Width = 432.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Layout7: TLayout
+            Align = Left
+            Size.Width = 240.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label4: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 10.000000000000000000
+              Size.Width = 230.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Distancia (metros / kil'#243'metros)'
+              TabOrder = 0
+            end
+          end
+          object Layout8: TLayout
+            Align = Client
+            Size.Width = 192.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Switch1: TSwitch
+              Align = Left
+              IsChecked = False
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
+              Size.Width = 60.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+            object Label6: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 5.000000000000000000
+              Size.Width = 117.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'MTS'
+              TabOrder = 1
+            end
+          end
+        end
+        object Layout3: TLayout
+          Align = Top
+          Size.Width = 432.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Layout5: TLayout
+            Align = Left
+            Size.Width = 240.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label3: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 10.000000000000000000
+              Size.Width = 230.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Distancia m'#237'nima del destino (metros)'
+              TabOrder = 0
+            end
+          end
+          object Layout6: TLayout
+            Align = Client
+            Size.Width = 192.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object NumberBox1: TNumberBox
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Left
+              TabOrder = 0
+              Cursor = crIBeam
+              TextSettings.HorzAlign = Trailing
+              Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Size.Width = 60.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object Layout4: TLayout
+          Align = Top
+          Position.Y = 80.000000000000000000
+          Size.Width = 432.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object Layout9: TLayout
+            Align = Left
+            Size.Width = 240.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label5: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 10.000000000000000000
+              Size.Width = 230.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Coords UTM / Geogr'#225'ficas (m'#243'd. Seleccionar coordenada)'
+              TabOrder = 0
+            end
+          end
+          object Layout10: TLayout
+            Align = Client
+            Size.Width = 192.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Label7: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 5.000000000000000000
+              Size.Width = 117.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'UTM'
+              TabOrder = 1
+            end
+            object Switch2: TSwitch
+              Align = Left
+              IsChecked = False
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
+              Size.Width = 60.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+        end
+      end
+    end
+    object LaySep2: TLayout
+      Align = Top
+      Position.Y = 470.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
+    object Layout11: TLayout
+      Align = Top
+      Position.Y = 270.000000000000000000
+      Size.Width = 432.000000000000000000
+      Size.Height = 200.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object Layout12: TLayout
+        Align = Top
+        Size.Width = 432.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Panel1: TPanel
+          Align = Client
+          Size.Width = 432.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Label8: TLabel
+            Align = Client
+            StyledSettings = [Family]
+            Size.Width = 432.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 24.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claBlue
+            TextSettings.HorzAlign = Center
+            Text = 'Sistema'
+            TabOrder = 0
+          end
+        end
+      end
+      object Panel2: TPanel
+        Align = Client
+        Size.Width = 432.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Layout13: TLayout
+          Align = Top
+          Size.Width = 432.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Layout14: TLayout
+            Align = Left
+            Size.Width = 240.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label9: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 10.000000000000000000
+              Size.Width = 230.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Guardar en BD (m'#243'd. Seleccionar coordenada)'
+              TabOrder = 0
+            end
+          end
+          object Layout15: TLayout
+            Align = Client
+            Size.Width = 192.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Switch3: TSwitch
+              Align = Left
+              IsChecked = False
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
+              Size.Width = 60.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+            object Label10: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 5.000000000000000000
+              Size.Width = 117.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'NO'
+              TabOrder = 1
+            end
+          end
+        end
+        object Layout19: TLayout
+          Align = Top
+          Position.Y = 40.000000000000000000
+          Size.Width = 432.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Layout20: TLayout
+            Align = Left
+            Size.Width = 240.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label12: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 10.000000000000000000
+              Size.Width = 230.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Siempre pantalla activa'
+              TabOrder = 0
+            end
+          end
+          object Layout21: TLayout
+            Align = Client
+            Size.Width = 192.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Label13: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Margins.Left = 5.000000000000000000
+              Size.Width = 117.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'S'#205
+              TabOrder = 1
+            end
+            object Switch4: TSwitch
+              Align = Left
+              IsChecked = False
+              Margins.Left = 5.000000000000000000
+              Margins.Top = 5.000000000000000000
+              Margins.Right = 5.000000000000000000
+              Margins.Bottom = 5.000000000000000000
+              Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
+              Size.Width = 60.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+        end
+      end
+    end
   end
 end
