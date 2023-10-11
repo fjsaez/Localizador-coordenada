@@ -11,6 +11,14 @@ uses
   System.Permissions, System.Math, System.IniFiles, UTM_WGS84;
 
 type
+  //el registro de configuración:
+  TConfig = record
+    DistMinima: byte;
+    UnidDistancia,       //f = MTS; t = KMS
+    ModoCoord,           //f = UTM; t = GEO
+    GuardarEnBD,         //f = NO; t = SÍ
+    PantActiva: boolean; //f = NO; t = SÍ
+  end;
   //el registro a guardar en la BD:
   TCoord = record
     IDCoord: Cardinal;
@@ -42,6 +50,7 @@ const
   Rojo=$FFFF0000;
 
 var
+  Config: TConfig;
   Coords: TCoord;
   Posc: TPosicion;
   Sistema: TSistema;

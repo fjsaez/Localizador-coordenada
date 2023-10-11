@@ -111,7 +111,7 @@ object FrmConfig: TFrmConfig
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object Switch1: TSwitch
+            object SwDistancia: TSwitch
               Align = Left
               IsChecked = False
               Margins.Left = 5.000000000000000000
@@ -124,8 +124,9 @@ object FrmConfig: TFrmConfig
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnSwitch = SwDistanciaSwitch
             end
-            object Label6: TLabel
+            object LUnidad: TLabel
               Align = Client
               StyledSettings = [Family, FontColor]
               Margins.Left = 5.000000000000000000
@@ -170,7 +171,7 @@ object FrmConfig: TFrmConfig
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object NumberBox1: TNumberBox
+            object NBDistMinima: TNumberBox
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Left
               TabOrder = 0
@@ -220,7 +221,7 @@ object FrmConfig: TFrmConfig
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object Label7: TLabel
+            object LCoords: TLabel
               Align = Client
               StyledSettings = [Family, FontColor]
               Margins.Left = 5.000000000000000000
@@ -232,7 +233,7 @@ object FrmConfig: TFrmConfig
               Text = 'UTM'
               TabOrder = 1
             end
-            object Switch2: TSwitch
+            object SwFrmCoord: TSwitch
               Align = Left
               IsChecked = False
               Margins.Left = 5.000000000000000000
@@ -329,7 +330,7 @@ object FrmConfig: TFrmConfig
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object Switch3: TSwitch
+            object SwGuardarBD: TSwitch
               Align = Left
               IsChecked = False
               Margins.Left = 5.000000000000000000
@@ -343,7 +344,7 @@ object FrmConfig: TFrmConfig
               Size.PlatformDefault = False
               TabOrder = 0
             end
-            object Label10: TLabel
+            object LGuardarBD: TLabel
               Align = Client
               StyledSettings = [Family, FontColor]
               Margins.Left = 5.000000000000000000
@@ -389,7 +390,7 @@ object FrmConfig: TFrmConfig
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object Label13: TLabel
+            object LSiempreAct: TLabel
               Align = Client
               StyledSettings = [Family, FontColor]
               Margins.Left = 5.000000000000000000
@@ -401,7 +402,7 @@ object FrmConfig: TFrmConfig
               Text = 'S'#205
               TabOrder = 1
             end
-            object Switch4: TSwitch
+            object SwPantActiva: TSwitch
               Align = Left
               IsChecked = False
               Margins.Left = 5.000000000000000000
