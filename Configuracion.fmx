@@ -246,6 +246,7 @@ object FrmConfig: TFrmConfig
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnSwitch = SwFrmCoordSwitch
             end
           end
         end
@@ -343,6 +344,7 @@ object FrmConfig: TFrmConfig
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnSwitch = SwGuardarBDSwitch
             end
             object LGuardarBD: TLabel
               Align = Client
@@ -415,6 +417,7 @@ object FrmConfig: TFrmConfig
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnSwitch = SwPantActivaSwitch
             end
           end
         end

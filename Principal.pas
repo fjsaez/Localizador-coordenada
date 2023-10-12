@@ -228,6 +228,7 @@ end;
 
 procedure TFPrinc.LstBConfigClick(Sender: TObject);
 begin
+  FrmConfig.CargarComps;
   MostrarFrame(FrmConfig);
 end;
 
@@ -293,6 +294,7 @@ end;
 procedure TFPrinc.FrmConfigSBVolverClick(Sender: TObject);
 begin
   FrmConfig.SBVolverClick(Sender);
+  FrmConfig.CargarConfig;
   MostrarPrincipal;
 end;
 

@@ -57,16 +57,29 @@ type
     SwPantActiva: TSwitch;
     procedure SBVolverClick(Sender: TObject);
     procedure SwDistanciaSwitch(Sender: TObject);
+    procedure SwFrmCoordSwitch(Sender: TObject);
+    procedure SwGuardarBDSwitch(Sender: TObject);
+    procedure SwPantActivaSwitch(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
     procedure CargarConfig;
+    procedure CargarComps;
   end;
 
 implementation
 
 {$R *.fmx}
+
+procedure TFrmConfig.CargarComps;
+begin
+  NBDistMinima.Value:=Config.DistMinima;
+  SwDistancia.IsChecked:=Config.UnidDistancia;
+  SwFrmCoord.IsChecked:=Config.ModoCoord;
+  SwGuardarBD.IsChecked:=Config.GuardarEnBD;
+  SwPantActiva.IsChecked:=Config.PantActiva;
+end;
 
 procedure TFrmConfig.CargarConfig;
 begin
@@ -85,8 +98,26 @@ end;
 
 procedure TFrmConfig.SwDistanciaSwitch(Sender: TObject);
 begin
-  if SwDistancia.IsChecked then LUnidad.Text:=''
-                           else LUnidad.Text:=''
+  if SwDistancia.IsChecked then LUnidad.Text:='KMS'
+                           else LUnidad.Text:='MTS';
+end;
+
+procedure TFrmConfig.SwFrmCoordSwitch(Sender: TObject);
+begin
+  if SwFrmCoord.IsChecked then LCoords.Text:='GEO'
+                          else LCoords.Text:='UTM';
+end;
+
+procedure TFrmConfig.SwGuardarBDSwitch(Sender: TObject);
+begin
+  if SwGuardarBD.IsChecked then LGuardarBD.Text:='SÍ'
+                           else LGuardarBD.Text:='NO';
+end;
+
+procedure TFrmConfig.SwPantActivaSwitch(Sender: TObject);
+begin
+  if SwPantActiva.IsChecked then LSiempreAct.Text:='SÍ'
+                            else LSiempreAct.Text:='NO';
 end;
 
 end.
