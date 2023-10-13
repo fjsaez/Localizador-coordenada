@@ -156,7 +156,7 @@ begin
   Sistema.X:=SGrid.Cells[4,Row].ToDouble;
   Sistema.Y:=SGrid.Cells[5,Row].ToDouble;
   Sistema.Huso:=SGrid.Cells[6,Row].ToInteger;
-  GuardarINI(Sistema);
+  GuardarINI(Sistema,Config);
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
   //se cargan los componentes:

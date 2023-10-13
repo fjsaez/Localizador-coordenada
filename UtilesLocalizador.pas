@@ -68,7 +68,7 @@ var
   procedure IniciarRegCoord;
   procedure IniciarRegSistema;
   procedure CargarINI;
-  procedure GuardarINI(Sist: TSistema);
+  procedure GuardarINI(Sist: TSistema; Conf: TConfig);
 
 implementation
 
@@ -261,6 +261,76 @@ begin
     Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
     Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
     Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
+    Config.DistMinima:=Ini.ReadString('Config','DistMinima','').ToInteger;
+    Config.UnidDistancia:=Ini.ReadString('Config','UnidDistancia','').ToBoolean;
+    Config.ModoCoord:=Ini.ReadString('Config','ModoCoord','').ToBoolean;
+    Config.GuardarEnBD:=Ini.ReadString('Config','GuardarEnBD','').ToBoolean;
+    Config.PantActiva:=Ini.ReadString('Config','PantActiva','').ToBoolean;
+  finally
+    Ini.Free;
+  end;
+end;
+
+{Crea el archivo ini con los últimos valores}
+procedure GuardarINI(Sist: TSistema; Conf: TConfig);
+var
+  Ini: TIniFile;
+begin
+  try
+    Ini:=TIniFile.Create(Sistema.ArchivoIni);
+    Ini.WriteString('Valor','Lon',Sist.Lon.ToString);
+    Ini.WriteString('Valor','Lat',Sist.Lat.ToString);
+    Ini.WriteString('Valor','Este',Sist.X.ToString);
+    Ini.WriteString('Valor','Norte',Sist.Y.ToString);
+    Ini.WriteString('Valor','Huso',Sist.Huso.ToString);
+    Ini.WriteString('Valor','Descripcion',Sist.Descripcion);
+    Ini.WriteString('Config','DistMinima',Conf.DistMinima.ToString);
+    Ini.WriteString('Config','UnidDistancia',Conf.UnidDistancia.ToString);
+    Ini.WriteString('Config','ModoCoord',Conf.ModoCoord.ToString);
+    Ini.WriteString('Config','GuardarEnBD',Conf.GuardarEnBD.ToString);
+    Ini.WriteString('Config','PantActiva',Conf.PantActiva.ToString);
+    Sistema.Lon:=Ini.ReadString('Valor','Lon','').ToDouble;
+    Sistema.Lat:=Ini.ReadString('Valor','Lat','').ToDouble;
+    Sistema.X:=Ini.ReadString('Valor','Este','').ToDouble;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
+    Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
+    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
+    //Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
+    Config.DistMinima:=Ini.ReadString('Config','DistMinima','').ToInteger;
+    Config.UnidDistancia:=Ini.ReadString('Config','UnidDistancia','').ToBoolean;
+    Config.ModoCoord:=Ini.ReadString('Config','ModoCoord','').ToBoolean;
+    Config.GuardarEnBD:=Ini.ReadString('Config','GuardarEnBD','').ToBoolean;
+    Config.PantActiva:=Ini.ReadString('Config','PantActiva','').ToBoolean;
+  finally
+    Ini.Free;
+  end;
+end;
+
+end.
+
+//uses
+  //System.Permissions, FMX.DialogService;
+
+/// Útiles ///
+
+{function MetrosToKm(DistMetros: single): single;
+begin
+  Result:=DistMetros/1000;
+end;}
+         (*
+{Lee los valores guardados del respectivo archivo .ini}
+procedure CargarINI;
+var
+  Ini: TIniFile;
+begin
+  try
+    Ini:=TIniFile.Create(Sistema.ArchivoINI);
+    Sistema.Lon:=Ini.ReadString('Valor','Lon','').ToDouble;
+    Sistema.Lat:=Ini.ReadString('Valor','Lat','').ToDouble;
+    Sistema.X:=Ini.ReadString('Valor','Este','').ToDouble;
+    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
+    Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
+    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
   finally
     Ini.Free;
   end;
@@ -288,16 +358,4 @@ begin
   finally
     Ini.Free;
   end;
-end;
-
-end.
-
-//uses
-  //System.Permissions, FMX.DialogService;
-
-/// Útiles ///
-
-{function MetrosToKm(DistMetros: single): single;
-begin
-  Result:=DistMetros/1000;
-end;}
+end;   *)

@@ -156,7 +156,7 @@ begin
   Sistema.Y:=Psc.Y;
   Sistema.Huso:=Psc.Huso;
   Sistema.Descripcion:=EDescr.Text.Trim;
-  GuardarINI(Sistema);
+  GuardarINI(Sistema,Config);
   CargarRegCoordenada(Psc); //el registro a guardar en la BD
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;

@@ -101,7 +101,7 @@ object FrmConfig: TFrmConfig
               Size.PlatformDefault = False
               TextSettings.Font.Size = 14.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = 'Distancia (metros / kil'#243'metros)'
+              Text = 'Unidad de distancia (metros / kil'#243'metros)'
               TabOrder = 0
             end
           end
@@ -211,7 +211,7 @@ object FrmConfig: TFrmConfig
               Size.PlatformDefault = False
               TextSettings.Font.Size = 14.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = 'Coords UTM / Geogr'#225'ficas (m'#243'd. Seleccionar coordenada)'
+              Text = 'Coordenadass UTM / Geogr'#225'ficas (m'#243'd. Seleccionar coordenada)'
               TabOrder = 0
             end
           end
@@ -401,7 +401,7 @@ object FrmConfig: TFrmConfig
               Size.PlatformDefault = False
               TextSettings.Font.Size = 18.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
-              Text = 'S'#205
+              Text = 'NO'
               TabOrder = 1
             end
             object SwPantActiva: TSwitch

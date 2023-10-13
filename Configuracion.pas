@@ -93,6 +93,7 @@ end;
 procedure TFrmConfig.SBVolverClick(Sender: TObject);
 begin
   CargarConfig;
+  GuardarINI(Sistema,Config);
   Visible:=false;
 end;
 

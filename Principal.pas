@@ -270,7 +270,7 @@ begin
   else
   begin
     IniciarRegSistema;
-    GuardarINI(Sistema);
+    GuardarINI(Sistema,Config);
   end;
   CargarCoordsDestino;
   Posc.XDest:=Sistema.X;
