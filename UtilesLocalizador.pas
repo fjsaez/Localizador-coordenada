@@ -5,6 +5,9 @@ interface
 uses
   {$IFDEF ANDROID}
   FMX.FontGlyphs.Android,
+  Androidapi.JNI.App,
+  Androidapi.JNI.GraphicsContentViewText,
+  Androidapi.Helpers,
   {$ENDIF}
   FMX.Forms, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.DialogService,
   System.Sensors.Components, System.SysUtils, System.Classes, System.Types,
@@ -69,6 +72,8 @@ var
   procedure IniciarRegSistema;
   procedure CargarINI;
   procedure GuardarINI(Sist: TSistema; Conf: TConfig);
+  procedure ActivarPantalla(Activo: boolean);
+  function MetrosToKm(DistMetros: single): single;
 
 implementation
 
@@ -295,7 +300,6 @@ begin
     Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
     Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
     Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
-    //Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
     Config.DistMinima:=Ini.ReadString('Config','DistMinima','').ToInteger;
     Config.UnidDistancia:=Ini.ReadString('Config','UnidDistancia','').ToBoolean;
     Config.ModoCoord:=Ini.ReadString('Config','ModoCoord','').ToBoolean;
@@ -306,6 +310,23 @@ begin
   end;
 end;
 
+procedure ActivarPantalla(Activo: boolean);
+begin
+  {$IFDEF ANDROID}
+  if Activo then
+    TAndroidHelper.Activity.getWindow.addFlags(
+      TJWindowManager_LayoutParams.JavaClass.FLAG_KEEP_SCREEN_ON)
+  else
+    TAndroidHelper.Activity.getWindow.clearFlags(
+      TJWindowManager_LayoutParams.JavaClass.FLAG_KEEP_SCREEN_ON)
+  {$ENDIF}
+end;
+
+function MetrosToKm(DistMetros: single): single;
+begin
+  Result:=DistMetros/1000;
+end;
+
 end.
 
 //uses
@@ -313,10 +334,6 @@ end.
 
 /// Útiles ///
 
-{function MetrosToKm(DistMetros: single): single;
-begin
-  Result:=DistMetros/1000;
-end;}
          (*
 {Lee los valores guardados del respectivo archivo .ini}
 procedure CargarINI;

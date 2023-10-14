@@ -212,16 +212,18 @@ end;
 
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
 begin
-  MostrarFrame(FrmSeleccionar);
   FrmSeleccionar.SBCompartir.Visible:=false;
   FrmSeleccionar.SBEliminar.Visible:=false;
   FrmSeleccionar.CargarLista;
   IniciarRegistro;
+  MostrarFrame(FrmSeleccionar);
 end;
 
 procedure TFPrinc.LstBAgregarClick(Sender: TObject);
 begin
   IniciarRegistro;
+  FrmAgregar.SwGeoUTM.IsChecked:=Config.ModoCoord;
+  FrmAgregar.SwGuardarBD.IsChecked:=Config.GuardarEnBD;
   FrmAgregar.CTBHuso.Value:=Posc.Huso;
   MostrarFrame(FrmAgregar);
 end;
@@ -272,6 +274,7 @@ begin
     IniciarRegSistema;
     GuardarINI(Sistema,Config);
   end;
+  ActivarPantalla(Config.PantActiva);
   CargarCoordsDestino;
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
@@ -344,7 +347,7 @@ end;
 procedure TFPrinc.TimerTimer(Sender: TObject);
 var
   X,Y,D,Deg,Grd: double;
-  Nivel,Ubic: string;
+  Nivel,Ubic,Dist: string;
 begin
   //se obtienen los datos para orientar las brújulas:
   X:=OrntSensor.Sensor.HeadingX;
@@ -370,9 +373,9 @@ begin
     else
       if (Posc.X<Posc.XDest) and (Posc.Y>Posc.YDest) then Grd:=180-Grd;
   CrcFlecha.RotationAngle:=Grd+(360-Deg);
-  //se colorea la flecha si está dentro de un rango de 15 mts del objetivo:
-  if Posc.Distancia<=15 then Ubic:='crc'    //crc = cerca
-                        else Ubic:='ljs';   //ljs = lejos
+  //se colorea la flecha si está dentro de un rango de X mts del objetivo:
+  if Posc.Distancia<=Config.DistMinima then Ubic:='crc'    //crc = cerca
+                                       else Ubic:='ljs';   //ljs = lejos
   //se indica si la brújula está nivelada o no:
   if EstaNivelado(MtnSensor,0.2) then
   begin
@@ -389,9 +392,13 @@ begin
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_'+Nivel+Ubic+'.png'));
   //los datos de dirección y distancia:
+  if Config.UnidDistancia then
+    Dist:=FormatFloat('#,##0.00',MetrosToKm(Posc.Distancia))+' km'
+  else Dist:=FormatFloat('#,##0.00',Posc.Distancia)+' m';
   LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
   LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
-  LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
+  //LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
+  LDistancia.Text:=Dist;
 end;
 
 end.      //384  383  395

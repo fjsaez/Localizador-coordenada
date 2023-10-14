@@ -3,6 +3,11 @@
 interface
 
 uses
+  {$IFDEF ANDROID}
+  Androidapi.JNI.App,
+  Androidapi.JNI.GraphicsContentViewText,
+  Androidapi.Helpers,
+  {$ENDIF }
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Edit, FMX.EditBox, FMX.NumberBox,
@@ -88,6 +93,7 @@ begin
   Config.ModoCoord:=SwFrmCoord.IsChecked;
   Config.GuardarEnBD:=SwGuardarBD.IsChecked;
   Config.PantActiva:=SwPantActiva.IsChecked;
+  ActivarPantalla(Config.PantActiva);
 end;
 
 procedure TFrmConfig.SBVolverClick(Sender: TObject);
