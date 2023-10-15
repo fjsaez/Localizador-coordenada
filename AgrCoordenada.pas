@@ -51,6 +51,14 @@ type
     Label2: TLabel;
     Layout12: TLayout;
     CTBHuso: TComboTrackBar;
+    LayResultado: TLayout;
+    Layout4: TLayout;
+    LayResHuso: TLayout;
+    LResHuso: TLabel;
+    Layout8: TLayout;
+    LResLonEste: TLabel;
+    Layout13: TLayout;
+    LResLatNorte: TLabel;
     procedure SBVolverClick(Sender: TObject);
     procedure SBGuardarClick(Sender: TObject);
     procedure SBSelGPSClick(Sender: TObject);
@@ -58,14 +66,13 @@ type
     procedure ELonEsteEnter(Sender: TObject);
     procedure ELonEsteExit(Sender: TObject);
     procedure SwGeoUTMSwitch(Sender: TObject);
-    procedure ELonEsteKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
-      Shift: TShiftState);
   private
     { Private declarations }
     procedure CargarRegCoordenada(Psc: TPosicion);
     procedure GuardarCoordenada;
   public
     { Public declarations }
+    procedure LimpiarComps;
   end;
 
 implementation
@@ -73,6 +80,13 @@ implementation
 uses DataMod;
 
 {$R *.fmx}
+
+procedure TFrmAgregar.LimpiarComps;
+begin
+  ELonEste.Text:='';
+  ELatNorte.Text:='';
+  EDescr.Text:='';
+end;
 
 procedure TFrmAgregar.CargarRegCoordenada(Psc: TPosicion);
 begin
@@ -106,7 +120,7 @@ procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
   SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
       and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty
-      //and EDescr.Text.IsEmpty;
+      and not EDescr.Text.IsEmpty;
 end;
 
 procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);
@@ -119,12 +133,6 @@ begin
   if TEdit(Sender).Text='' then TEdit(Sender).Text:='0';
 end;
 
-procedure TFrmAgregar.ELonEsteKeyDown(Sender: TObject; var Key: Word;
-  var KeyChar: Char; Shift: TShiftState);
-begin
-  //
-end;
-
 procedure TFrmAgregar.SBGuardarClick(Sender: TObject);
 var
   XDest,YDest: double;
@@ -134,11 +142,23 @@ var
   procedure MostrarResultado(Activo: boolean);
   begin
     if Activo then
-      ShowMessage('Este: '+FormatFloat('0.00',Psc.X)+#13#10+
+    {  ShowMessage('Este: '+FormatFloat('0.00',Psc.X)+#13#10+
                   'Norte: '+FormatFloat('0.00',Psc.Y))
     else
       ShowMessage('Lon: '+FormatFloat('0.000000',Psc.Lon)+#13#10+
-                  'Lat: '+FormatFloat('0.000000',Psc.Lat))
+                  'Lat: '+FormatFloat('0.000000',Psc.Lat))}
+    begin
+      LResLonEste.Text:='Este: '+FormatFloat('0.00',Psc.X);
+      LResLatNorte.Text:='Norte: '+FormatFloat('0.00',Psc.Y);
+      LayResHuso.Visible:=true;
+    end
+    else
+    begin
+      LResLonEste.Text:='Lon: '+FormatFloat('0.000000',Psc.Lon);
+      LResLatNorte.Text:='Lat: '+FormatFloat('0.000000',Psc.Lat);
+      LayResHuso.Visible:=false;
+    end;
+    LResHuso.Text:='Zona: '+Psc.Huso.ToString;
   end;
 
 begin
@@ -147,6 +167,7 @@ begin
   Huso:=Trunc(CTBHuso.Value);
   if SwGeoUTM.IsChecked then Psc:=ConvertirAGrdUTM(XDest,YDest)
                         else Psc:=ConvertirAGrdGeo(XDest,YDest,Huso);
+  LayResultado.Visible:=true;
   MostrarResultado(SwGeoUTM.IsChecked);
   Posc:=Psc;
   //se guardan los datos en el archivo .ini:
@@ -202,6 +223,7 @@ end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);
 begin
+  LayResultado.Visible:=false;
   Visible:=false;
 end;
 

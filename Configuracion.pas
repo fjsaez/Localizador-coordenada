@@ -7,7 +7,7 @@ uses
   Androidapi.JNI.App,
   Androidapi.JNI.GraphicsContentViewText,
   Androidapi.Helpers,
-  {$ENDIF }
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Edit, FMX.EditBox, FMX.NumberBox,
@@ -32,7 +32,6 @@ type
     Layout5: TLayout;
     Layout6: TLayout;
     Label3: TLabel;
-    NBDistMinima: TNumberBox;
     Layout7: TLayout;
     Label4: TLabel;
     Layout8: TLayout;
@@ -60,11 +59,14 @@ type
     Layout21: TLayout;
     LSiempreAct: TLabel;
     SwPantActiva: TSwitch;
+    EDistMinima: TEdit;
     procedure SBVolverClick(Sender: TObject);
     procedure SwDistanciaSwitch(Sender: TObject);
     procedure SwFrmCoordSwitch(Sender: TObject);
     procedure SwGuardarBDSwitch(Sender: TObject);
     procedure SwPantActivaSwitch(Sender: TObject);
+    procedure EDistMinimaEnter(Sender: TObject);
+    procedure EDistMinimaExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,7 +81,7 @@ implementation
 
 procedure TFrmConfig.CargarComps;
 begin
-  NBDistMinima.Value:=Config.DistMinima;
+  EDistMinima.Text:=Config.DistMinima.ToString;
   SwDistancia.IsChecked:=Config.UnidDistancia;
   SwFrmCoord.IsChecked:=Config.ModoCoord;
   SwGuardarBD.IsChecked:=Config.GuardarEnBD;
@@ -88,12 +90,22 @@ end;
 
 procedure TFrmConfig.CargarConfig;
 begin
-  Config.DistMinima:=Trunc(NBDistMinima.Value);
+  Config.DistMinima:=EDistMinima.Text.ToInteger;
   Config.UnidDistancia:=SwDistancia.IsChecked;
   Config.ModoCoord:=SwFrmCoord.IsChecked;
   Config.GuardarEnBD:=SwGuardarBD.IsChecked;
   Config.PantActiva:=SwPantActiva.IsChecked;
   ActivarPantalla(Config.PantActiva);
+end;
+
+procedure TFrmConfig.EDistMinimaEnter(Sender: TObject);
+begin
+  if EDistMinima.Text='0' then EDistMinima.Text:='';
+end;
+
+procedure TFrmConfig.EDistMinimaExit(Sender: TObject);
+begin
+  if EDistMinima.Text='' then EDistMinima.Text:='0';
 end;
 
 procedure TFrmConfig.SBVolverClick(Sender: TObject);

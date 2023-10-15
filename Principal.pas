@@ -13,7 +13,7 @@ uses
   FMX.ActnList, FMX.Objects, FMX.Effects, System.Sensors.Components, System.Math,
   System.Sensors, System.IOUtils, System.Actions, UTM_WGS84, UtilesLocalizador,
   SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList,
-  Configuracion;
+  Configuracion, FMX.Media;
 
 type
   TFPrinc = class(TForm)
@@ -123,6 +123,7 @@ type
     ImageList: TImageList;
     LstBConfig: TListBoxItem;
     FrmConfig: TFrmConfig;
+    MPlay: TMediaPlayer;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -225,6 +226,7 @@ begin
   FrmAgregar.SwGeoUTM.IsChecked:=Config.ModoCoord;
   FrmAgregar.SwGuardarBD.IsChecked:=Config.GuardarEnBD;
   FrmAgregar.CTBHuso.Value:=Posc.Huso;
+  FrmAgregar.LimpiarComps;
   MostrarFrame(FrmAgregar);
 end;
 
@@ -377,6 +379,7 @@ begin
   if Posc.Distancia<=Config.DistMinima then Ubic:='crc'    //crc = cerca
                                        else Ubic:='ljs';   //ljs = lejos
   //se indica si la brújula está nivelada o no:
+  MPlay.FileName:=TPath.GetDocumentsPath+'/beep-sound.mp3';
   if EstaNivelado(MtnSensor,0.2) then
   begin
     CrcBrujula.Stroke.Color:=Chartreuse;
@@ -387,8 +390,11 @@ begin
     CrcBrujula.Stroke.Color:=Rojo;
     Nivel:='noniv_';   //noniv = no nivelado
   end;
+  //se activa/desactiva el audio según esté cerca del punto de destino:
+  if Posc.Distancia<=Config.DistMinima then MPlay.Play
+                                       else MPlay.Stop;
   //se muestra la flecha indicadora según el nivel y cercanía:
-  GlowEffect.Enabled:=Posc.Distancia<=15.0;
+  GlowEffect.Enabled:=Posc.Distancia<=Config.DistMinima;
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_'+Nivel+Ubic+'.png'));
   //los datos de dirección y distancia:
@@ -404,15 +410,6 @@ end;
 end.      //384  383  395
 
 { TODO :
-Configuración
-  General:
-- Distancia mínima del destino (metros)
-- Magnitud (metros o kilómetros)
-- Coords UTM/Geográficas (mód. Seleccionar coordenada)
-  Sistema:
-- Guardar en BD (mód. Seleccionar coordenada)
-- Siempre pantalla activa
-
 Otras:
 - Validar que entren una sola vez los caracteres . y -
 - Hacer funcionar el TabOrder en módulo Seleccionar coordenada
