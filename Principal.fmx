@@ -1969,6 +1969,28 @@ object FPrinc: TFPrinc
                 Enabled = False
               end
             end
+            object RectMsj: TRectangle
+              Align = Center
+              Fill.Color = claCornsilk
+              Margins.Left = 50.000000000000000000
+              Margins.Right = 50.000000000000000000
+              Size.Width = 250.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              XRadius = 10.000000000000000000
+              YRadius = 10.000000000000000000
+              object LMensaje: TLabel
+                Align = Client
+                StyledSettings = [Family, Size]
+                Size.Width = 250.000000000000000000
+                Size.Height = 35.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Center
+                Text = 'Sonido desactivado'
+                TabOrder = 0
+              end
+            end
           end
         end
       end
@@ -2956,7 +2978,9 @@ object FPrinc: TFPrinc
             end
             inherited Layout8: TLayout
               inherited SwDistancia: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
               inherited LUnidad: TLabel
                 Size.Width = 133.000000000000000000
@@ -2973,10 +2997,6 @@ object FPrinc: TFPrinc
             inherited Layout6: TLayout
               inherited EDistMinima: TEdit
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Position.Y = 5.000000000000000000
-                Margins.Top = 5.000000000000000000
-                Margins.Bottom = 5.000000000000000000
-                Size.Height = 30.000000000000000000
               end
             end
           end
@@ -2993,7 +3013,9 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwFrmCoord: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
             end
           end
@@ -3021,7 +3043,9 @@ object FPrinc: TFPrinc
             end
             inherited Layout15: TLayout
               inherited SwGuardarBD: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
               inherited LGuardarBD: TLabel
                 Size.Width = 133.000000000000000000
@@ -3042,7 +3066,9 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwPantActiva: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
             end
           end
@@ -3461,5 +3487,12 @@ object FPrinc: TFPrinc
       end>
     Left = 24
     Top = 184
+  end
+  object TimerMsj: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = TimerMsjTimer
+    Left = 26
+    Top = 351
   end
 end

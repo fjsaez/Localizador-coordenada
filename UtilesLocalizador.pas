@@ -50,6 +50,7 @@ const
   Blanco=4294967295;
   Negro=4278190080;
   Lima=4278255360;
+  Verde=4280985609;
   Chartreuse=$FF7FFF00;
   Rojo=$FFFF0000;
 

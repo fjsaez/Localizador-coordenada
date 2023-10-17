@@ -124,6 +124,9 @@ type
     LstBConfig: TListBoxItem;
     FrmConfig: TFrmConfig;
     MPlay: TMediaPlayer;
+    RectMsj: TRectangle;
+    LMensaje: TLabel;
+    TimerMsj: TTimer;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -146,12 +149,14 @@ type
     procedure FrmConfigSBVolverClick(Sender: TObject);
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
+    procedure TimerMsjTimer(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
     procedure MostrarFrame(Frame: TFrame);
     procedure MostrarPrincipal;
     procedure CargarCoordsDestino;
+    procedure ActivarMensaje(Activo: boolean);
   public
     { Public declarations }
   end;
@@ -197,6 +202,24 @@ begin
   LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
   LDescr.Text:=Sistema.Descripcion;
   MostrarPrincipal;
+end;
+
+procedure TFPrinc.ActivarMensaje(Activo: boolean);
+begin
+  if RectMsj.Opacity>0 then
+    if Activo then
+    begin
+      LMensaje.TextSettings.FontColor:=Verde;
+      LMensaje.Text:='Sonido activado';
+    end
+    else
+    begin
+      LMensaje.TextSettings.FontColor:=Rojo;
+      LMensaje.Text:='Sonido desactivado';
+    end
+  else
+    if Activo then LMensaje.TextSettings.FontColor:=Rojo
+              else LMensaje.TextSettings.FontColor:=Verde;
 end;
 
 /// El menú principal ///
@@ -264,10 +287,13 @@ begin
   LayPrincipal.Visible:=true;
   IniciarRegistro;
   IniciarRegCoord;
+  RectMsj.Opacity:=0;
+  MPlay.FileName:=TPath.GetDocumentsPath+'/beep-sound.mp3';
   OrntSensor.Active:=true;        //se activa el sensor de brújula
   MtnSensor.Active:=true;         //se activa el sensor de movimiento
   ActivarGPS(LctSensor,true);     //se activa el sensor de GPS
   Timer.Enabled:=true;            //se activa el temporizador
+  TimerMsj.Enabled:=false;
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_brujula.png'));
   //se crea/carga el archivo .ini:
@@ -289,8 +315,12 @@ procedure TFPrinc.FormGesture(Sender: TObject;
   const EventInfo: TGestureEventInfo; var Handled: Boolean);
 begin
   //se activa/desactiva el sonido a partir de un doble tap:
-  if EventInfo.GestureID = System.UITypes.igiDoubleTap then
-    ShowMessage('Doble click');
+  if EventInfo.GestureID=System.UITypes.igiDoubleTap then
+  begin
+    Config.SonidoActivo:=not Config.SonidoActivo;
+    RectMsj.Opacity:=1;
+    TimerMsj.Enabled:=RectMsj.Opacity>0;
+  end;
 end;
 
 procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
@@ -356,6 +386,13 @@ begin
   ChoseSensorIndex:=Indice;
 end;
 
+procedure TFPrinc.TimerMsjTimer(Sender: TObject);
+begin
+  RectMsj.Opacity:=RectMsj.Opacity-0.02;
+  ActivarMensaje(Config.SonidoActivo);
+  TimerMsj.Enabled:=RectMsj.Opacity>0;
+end;
+
 procedure TFPrinc.TimerTimer(Sender: TObject);
 var
   X,Y,D,Deg,Grd: double;
@@ -389,7 +426,6 @@ begin
   if Posc.Distancia<=Config.DistMinima then Ubic:='crc'    //crc = cerca
                                        else Ubic:='ljs';   //ljs = lejos
   //se indica si la brújula está nivelada o no:
-  MPlay.FileName:=TPath.GetDocumentsPath+'/beep-sound.mp3';
   if EstaNivelado(MtnSensor,0.2) then
   begin
     CrcBrujula.Stroke.Color:=Chartreuse;
@@ -400,13 +436,16 @@ begin
     CrcBrujula.Stroke.Color:=Rojo;
     Nivel:='noniv_';   //noniv = no nivelado
   end;
-  //se activa/desactiva el audio según esté cerca del punto de destino:
-  if Posc.Distancia<=Config.DistMinima then MPlay.Play
-                                       else MPlay.Stop;
   //se muestra la flecha indicadora según el nivel y cercanía:
   GlowEffect.Enabled:=Posc.Distancia<=Config.DistMinima;
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_'+Nivel+Ubic+'.png'));
+  //se activa/desactiva el audio según esté cerca del punto de destino:
+  {ActivarMensaje(Config.SonidoActivo);
+  TimerMsj.Enabled:=RectMsj.Opacity>0;                    }
+  if Config.SonidoActivo then
+    if Posc.Distancia<=Config.DistMinima then MPlay.Play
+                                         else MPlay.Stop;
   //los datos de dirección y distancia:
   if Config.UnidDistancia then
     Dist:=FormatFloat('#,##0.00',MetrosToKm(Posc.Distancia))+' km'
@@ -424,12 +463,3 @@ Otras:
 - Validar que entren una sola vez los caracteres . y -
 - Hacer funcionar el TabOrder en módulo Seleccionar coordenada
 }
-
-(*
-{ if a long tap gesture is detected }
-  if EventInfo.GestureID = System.UITypes.igiLongTap then
-    { show a message }
-    Title.Text := Format('LongTap at %d, %d seen %s',
-               [Round(EventInfo.Location.X), Round(EventInfo.Location.Y),
-                FormatDateTime('nn:ss',Now)]);
-*)

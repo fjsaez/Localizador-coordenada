@@ -181,7 +181,6 @@ object FrmConfig: TFrmConfig
               MaxLength = 3
               FilterChar = '0123456789'
               Text = '0'
-              TextSettings.Font.Size = 14.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               TextSettings.HorzAlign = Trailing
               Position.X = 5.000000000000000000
