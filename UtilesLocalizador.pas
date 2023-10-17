@@ -17,10 +17,11 @@ type
   //el registro de configuración:
   TConfig = record
     DistMinima: byte;
-    UnidDistancia,       //f = MTS; t = KMS
-    ModoCoord,           //f = UTM; t = GEO
-    GuardarEnBD,         //f = NO; t = SÍ
-    PantActiva: boolean; //f = NO; t = SÍ
+    UnidDistancia,         //f = MTS; t = KMS
+    ModoCoord,             //f = UTM; t = GEO
+    GuardarEnBD,           //f = NO; t = SÍ
+    PantActiva,            //f = NO; t = SÍ
+    SonidoActivo: boolean; //f = NO; t = SÍ
   end;
   //el registro a guardar en la BD:
   TCoord = record

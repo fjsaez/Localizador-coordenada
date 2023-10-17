@@ -144,6 +144,8 @@ type
     procedure FrmSeleccionarSBVolverClick(Sender: TObject);
     procedure LstBConfigClick(Sender: TObject);
     procedure FrmConfigSBVolverClick(Sender: TObject);
+    procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
+      var Handled: Boolean);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
@@ -283,6 +285,14 @@ begin
   //cargar aquí el resto del registro Posc:
 end;
 
+procedure TFPrinc.FormGesture(Sender: TObject;
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+begin
+  //se activa/desactiva el sonido a partir de un doble tap:
+  if EventInfo.GestureID = System.UITypes.igiDoubleTap then
+    ShowMessage('Doble click');
+end;
+
 procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
 begin
   FrmAcerca.SBVolverClick(Sender);
@@ -414,3 +424,12 @@ Otras:
 - Validar que entren una sola vez los caracteres . y -
 - Hacer funcionar el TabOrder en módulo Seleccionar coordenada
 }
+
+(*
+{ if a long tap gesture is detected }
+  if EventInfo.GestureID = System.UITypes.igiLongTap then
+    { show a message }
+    Title.Text := Format('LongTap at %d, %d seen %s',
+               [Round(EventInfo.Location.X), Round(EventInfo.Location.Y),
+                FormatDateTime('nn:ss',Now)]);
+*)
