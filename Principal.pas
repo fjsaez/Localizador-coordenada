@@ -252,6 +252,7 @@ begin
   FrmAgregar.SwGuardarBD.IsChecked:=Config.GuardarEnBD;
   FrmAgregar.CTBHuso.Value:=Posc.Huso;
   FrmAgregar.LimpiarComps;
+  FrmAgregar.LayResultado.Visible:=false;
   MostrarFrame(FrmAgregar);
 end;
 

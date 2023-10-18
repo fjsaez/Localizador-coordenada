@@ -414,7 +414,6 @@ object FrmAgregar: TFrmAgregar
       Size.Width = 432.000000000000000000
       Size.Height = 120.000000000000000000
       Size.PlatformDefault = False
-      Visible = False
       TabOrder = 6
       object Layout4: TLayout
         Align = Top
