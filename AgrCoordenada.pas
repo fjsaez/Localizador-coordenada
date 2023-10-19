@@ -102,9 +102,8 @@ end;
 
 procedure TFrmAgregar.GuardarCoordenada;
 begin
-  DMod.Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Huso,Lat,'+
-      'Lon,LatGMS,LonGMS,Descripcion) values (:est,:nrt,:hus,:lat,:lon,:ltg,'+
-      ':lng,:dsc)';
+  DMod.Query.SQL.Text:='insert into Coordenadas (EsteUTM,NorteUTM,Huso,Lat,Lon,'+
+    'LatGMS,LonGMS,Descripcion) values (:est,:nrt,:hus,:lat,:lon,:ltg,:lng,:dsc)';
   DMod.Query.ParamByName('est').AsFloat:=Coords.EsteUTM;
   DMod.Query.ParamByName('nrt').AsFloat:=Coords.NorteUTM;
   DMod.Query.ParamByName('hus').AsByte:=Coords.Huso;
@@ -119,8 +118,8 @@ end;
 procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
   SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
-      and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty
-      and not EDescr.Text.IsEmpty;
+    and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty
+    and not EDescr.Text.IsEmpty;
 end;
 
 procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);
@@ -142,11 +141,6 @@ var
   procedure MostrarResultado(Activo: boolean);
   begin
     if Activo then
-    {  ShowMessage('Este: '+FormatFloat('0.00',Psc.X)+#13#10+
-                  'Norte: '+FormatFloat('0.00',Psc.Y))
-    else
-      ShowMessage('Lon: '+FormatFloat('0.000000',Psc.Lon)+#13#10+
-                  'Lat: '+FormatFloat('0.000000',Psc.Lat))}
     begin
       LResLonEste.Text:='Este: '+FormatFloat('0.00',Psc.X);
       LResLatNorte.Text:='Norte: '+FormatFloat('0.00',Psc.Y);
