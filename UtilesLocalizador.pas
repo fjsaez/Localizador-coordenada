@@ -273,6 +273,7 @@ begin
     Config.ModoCoord:=Ini.ReadString('Config','ModoCoord','').ToBoolean;
     Config.GuardarEnBD:=Ini.ReadString('Config','GuardarEnBD','').ToBoolean;
     Config.PantActiva:=Ini.ReadString('Config','PantActiva','').ToBoolean;
+    Config.SonidoActivo:=Ini.ReadString('Config','SonidoActivo','').ToBoolean;
   finally
     Ini.Free;
   end;
@@ -296,6 +297,7 @@ begin
     Ini.WriteString('Config','ModoCoord',Conf.ModoCoord.ToString);
     Ini.WriteString('Config','GuardarEnBD',Conf.GuardarEnBD.ToString);
     Ini.WriteString('Config','PantActiva',Conf.PantActiva.ToString);
+    Ini.WriteString('Config','SonidoActivo',Conf.SonidoActivo.ToString);
     Sistema.Lon:=Ini.ReadString('Valor','Lon','').ToDouble;
     Sistema.Lat:=Ini.ReadString('Valor','Lat','').ToDouble;
     Sistema.X:=Ini.ReadString('Valor','Este','').ToDouble;
@@ -307,6 +309,7 @@ begin
     Config.ModoCoord:=Ini.ReadString('Config','ModoCoord','').ToBoolean;
     Config.GuardarEnBD:=Ini.ReadString('Config','GuardarEnBD','').ToBoolean;
     Config.PantActiva:=Ini.ReadString('Config','PantActiva','').ToBoolean;
+    Config.SonidoActivo:=Ini.ReadString('Config','SonidoActivo','').ToBoolean;
   finally
     Ini.Free;
   end;

@@ -281,6 +281,9 @@ end;
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
+  //borrar luego:
+  //DeleteFile(TPath.GetHomePath+'/LocCoord.ini');
+  //
   FrmAcerca.Visible:=false;
   FrmAgregar.Visible:=false;
   FrmSeleccionar.Visible:=false;
@@ -305,11 +308,11 @@ begin
     IniciarRegSistema;
     GuardarINI(Sistema,Config);
   end;
+  //se carga lo demás:
   ActivarPantalla(Config.PantActiva);
   CargarCoordsDestino;
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
-  //cargar aquí el resto del registro Posc:
 end;
 
 procedure TFPrinc.FormGesture(Sender: TObject;
@@ -319,6 +322,7 @@ begin
   if EventInfo.GestureID=System.UITypes.igiDoubleTap then
   begin
     Config.SonidoActivo:=not Config.SonidoActivo;
+    GuardarINI(Sistema,Config);
     RectMsj.Opacity:=1;
     TimerMsj.Enabled:=RectMsj.Opacity>0;
   end;
