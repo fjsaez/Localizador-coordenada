@@ -60,6 +60,12 @@ type
     LSiempreAct: TLabel;
     SwPantActiva: TSwitch;
     EDistMinima: TEdit;
+    Layout16: TLayout;
+    Layout17: TLayout;
+    Label6: TLabel;
+    Layout18: TLayout;
+    LSndActivo: TLabel;
+    SwSndActivo: TSwitch;
     procedure SBVolverClick(Sender: TObject);
     procedure SwDistanciaSwitch(Sender: TObject);
     procedure SwFrmCoordSwitch(Sender: TObject);
@@ -67,6 +73,7 @@ type
     procedure SwPantActivaSwitch(Sender: TObject);
     procedure EDistMinimaEnter(Sender: TObject);
     procedure EDistMinimaExit(Sender: TObject);
+    procedure SwSndActivoSwitch(Sender: TObject);
   private
     { Private declarations }
   public
@@ -86,6 +93,7 @@ begin
   SwFrmCoord.IsChecked:=Config.ModoCoord;
   SwGuardarBD.IsChecked:=Config.GuardarEnBD;
   SwPantActiva.IsChecked:=Config.PantActiva;
+  SwSndActivo.IsChecked:=Config.SonidoActivo;
 end;
 
 procedure TFrmConfig.CargarConfig;
@@ -95,6 +103,7 @@ begin
   Config.ModoCoord:=SwFrmCoord.IsChecked;
   Config.GuardarEnBD:=SwGuardarBD.IsChecked;
   Config.PantActiva:=SwPantActiva.IsChecked;
+  Config.SonidoActivo:=SwSndActivo.IsChecked;
   ActivarPantalla(Config.PantActiva);
 end;
 
@@ -137,6 +146,12 @@ procedure TFrmConfig.SwPantActivaSwitch(Sender: TObject);
 begin
   if SwPantActiva.IsChecked then LSiempreAct.Text:='SÍ'
                             else LSiempreAct.Text:='NO';
+end;
+
+procedure TFrmConfig.SwSndActivoSwitch(Sender: TObject);
+begin
+  if SwSndActivo.IsChecked then LSndActivo.Text:='SÍ'
+                           else LSndActivo.Text:='NO';
 end;
 
 end.

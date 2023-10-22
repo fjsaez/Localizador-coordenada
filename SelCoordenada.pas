@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.Layouts, System.Rtti, FMX.Grid.Style, FMX.Grid,
   FMX.ScrollBox, FMX.Objects, FMX.Memo, System.Sensors, System.Sensors.Components,
   FMX.Memo.Types, FireDAC.Stan.Param, System.Actions, FMX.ActnList, FMX.StdActns,
-  FMX.MediaLibrary.Actions, UTM_WGS84, UtilesLocalizador;
+  FMX.MediaLibrary.Actions, FMX.DialogService, UTM_WGS84, UtilesLocalizador;
 
 type
   TFrmSeleccionar = class(TFrame)
@@ -119,7 +119,26 @@ end;
 
 procedure TFrmSeleccionar.SBEliminarClick(Sender: TObject);
 begin
-  MessageDlg('¿Desea eliminar esta coordenada?',System.UITypes.TMsgDlgType.mtInformation,
+  TDialogService.MessageDialog('¿Desea eliminar esta coordenada?',
+    TMsgDlgType.mtConfirmation,mbYesNo,TMsgDlgBtn.mbNo,0,
+    procedure(const AResult: TModalResult)
+    begin
+      case AResult of
+        mrYes:
+          begin
+            DMod.Query.SQL.Text:='delete from Coordenadas where IDCoord=:idc';
+            DMod.Query.ParamByName('idc').AsInteger:=IDCoord;
+            DMod.Query.ExecSQL;
+            CargarLista;
+            LimpiarComponentes;
+            ShowMessage('La coordenada fue eliminada');
+          end;
+        mrNo: ShowMessage('La coordenada no fue eliminada');
+      end;
+    end);
+
+
+  {MessageDlg('¿Desea eliminar esta coordenada?',System.UITypes.TMsgDlgType.mtInformation,
     [System.UITypes.TMsgDlgBtn.mbYes,System.UITypes.TMsgDlgBtn.mbNo],0,
     procedure(const AResult: System.UITypes.TModalResult)
     begin
@@ -136,11 +155,12 @@ begin
         mrNo:
           ShowMessage('La coordenada no fue eliminada');
       end;
-    end);
+    end);}
 end;
 
 procedure TFrmSeleccionar.SBVolverClick(Sender: TObject);
 begin
+  //GuardarINI(Sistema,Config);
   Visible:=false;
 end;
 

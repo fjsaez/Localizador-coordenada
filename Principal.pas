@@ -270,6 +270,7 @@ end;
 procedure TFPrinc.LstBSalirClick(Sender: TObject);
 begin
   DMod.FDConn.Connected:=false;
+  GuardarINI(Sistema,Config);
   {$IF ANDROID}
     MainActivity.Finish
   {$ELSE}
@@ -296,7 +297,6 @@ begin
   OrntSensor.Active:=true;        //se activa el sensor de brújula
   MtnSensor.Active:=true;         //se activa el sensor de movimiento
   ActivarGPS(LctSensor,true);     //se activa el sensor de GPS
-  Timer.Enabled:=true;            //se activa el temporizador
   TimerMsj.Enabled:=false;
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_brujula.png'));
@@ -313,6 +313,7 @@ begin
   CargarCoordsDestino;
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
+  Timer.Enabled:=true;            //se activa el temporizador
 end;
 
 procedure TFPrinc.FormGesture(Sender: TObject;
@@ -322,9 +323,9 @@ begin
   if EventInfo.GestureID=System.UITypes.igiDoubleTap then
   begin
     Config.SonidoActivo:=not Config.SonidoActivo;
-    GuardarINI(Sistema,Config);
     RectMsj.Opacity:=1;
     TimerMsj.Enabled:=RectMsj.Opacity>0;
+    GuardarINI(Sistema,Config);
   end;
 end;
 
@@ -445,26 +446,23 @@ begin
   GlowEffect.Enabled:=Posc.Distancia<=Config.DistMinima;
   CrcFlecha.Fill.Bitmap.Bitmap.LoadFromFile(
     TPath.Combine(TPath.GetDocumentsPath,'flc_'+Nivel+Ubic+'.png'));
-  //se activa/desactiva el audio según esté cerca del punto de destino:
-  {ActivarMensaje(Config.SonidoActivo);
-  TimerMsj.Enabled:=RectMsj.Opacity>0;                    }
-  if Config.SonidoActivo then
-    if Posc.Distancia<=Config.DistMinima then MPlay.Play
-                                         else MPlay.Stop;
   //los datos de dirección y distancia:
   if Config.UnidDistancia then
     Dist:=FormatFloat('#,##0.00',MetrosToKm(Posc.Distancia))+' km'
   else Dist:=FormatFloat('#,##0.00',Posc.Distancia)+' m';
   LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
   LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
-  //LDistancia.Text:='Distancia: '+FormatFloat('#,##0.00',Posc.Distancia)+' m';
   LDistancia.Text:=Dist;
+  //se activa/desactiva el audio según esté cerca del punto de destino:
+  if Config.SonidoActivo then
+    if Posc.Distancia<=Config.DistMinima then MPlay.Play
+                                         else MPlay.Stop;
 end;
 
-end.      //384  383  395
+end.      //384  383  395  464
 
 { TODO :
 Otras:
 - Validar que entren una sola vez los caracteres . y -
-- Hacer funcionar el TabOrder en módulo Seleccionar coordenada
+- Hacer funcionar el TabOrder en módulo Agregar coordenada
 }
