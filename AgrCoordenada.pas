@@ -193,24 +193,27 @@ end;
 
 procedure TFrmAgregar.SBSelGPSClick(Sender: TObject);
 var
-  Filtro: string;
+  Filtro,Formato: string;
+  X,Y: double;
 begin
   if SwGeoUTM.IsChecked then
   begin
     Filtro:='0123456789.-';
-    ELonEste.FilterChar:=Filtro;
-    ELatNorte.FilterChar:=Filtro;
-    ELonEste.Text:=FormatFloat('0.000000',Posc.Lon);
-    ELatNorte.Text:=FormatFloat('0.000000',Posc.Lat);
+    Formato:='0.000000';
+    X:=Posc.Lon;
+    Y:=Posc.Lat;
   end
   else
   begin
     Filtro:='0123456789.';
-    ELonEste.FilterChar:=Filtro;
-    ELatNorte.FilterChar:=Filtro;
-    ELonEste.Text:=FormatFloat('0.00',Posc.X);
-    ELatNorte.Text:=FormatFloat('0.00',Posc.Y);
+    Formato:='0.00';
+    X:=Posc.X;
+    Y:=Posc.Y;
   end;
+  ELonEste.FilterChar:=Filtro;
+  ELatNorte.FilterChar:=Filtro;
+  ELonEste.Text:=FormatFloat(Formato,X);
+  ELatNorte.Text:=FormatFloat(Formato,Y);
   CTBHuso.Value:=Posc.Huso;
 end;
 
