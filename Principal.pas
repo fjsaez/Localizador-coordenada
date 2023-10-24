@@ -13,7 +13,7 @@ uses
   FMX.ActnList, FMX.Objects, FMX.Effects, System.Sensors.Components, System.Math,
   System.Sensors, System.IOUtils, System.Actions, UTM_WGS84, UtilesLocalizador,
   SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList,
-  Configuracion, FMX.Media;
+  Configuracion, FMX.Media, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
 
 type
   TFPrinc = class(TForm)
@@ -454,7 +454,7 @@ begin
   LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
   LDistancia.Text:=Dist;
   //se activa/desactiva el audio según esté cerca del punto de destino:
-  if Config.SonidoActivo then
+  //if Config.SonidoActivo then
     if Posc.Distancia<=Config.DistMinima then MPlay.Play
                                          else MPlay.Stop;
 end;

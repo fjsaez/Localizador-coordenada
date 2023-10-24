@@ -140,7 +140,6 @@ end;
 
 procedure TFrmSeleccionar.SBVolverClick(Sender: TObject);
 begin
-  //GuardarINI(Sistema,Config);
   Visible:=false;
 end;
 
