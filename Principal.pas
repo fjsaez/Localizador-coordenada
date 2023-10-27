@@ -127,6 +127,7 @@ type
     RectMsj: TRectangle;
     LMensaje: TLabel;
     TimerMsj: TTimer;
+    ImgSonido: TImage;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -209,17 +210,22 @@ begin
   if RectMsj.Opacity>0 then
     if Activo then
     begin
+      ImgSonido.Bitmap.LoadFromFile(TPath.GetDocumentsPath+'/sound_48px.png');
       LMensaje.TextSettings.FontColor:=Verde;
       LMensaje.Text:='Sonido activado';
     end
     else
     begin
+      ImgSonido.Bitmap.LoadFromFile(TPath.GetDocumentsPath+'/mute_48px.png');
       LMensaje.TextSettings.FontColor:=Rojo;
       LMensaje.Text:='Sonido desactivado';
     end
   else
+  begin
     if Activo then LMensaje.TextSettings.FontColor:=Rojo
               else LMensaje.TextSettings.FontColor:=Verde;
+    LMensaje.Text:='';
+  end;
 end;
 
 /// El menú principal ///

@@ -347,6 +347,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Imagen\sound_48px.png" Condition="'$(Config)'=='Release'">
+            <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
+            <RemoteName>sound_48px.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="Android\Release\AndroidManifest.xml" Condition="'$(Config)'=='Release'">
             <RemoteDir>LocCoordenada\</RemoteDir>
             <RemoteName>AndroidManifest.xml</RemoteName>
@@ -504,6 +513,15 @@
         <DeployFile Include="Prueba\Imagen\flc_noniv_ljs.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
             <RemoteName>flc_noniv_ljs.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Imagen\mute_48px.png" Condition="'$(Config)'=='Release'">
+            <RemoteDir>LocCoordenada\assets\internal\</RemoteDir>
+            <RemoteName>mute_48px.png</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
