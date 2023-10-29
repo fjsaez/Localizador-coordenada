@@ -141,7 +141,6 @@ type
     procedure FrmAcercaSBVolverClick(Sender: TObject);
     procedure LstBSalirClick(Sender: TObject);
     procedure LstBAgregarClick(Sender: TObject);
-    procedure LstBuscarClick(Sender: TObject);
     procedure LstBoxMenuItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure FrmAgregarSBVolverClick(Sender: TObject);
@@ -235,11 +234,6 @@ procedure TFPrinc.LstBoxMenuItemClick(const Sender: TCustomListBox;
 begin
   Item.IsSelected:=false;
   MultiView.HideMaster;
-end;
-
-procedure TFPrinc.LstBuscarClick(Sender: TObject);
-begin
-  //
 end;
 
 procedure TFPrinc.LstBSeleccionarClick(Sender: TObject);
