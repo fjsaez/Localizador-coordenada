@@ -456,7 +456,6 @@ begin
   //se activa/desactiva el audio según esté cerca del punto de destino:
   if Config.SonidoActivo then
     if Posc.Distancia<=Config.DistMinima then MPlay.Play;
-                                         //else MPlay.Stop;
 end;
 
 end.      //384  383  395  464
