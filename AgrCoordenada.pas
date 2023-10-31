@@ -253,34 +253,3 @@ begin
 end;
 
 end.
-
-
-{
-procedure TFrmAgregar.SwGeoUTMSwitch(Sender: TObject);
-begin
-  ELonEste.Text:='0';
-  ELatNorte.Text:='0';
-  EDescr.Text:='';
-  if SwGeoUTM.IsChecked then
-  begin
-    LGeoUTM.Text:='Coordenadas Geográficas:';
-    LLon.Text:='Longitud:';
-    LLat.Text:='Latitud:';
-    ELonEste.FilterChar:='0123456789.-';
-    ELatNorte.FilterChar:='0123456789.-';
-    LayHuso.Visible:=false;
-    LayGCoords.Size.Height:=100;
-  end
-  else
-  begin
-    LGeoUTM.Text:='Coordenadas UTM:';
-    LLon.Text:='Este:';
-    LLat.Text:='Norte:';
-    ELonEste.FilterChar:='0123456789.';
-    ELatNorte.FilterChar:='0123456789.';
-    LayGCoords.Size.Height:=150;
-    CTBHuso.Value:=Posc.Huso;
-    LayHuso.Visible:=true;
-  end;
-end;
-}
