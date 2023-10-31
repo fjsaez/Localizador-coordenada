@@ -68,11 +68,7 @@ type
     Label13: TLabel;
     Layout23: TLayout;
     LNorteAct: TLabel;
-    LayOrientacion: TLayout;
-    LayDistancia: TLayout;
     LayFlecha: TLayout;
-    LDirDestino: TLabel;
-    LDistancia: TLabel;
     OrntSensor: TOrientationSensor;
     Timer: TTimer;
     RectFlecha: TRectangle;
@@ -128,6 +124,15 @@ type
     LMensaje: TLabel;
     TimerMsj: TTimer;
     ImgSonido: TImage;
+    Layout32: TLayout;
+    Layout33: TLayout;
+    Layout34: TLayout;
+    LayDistancia: TLayout;
+    LDistancia: TLabel;
+    LayOrientacion: TLayout;
+    LDirDestino: TLabel;
+    RectVelocidad: TRectangle;
+    LVelocidad: TLabel;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -364,6 +369,8 @@ end;
 
 procedure TFPrinc.LctSensorLocationChanged(Sender: TObject; const OldLocation,
   NewLocation: TLocationCoord2D);
+var
+  CadVelocidad: string;
 begin
   Posc:=ConvertirAGrdUTM(NewLocation.Longitude,NewLocation.Latitude);
   Posc.XDest:=Sistema.X;
@@ -374,6 +381,11 @@ begin
   LEsteAct.Text:=FormatFloat('0.00',Posc.X);
   LNorteAct.Text:=FormatFloat('0.00',Posc.Y);
   LZona.Text:=Posc.Huso.ToString;
+  //la velocidad de desplazamiento, en caso de haberla:
+  if IsNaN(LctSensor.Sensor.Speed) then CadVelocidad:='0.00'
+  else
+    CadVelocidad:=FormatFloat('0.00',LctSensor.Sensor.Speed*3.5999999999971);
+  LVelocidad.Text:=CadVelocidad+' km/h';
 end;
 
 procedure TFPrinc.OrntSensorSensorChoosing(Sender: TObject;
@@ -452,7 +464,7 @@ begin
   else Dist:=FormatFloat('#,##0.00',Posc.Distancia)+' m';
   LDirActual.Text:=FormatFloat('0.00',Deg)+'º '+Orientacion(Deg);
   LDirDestino.Text:='Dirección: '+Round(Grd).ToString+'º - '+Orientacion(Grd);
-  LDistancia.Text:=Dist;
+  LDistancia.Text:='Dist: '+Dist;
   //se activa/desactiva el audio según esté cerca del punto de destino:
   if Config.SonidoActivo then
     if Posc.Distancia<=Config.DistMinima then MPlay.Play;
