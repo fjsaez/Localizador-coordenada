@@ -17,10 +17,6 @@ uses
 
 begin
   Application.Initialize;
-  {$IFDEF ANDROID}
-  //TAndroidHelper.Activity.getWindow.addFlags(
-	  //TJWindowManager_LayoutParams.JavaClass.FLAG_KEEP_SCREEN_ON);
-  {$ENDIF}
   Application.FormFactor.Orientations := [TFormOrientation.Portrait];
   Application.CreateForm(TFPrinc, FPrinc);
   Application.CreateForm(TDMod, DMod);
