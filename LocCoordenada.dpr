@@ -1,11 +1,6 @@
 ﻿program LocCoordenada;
 
 uses
-  {$IFDEF ANDROID}
-  Androidapi.JNI.App,
-  Androidapi.JNI.GraphicsContentViewText,
-  Androidapi.Helpers,
-  {$ENDIF }
   System.StartUpCopy,
   System.SysUtils,
   FMX.Forms,
