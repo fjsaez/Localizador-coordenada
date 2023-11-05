@@ -363,6 +363,7 @@ object FrmAgregar: TFrmAgregar
         TextSettings.HorzAlign = Center
         Text = 'Descripci'#243'n:'
         TabOrder = 7
+        TabStop = False
       end
     end
     object LayTipoCoord: TLayout
