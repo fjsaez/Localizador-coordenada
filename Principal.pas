@@ -133,6 +133,7 @@ type
     LDirDestino: TLabel;
     RectVelocidad: TRectangle;
     LVelocidad: TLabel;
+    StyleBook: TStyleBook;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
