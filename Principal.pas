@@ -96,7 +96,7 @@ type
     FrmAcerca: TFrmAcerca;
     FrmAgregar: TFrmAgregar;
     FrmSeleccionar: TFrmSeleccionar;
-    Layout2: TLayout;
+    LayZona: TLayout;
     Layout3: TLayout;
     Layout24: TLayout;
     Label5: TLabel;
@@ -475,6 +475,6 @@ end.      //384  383  395  464
 
 { TODO :
 Otras:
-- Validar que entren una sola vez los caracteres . y -
+
 - Hacer funcionar el TabOrder en módulo Agregar coordenada
 }
