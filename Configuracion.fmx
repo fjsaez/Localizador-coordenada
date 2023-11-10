@@ -46,7 +46,7 @@ object FrmConfig: TFrmConfig
       Size.Height = 200.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
-      object Layout1: TLayout
+      object LayTitulo1: TLayout
         Align = Top
         Size.Width = 432.000000000000000000
         Size.Height = 50.000000000000000000
@@ -273,7 +273,7 @@ object FrmConfig: TFrmConfig
       Size.Height = 200.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
-      object Layout12: TLayout
+      object LayTitulo2: TLayout
         Align = Top
         Size.Width = 432.000000000000000000
         Size.Height = 50.000000000000000000

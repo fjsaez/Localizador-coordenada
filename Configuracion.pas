@@ -17,7 +17,7 @@ type
     LaySep1: TLayout;
     LayGeneral: TLayout;
     LaySep2: TLayout;
-    Layout1: TLayout;
+    LayTitulo1: TLayout;
     PnlTitulo1: TPanel;
     Label2: TLabel;
     PnlGeneral: TPanel;
@@ -38,7 +38,7 @@ type
     LCoords: TLabel;
     SwFrmCoord: TSwitch;
     Layout11: TLayout;
-    Layout12: TLayout;
+    LayTitulo2: TLayout;
     Panel1: TPanel;
     Label8: TLabel;
     Panel2: TPanel;
