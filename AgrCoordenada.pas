@@ -157,6 +157,8 @@ var
   end;
 
 begin
+  XDest:=0.0;
+  YDest:=0.0;
   EsNumeroValido:=true;
   try
     XDest:=ELonEste.Text.ToDouble;
