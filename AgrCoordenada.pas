@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Memo.Types, FMX.ScrollBox,
   FMX.Memo, FMX.Objects, FMX.Edit, UtilesLocalizador, UTM_WGS84, FMX.EditBox,
-  FMX.NumberBox, FMX.ComboTrackBar, FireDAC.Stan.Param;
+  FMX.NumberBox, FMX.ComboTrackBar, FireDAC.Stan.Param, FMX.DialogService;
 
 type
   TFrmAgregar = class(TFrame)
@@ -186,9 +186,8 @@ begin
     Posc.XDest:=Sistema.X;
     Posc.YDest:=Sistema.Y;
     if SwGuardarBD.IsChecked then
-      MessageDlg('¿Desea guardar esta coordenada?',
-      System.UITypes.TMsgDlgType.mtInformation,
-      [System.UITypes.TMsgDlgBtn.mbYes,System.UITypes.TMsgDlgBtn.mbNo],0,
+      TDialogService.MessageDialog('¿Desea guardar esta coordenada?',
+      TMsgDlgType.mtConfirmation,mbYesNo,TMsgDlgBtn.mbNo,0,
       procedure(const AResult: System.UITypes.TModalResult)
       begin
         case AResult of
