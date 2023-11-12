@@ -334,8 +334,6 @@ end;
 
 end.
 
-//uses
-  //System.Permissions, FMX.DialogService;
 
 /// Útiles ///
 
