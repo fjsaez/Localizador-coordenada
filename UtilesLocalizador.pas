@@ -333,27 +333,3 @@ begin
 end;
 
 end.
-
-
-/// Útiles ///
-
-         (*
-{Lee los valores guardados del respectivo archivo .ini}
-procedure CargarINI;
-var
-  Ini: TIniFile;
-begin
-  try
-    Ini:=TIniFile.Create(Sistema.ArchivoINI);
-    Sistema.Lon:=Ini.ReadString('Valor','Lon','').ToDouble;
-    Sistema.Lat:=Ini.ReadString('Valor','Lat','').ToDouble;
-    Sistema.X:=Ini.ReadString('Valor','Este','').ToDouble;
-    Sistema.Y:=Ini.ReadString('Valor','Norte','').ToDouble;
-    Sistema.Huso:=Ini.ReadString('Valor','Huso','').ToInteger;
-    Sistema.Descripcion:=Ini.ReadString('Valor','Descripcion','');
-  finally
-    Ini.Free;
-  end;
-end;
-
-  *)
