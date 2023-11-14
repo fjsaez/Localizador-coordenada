@@ -46,7 +46,7 @@ type
     ColNorte: TFloatColumn;
     ColHuso: TIntegerColumn;
     Layout2: TLayout;
-    Layout3: TLayout;
+    LayCompartir: TLayout;
     SBCompartir: TSpeedButton;
     ActionList: TActionList;
     ShowShareSheetAction1: TShowShareSheetAction;

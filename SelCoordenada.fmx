@@ -64,7 +64,7 @@ object FrmSeleccionar: TFrmSeleccionar
             OnClick = SBEliminarClick
           end
         end
-        object Layout3: TLayout
+        object LayCompartir: TLayout
           Align = Client
           Size.Width = 100.000000000000000000
           Size.Height = 62.500000000000000000
@@ -257,8 +257,8 @@ object FrmSeleccionar: TFrmSeleccionar
           RowCount = 0
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 322.000000000000000000
+          Viewport.Width = 422.000000000000000000
+          Viewport.Height = 297.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
             ReadOnly = True
@@ -342,8 +342,8 @@ object FrmSeleccionar: TFrmSeleccionar
         Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 426.000000000000000000
-        Viewport.Height = 44.000000000000000000
+        Viewport.Width = 422.000000000000000000
+        Viewport.Height = 40.000000000000000000
       end
     end
   end
