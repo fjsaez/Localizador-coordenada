@@ -67,7 +67,7 @@ var
   function Orientacion(Grados: double): string;
   procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
   function EstaNivelado(MSensor: TMotionSensor; Rng: single): boolean;
-  procedure CargarFuente(Etq: TLabel);
+  //procedure CargarFuente(Etq: TLabel);
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
   procedure IniciarRegistro;
   procedure IniciarRegCoord;
@@ -190,14 +190,14 @@ begin
 end;
 
 {Carga fuente tipográfica externa a un TLabel}
-procedure CargarFuente(Etq: TLabel);
+{procedure CargarFuente(Etq: TLabel);
 var
   Recursos: TResourceStream;
   Fuente: TFont;
 begin
   Fuente:=TFont.Create;
   Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
-end;
+end;                     }
 
 {Activa/desactiva el GPS del teléfono móvil}
 procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);

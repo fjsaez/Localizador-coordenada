@@ -12,8 +12,8 @@ uses
   FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView, FMX.Types,
   FMX.ActnList, FMX.Objects, FMX.Effects, System.Sensors.Components, System.Math,
   System.Sensors, System.IOUtils, System.Actions, UTM_WGS84, UtilesLocalizador,
-  SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList,
-  Configuracion, FMX.Media, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
+  SelCoordenada, AgrCoordenada, Acerca, System.ImageList, FMX.ImgList, FMX.Memo,
+  Configuracion, FMX.Media, FMX.Memo.Types, FMX.ScrollBox, FMX.TabControl;
 
 type
   TFPrinc = class(TForm)
