@@ -12,7 +12,7 @@ uses
 
 type
   TFrmSeleccionar = class(TFrame)
-    ToolBar1: TToolBar;
+    ToolBarSelCoord: TToolBar;
     SBVolver: TSpeedButton;
     LayPrAgregar: TLayout;
     LayGCoords: TLayout;
