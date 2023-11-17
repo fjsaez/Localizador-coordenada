@@ -67,7 +67,6 @@ var
   function Orientacion(Grados: double): string;
   procedure RotarFlecha(Circulo: TCircle; Azimut: Double);
   function EstaNivelado(MSensor: TMotionSensor; Rng: single): boolean;
-  //procedure CargarFuente(Etq: TLabel);
   procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
   procedure IniciarRegistro;
   procedure IniciarRegCoord;

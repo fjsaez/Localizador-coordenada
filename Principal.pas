@@ -475,6 +475,5 @@ end.      //384  383  395  464
 
 { TODO :
 Otras:
-
 - Hacer funcionar el TabOrder en módulo Agregar coordenada
 }
