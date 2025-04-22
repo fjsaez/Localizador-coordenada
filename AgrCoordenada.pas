@@ -210,20 +210,22 @@ var
   Filtro,Formato: string;
   X,Y: double;
 begin
+  Filtro:='0123456789'+FormatSettings.DecimalSeparator;
   if SwGeoUTM.IsChecked then
   begin
-    Filtro:='0123456789.-';
+    Filtro:=Filtro+'-';
     Formato:='0.000000';
     X:=Posc.Lon;
     Y:=Posc.Lat;
   end
   else
   begin
-    Filtro:='0123456789.';
+    //Filtro:='0123456789'+FormatSettings.DecimalSeparator;
     Formato:='0.00';
     X:=Posc.X;
     Y:=Posc.Y;
   end;
+  //showmessage('Filtro: '+Filtro+' / '+'Formato: '+Formato);
   ELonEste.FilterChar:=Filtro;
   ELatNorte.FilterChar:=Filtro;
   ELonEste.Text:=FormatFloat(Formato,X);

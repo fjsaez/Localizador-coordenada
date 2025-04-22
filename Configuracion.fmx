@@ -1,11 +1,11 @@
 object FrmConfig: TFrmConfig
   Size.Width = 432.000000000000000000
-  Size.Height = 573.000000000000000000
+  Size.Height = 572.000000000000000000
   Size.PlatformDefault = False
   object LayConfig: TLayout
     Align = Client
     Size.Width = 432.000000000000000000
-    Size.Height = 573.000000000000000000
+    Size.Height = 572.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object ToolBarConfig: TToolBar
@@ -19,6 +19,7 @@ object FrmConfig: TFrmConfig
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
+        TextSettings.Trimming = None
         OnClick = SBVolverClick
       end
       object Label1: TLabel

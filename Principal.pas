@@ -156,6 +156,8 @@ type
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
     procedure TimerMsjTimer(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure CBValDefectoClick(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
@@ -169,6 +171,7 @@ type
 
 var
   FPrinc: TFPrinc;
+  SeparadorDecimal: char;
 
 implementation
 
@@ -208,6 +211,14 @@ begin
   LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
   LDescr.Text:=Sistema.Descripcion;
   MostrarPrincipal;
+end;
+
+procedure TFPrinc.CBValDefectoClick(Sender: TObject);
+begin
+  //if (MessageBox(0, PChar('¿Realmente desea quitar la configuración actual?'), PChar('Valores por defecto'), MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2) in [idYes, idNo]) then
+  DeleteFile(TPath.GetHomePath+'/LocCoord.ini');
+  ShowMessage('Configuración con los valores por defecto. Reiniciar la app '+
+              'para que los cambios hagan efecto.');
 end;
 
 procedure TFPrinc.ActivarMensaje(Activo: boolean);
@@ -275,6 +286,7 @@ end;
 
 procedure TFPrinc.LstBSalirClick(Sender: TObject);
 begin
+  FormatSettings.DecimalSeparator:=SeparadorDecimal;
   DMod.FDConn.Connected:=false;
   GuardarINI(Sistema,Config);
   {$IF ANDROID}
@@ -284,13 +296,15 @@ begin
   {$ENDIF}
 end;
 
-/// Eventos ///
+/// Los demás eventos ///
 
 procedure TFPrinc.FormCreate(Sender: TObject);
 begin
   //borrar luego:
   //DeleteFile(TPath.GetHomePath+'/LocCoord.ini');
   //
+  SeparadorDecimal:=FormatSettings.DecimalSeparator;
+  FormatSettings.DecimalSeparator:=',';
   FrmAcerca.Visible:=false;
   FrmAgregar.Visible:=false;
   FrmSeleccionar.Visible:=false;
@@ -320,6 +334,11 @@ begin
   Posc.XDest:=Sistema.X;
   Posc.YDest:=Sistema.Y;
   Timer.Enabled:=true;            //se activa el temporizador
+end;
+
+procedure TFPrinc.FormDestroy(Sender: TObject);
+begin
+  FormatSettings.DecimalSeparator:=SeparadorDecimal;
 end;
 
 procedure TFPrinc.FormGesture(Sender: TObject;

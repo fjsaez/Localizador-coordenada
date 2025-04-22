@@ -1,12 +1,12 @@
 object FrmSeleccionar: TFrmSeleccionar
   Align = Client
   Size.Width = 432.000000000000000000
-  Size.Height = 573.000000000000000000
+  Size.Height = 572.000000000000000000
   Size.PlatformDefault = False
   object LayPrAgregar: TLayout
     Align = Client
     Size.Width = 432.000000000000000000
-    Size.Height = 573.000000000000000000
+    Size.Height = 572.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object ToolBarSelCoord: TToolBar
@@ -20,6 +20,7 @@ object FrmSeleccionar: TFrmSeleccionar
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
+        TextSettings.Trimming = None
         OnClick = SBVolverClick
       end
       object Label1: TLabel
@@ -60,6 +61,7 @@ object FrmSeleccionar: TFrmSeleccionar
             Size.PlatformDefault = False
             StyleLookup = 'trashtoolbuttonbordered'
             Text = 'addtoolbuttonbordered'
+            TextSettings.Trimming = None
             Visible = False
             OnClick = SBEliminarClick
           end
@@ -73,12 +75,12 @@ object FrmSeleccionar: TFrmSeleccionar
           object SBCompartir: TSpeedButton
             Action = ShowShareSheetAction1
             Align = Center
-            Enabled = True
             ImageIndex = -1
             Size.Width = 53.000000000000000000
             Size.Height = 42.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'actiontoolbuttonbordered'
+            TextSettings.Trimming = None
             Visible = False
           end
         end
@@ -228,14 +230,14 @@ object FrmSeleccionar: TFrmSeleccionar
     object LayLista: TLayout
       Align = Client
       Size.Width = 432.000000000000000000
-      Size.Height = 358.000000000000000000
+      Size.Height = 357.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       object RectGrid: TRectangle
         Align = Client
         Fill.Color = claYellow
         Size.Width = 432.000000000000000000
-        Size.Height = 328.000000000000000000
+        Size.Height = 327.000000000000000000
         Size.PlatformDefault = False
         XRadius = 3.000000000000000000
         YRadius = 3.000000000000000000
@@ -248,7 +250,7 @@ object FrmSeleccionar: TFrmSeleccionar
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 426.000000000000000000
-          Size.Height = 322.000000000000000000
+          Size.Height = 321.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'gridstyle'
           StyledSettings = [Family, Style, FontColor]
@@ -258,38 +260,45 @@ object FrmSeleccionar: TFrmSeleccionar
           Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnCellClick = SGridCellClick
           Viewport.Width = 422.000000000000000000
-          Viewport.Height = 297.000000000000000000
+          Viewport.Height = 296.000000000000000000
           object ColDescr: TStringColumn
             Header = 'Descripci'#243'n'
+            HeaderSettings.TextSettings.WordWrap = False
             ReadOnly = True
             Size.Width = 115.000000000000000000
           end
           object ColID: TIntegerColumn
             Header = 'IDCoord'
+            HeaderSettings.TextSettings.WordWrap = False
             Visible = False
             Size.Width = 63.000000000000000000
           end
           object ColLon: TStringColumn
             Header = 'Lon'
+            HeaderSettings.TextSettings.WordWrap = False
             Visible = False
             Size.Width = 40.000000000000000000
           end
           object ColLat: TStringColumn
             Header = 'Lat'
+            HeaderSettings.TextSettings.WordWrap = False
             Visible = False
             Size.Width = 40.000000000000000000
           end
           object ColEste: TStringColumn
             Header = 'Este'
+            HeaderSettings.TextSettings.WordWrap = False
             Visible = False
             Size.Width = 40.000000000000000000
           end
           object ColNorte: TFloatColumn
             Header = 'Norte'
+            HeaderSettings.TextSettings.WordWrap = False
             Size.Width = 58.000000000000000000
           end
           object ColHuso: TIntegerColumn
             Header = 'Huso'
+            HeaderSettings.TextSettings.WordWrap = False
             Size.Width = 118.000000000000000000
           end
         end

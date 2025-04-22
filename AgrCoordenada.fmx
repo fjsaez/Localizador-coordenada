@@ -1,11 +1,11 @@
 object FrmAgregar: TFrmAgregar
   Size.Width = 432.000000000000000000
-  Size.Height = 546.000000000000000000
+  Size.Height = 544.000000000000000000
   Size.PlatformDefault = False
   object LayAgrPrinc: TLayout
     Align = Client
     Size.Width = 432.000000000000000000
-    Size.Height = 546.000000000000000000
+    Size.Height = 544.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     TabStop = False
@@ -38,6 +38,7 @@ object FrmAgregar: TFrmAgregar
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'actiontoolbuttonbordered'
+            TextSettings.Trimming = None
             OnClick = SBSelGPSClick
           end
         end
@@ -107,6 +108,7 @@ object FrmAgregar: TFrmAgregar
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'arrowlefttoolbuttonbordered'
+        TextSettings.Trimming = None
         OnClick = SBVolverClick
       end
       object Label1: TLabel
@@ -148,6 +150,7 @@ object FrmAgregar: TFrmAgregar
             Size.PlatformDefault = False
             StyleLookup = 'addtoolbuttonbordered'
             Text = 'addtoolbuttonbordered'
+            TextSettings.Trimming = None
             Visible = False
             OnClick = SBGuardarClick
           end
