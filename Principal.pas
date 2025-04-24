@@ -134,6 +134,11 @@ type
     RectVelocidad: TRectangle;
     LVelocidad: TLabel;
     StyleBook: TStyleBook;
+    Layout2: TLayout;
+    Layout35: TLayout;
+    Label16: TLabel;
+    Layout36: TLayout;
+    CBValDefecto: TCornerButton;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,

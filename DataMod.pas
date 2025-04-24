@@ -34,6 +34,7 @@ implementation
 
 procedure TDMod.DataModuleCreate(Sender: TObject);
 begin
+  FDConn.Params.Database:='';
   FDConn.Params.Values['Database']:='$(DOC)/DBLocalizador.db';
   FDConn.Connected:=true;
 end;

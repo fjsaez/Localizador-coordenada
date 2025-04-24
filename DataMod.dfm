@@ -1,30 +1,34 @@
 object DMod: TDMod
   OnCreate = DataModuleCreate
-  Height = 306
-  Width = 444
+  Height = 383
+  Width = 555
+  PixelsPerInch = 120
   object FDConn: TFDConnection
     ConnectionName = 'Conex'
     Params.Strings = (
-      'DriverID=SQLite')
-    Connected = True
+      'DriverID=SQLite'
+      
+        'Database=D:\Users\fjsae\Documents\Embarcadero\Studio\Projects\AP' +
+        'LICACIONES ANDROID\Localizador de coordenada\Database\DBLocaliza' +
+        'dor.db')
     LoginPrompt = False
-    Left = 40
-    Top = 24
+    Left = 50
+    Top = 30
   end
   object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
-    Left = 120
-    Top = 24
+    Left = 150
+    Top = 30
   end
   object Query: TFDQuery
     Connection = FDConn
-    Left = 48
-    Top = 224
+    Left = 60
+    Top = 280
   end
   object QrLista: TFDQuery
     Connection = FDConn
     SQL.Strings = (
       'select * from Coordenadas order by Descripcion asc')
-    Left = 144
-    Top = 224
+    Left = 180
+    Top = 280
   end
 end

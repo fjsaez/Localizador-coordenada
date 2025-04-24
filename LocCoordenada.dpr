@@ -18,7 +18,7 @@ uses
 begin
   Application.Initialize;
   Application.FormFactor.Orientations := [TFormOrientation.Portrait];
-  Application.CreateForm(TFPrinc, FPrinc);
   Application.CreateForm(TDMod, DMod);
+  Application.CreateForm(TFPrinc, FPrinc);
   Application.Run;
 end.
