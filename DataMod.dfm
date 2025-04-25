@@ -27,7 +27,9 @@ object DMod: TDMod
   object QrLista: TFDQuery
     Connection = FDConn
     SQL.Strings = (
-      'select * from Coordenadas order by Descripcion asc')
+      'select IDCoord,EsteUTM,NorteUTM,Huso,Lat,Lon,Descripcion'
+      'from Coordenadas '
+      'order by Descripcion asc')
     Left = 180
     Top = 280
   end
