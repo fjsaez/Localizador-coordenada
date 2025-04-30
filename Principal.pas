@@ -220,7 +220,6 @@ end;
 
 procedure TFPrinc.CBValDefectoClick(Sender: TObject);
 begin
-  //if (MessageBox(0, PChar('¿Realmente desea quitar la configuración actual?'), PChar('Valores por defecto'), MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2) in [idYes, idNo]) then
   DeleteFile(TPath.GetHomePath+'/LocCoord.ini');
   ShowMessage('Configuración con los valores por defecto. Reiniciar la app '+
               'para que los cambios hagan efecto.');
