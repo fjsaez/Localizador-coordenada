@@ -72,7 +72,6 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
     procedure CargarConfig;
     procedure CargarComps;
   end;
