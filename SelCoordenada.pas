@@ -60,7 +60,6 @@ type
     procedure SBEliminarClick(Sender: TObject);
     procedure ShowShareSheetAction1BeforeExecute(Sender: TObject);
   private
-    { Private declarations }
     procedure LimpiarComponentes;
   public
     { Public declarations }
