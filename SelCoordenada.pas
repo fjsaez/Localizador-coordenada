@@ -62,7 +62,6 @@ type
   private
     procedure LimpiarComponentes;
   public
-    { Public declarations }
     IDCoord: integer;
     procedure CargarLista;
   end;
