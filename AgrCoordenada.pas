@@ -68,7 +68,6 @@ type
     procedure ELonEsteExit(Sender: TObject);
     procedure SwGeoUTMSwitch(Sender: TObject);
   private
-    { Private declarations }
     procedure CargarRegCoordenada(Psc: TPosicion);
     procedure GuardarCoordenada;
   public
