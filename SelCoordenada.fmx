@@ -49,9 +49,9 @@ object FrmSeleccionar: TFrmSeleccionar
         TabOrder = 0
         object Layout2: TLayout
           Align = Bottom
-          Position.Y = 62.500000000000000000
+          Position.Y = 62.000000000000000000
           Size.Width = 100.000000000000000000
-          Size.Height = 62.500000000000000000
+          Size.Height = 63.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object SBEliminar: TSpeedButton
@@ -69,7 +69,7 @@ object FrmSeleccionar: TFrmSeleccionar
         object LayCompartir: TLayout
           Align = Client
           Size.Width = 100.000000000000000000
-          Size.Height = 62.500000000000000000
+          Size.Height = 62.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object SBCompartir: TSpeedButton

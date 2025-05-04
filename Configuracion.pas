@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Controls.Presentation, FMX.Edit, FMX.EditBox, FMX.NumberBox,
-  UtilesLocalizador;
+  System.IOUtils, UtilesLocalizador;
 
 type
   TFrmConfig = class(TFrame)
@@ -61,6 +61,11 @@ type
     Layout18: TLayout;
     LSndActivo: TLabel;
     SwSndActivo: TSwitch;
+    Layout1: TLayout;
+    Layout35: TLayout;
+    Label16: TLabel;
+    Layout36: TLayout;
+    CBValDefecto: TCornerButton;
     procedure SBVolverClick(Sender: TObject);
     procedure SwDistanciaSwitch(Sender: TObject);
     procedure SwFrmCoordSwitch(Sender: TObject);
@@ -69,6 +74,7 @@ type
     procedure EDistMinimaEnter(Sender: TObject);
     procedure EDistMinimaExit(Sender: TObject);
     procedure SwSndActivoSwitch(Sender: TObject);
+    procedure CBValDefectoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -99,6 +105,13 @@ begin
   Config.PantActiva:=SwPantActiva.IsChecked;
   Config.SonidoActivo:=SwSndActivo.IsChecked;
   ActivarPantalla(Config.PantActiva);
+end;
+
+procedure TFrmConfig.CBValDefectoClick(Sender: TObject);
+begin
+  DeleteFile(TPath.GetHomePath+'/LocCoord.ini');
+  ShowMessage('Configuración con los valores por defecto. Reiniciar la app '+
+              'para que los cambios hagan efecto.');
 end;
 
 procedure TFrmConfig.EDistMinimaEnter(Sender: TObject);

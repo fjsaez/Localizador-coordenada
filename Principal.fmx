@@ -2913,6 +2913,12 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
+            inherited Layout12: TLayout
+              inherited CTBHuso: TComboTrackBar
+                Position.Y = 9.000000000000000000
+                Size.Height = 32.000000000000000000
+              end
+            end
           end
         end
       end
@@ -2957,12 +2963,25 @@ object FPrinc: TFPrinc
   inline FrmSeleccionar: TFrmSeleccionar
     Align = Client
     Size.Width = 432.000000000000000000
-    Size.Height = 597.000000000000000000
+    Size.Height = 596.000000000000000000
     Size.PlatformDefault = False
     Visible = False
     inherited LayPrAgregar: TLayout
-      Size.Height = 597.000000000000000000
+      Size.Height = 596.000000000000000000
+      inherited ToolBarSelCoord: TToolBar
+        Size.Height = 48.000000000000000000
+        inherited SBVolver: TSpeedButton
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          OnClick = FrmSeleccionarSBVolverClick
+        end
+        inherited Label1: TLabel
+          Size.Width = 374.000000000000000000
+          Size.Height = 48.000000000000000000
+        end
+      end
       inherited LayGCoords: TLayout
+        Position.Y = 48.000000000000000000
         inherited LaySeleccionar: TLayout
           inherited Layout2: TLayout
             inherited SBEliminar: TSpeedButton
@@ -3008,13 +3027,13 @@ object FPrinc: TFPrinc
         end
       end
       inherited LayLista: TLayout
-        Size.Height = 382.000000000000000000
+        Size.Height = 373.000000000000000000
         inherited RectGrid: TRectangle
-          Size.Height = 352.000000000000000000
+          Size.Height = 343.000000000000000000
           inherited SGrid: TStringGrid
-            Size.Height = 346.000000000000000000
+            Size.Height = 337.000000000000000000
             Viewport.Width = 426.000000000000000000
-            Viewport.Height = 346.000000000000000000
+            Viewport.Height = 305.000000000000000000
             inherited ColDescr: TStringColumn
               Size.Width = 291.000000000000000000
             end
@@ -3047,9 +3066,10 @@ object FPrinc: TFPrinc
         end
       end
       inherited LayDescr: TLayout
+        Position.Y = 173.000000000000000000
         inherited MmDescr: TMemo
-          Viewport.Width = 426.000000000000000000
-          Viewport.Height = 44.000000000000000000
+          Viewport.Width = 418.000000000000000000
+          Viewport.Height = 36.000000000000000000
         end
       end
     end
@@ -3117,7 +3137,9 @@ object FPrinc: TFPrinc
             end
             inherited Layout8: TLayout
               inherited SwDistancia: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
               inherited LUnidad: TLabel
                 Size.Width = 133.000000000000000000
@@ -3149,7 +3171,9 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwFrmCoord: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
             end
           end
@@ -3178,7 +3202,9 @@ object FPrinc: TFPrinc
             end
             inherited Layout15: TLayout
               inherited SwGuardarBD: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
               inherited LGuardarBD: TLabel
                 Size.Width = 133.000000000000000000
@@ -3187,7 +3213,6 @@ object FPrinc: TFPrinc
             end
           end
           inherited Layout19: TLayout
-            TabOrder = 3
             inherited Layout20: TLayout
               inherited Label12: TLabel
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -3199,12 +3224,13 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwPantActiva: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
             end
           end
           inherited Layout16: TLayout
-            TabOrder = 2
             inherited Layout17: TLayout
               inherited Label6: TLabel
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -3216,60 +3242,16 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwSndActivo: TSwitch
+                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
+                Size.Height = 26.000000000000000000
               end
             end
           end
-          object Layout2: TLayout
-            Align = Top
-            Position.Y = 120.000000000000000000
-            Size.Width = 432.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            object Layout35: TLayout
-              Align = Left
-              Size.Width = 240.000000000000000000
-              Size.Height = 40.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              object Label16: TLabel
-                Align = Client
-                StyledSettings = [Family, FontColor]
-                Margins.Left = 10.000000000000000000
-                Size.Width = 230.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
+          inherited Layout1: TLayout
+            inherited Layout35: TLayout
+              inherited Label16: TLabel
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
-                Text = 'Valores por defecto de config'
-                TabOrder = 0
-              end
-            end
-            object Layout36: TLayout
-              Align = Client
-              Size.Width = 192.000000000000000000
-              Size.Height = 40.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 1
-              object CBValDefecto: TCornerButton
-                Align = Left
-                Margins.Left = 5.000000000000000000
-                Margins.Top = 5.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Margins.Bottom = 5.000000000000000000
-                Position.X = 5.000000000000000000
-                Position.Y = 5.000000000000000000
-                Sides = [Top, Left, Bottom, Right]
-                Size.Width = 73.000000000000000000
-                Size.Height = 30.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 0
-                Text = 'OK'
-                TextSettings.Trimming = None
-                XRadius = 10.000000000000000000
-                YRadius = 10.000000000000000000
-                OnClick = CBValDefectoClick
               end
             end
           end

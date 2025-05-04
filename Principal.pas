@@ -134,11 +134,6 @@ type
     RectVelocidad: TRectangle;
     LVelocidad: TLabel;
     StyleBook: TStyleBook;
-    Layout2: TLayout;
-    Layout35: TLayout;
-    Label16: TLabel;
-    Layout36: TLayout;
-    CBValDefecto: TCornerButton;
     procedure LstBSeleccionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LctSensorLocationChanged(Sender: TObject; const OldLocation,
@@ -162,7 +157,6 @@ type
       var Handled: Boolean);
     procedure TimerMsjTimer(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure CBValDefectoClick(Sender: TObject);
   private
     { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
@@ -216,13 +210,6 @@ begin
   LNorteDest.Text:=FormatFloat('0.00',Sistema.Y);
   LDescr.Text:=Sistema.Descripcion;
   MostrarPrincipal;
-end;
-
-procedure TFPrinc.CBValDefectoClick(Sender: TObject);
-begin
-  DeleteFile(TPath.GetHomePath+'/LocCoord.ini');
-  ShowMessage('Configuración con los valores por defecto. Reiniciar la app '+
-              'para que los cambios hagan efecto.');
 end;
 
 procedure TFPrinc.ActivarMensaje(Activo: boolean);
@@ -358,12 +345,7 @@ begin
   end;
 end;
 
-procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
-begin
-  FrmAcerca.SBVolverClick(Sender);
-  MostrarPrincipal;
-end;
-
+{botón Agregar->Volver}
 procedure TFPrinc.FrmAgregarSBVolverClick(Sender: TObject);
 begin
   FrmAgregar.SBVolverClick(Sender);
@@ -371,6 +353,15 @@ begin
   MostrarPrincipal;
 end;
 
+{botón Seleccionar->Volver}
+procedure TFPrinc.FrmSeleccionarSBVolverClick(Sender: TObject);
+begin
+  FrmSeleccionar.SBVolverClick(Sender);
+  CargarCoordsDestino;
+  MostrarPrincipal;
+end;
+
+{botón Configuración->Volver}
 procedure TFPrinc.FrmConfigSBVolverClick(Sender: TObject);
 begin
   FrmConfig.SBVolverClick(Sender);
@@ -378,10 +369,10 @@ begin
   MostrarPrincipal;
 end;
 
-procedure TFPrinc.FrmSeleccionarSBVolverClick(Sender: TObject);
+{botón Acerca->Volver}
+procedure TFPrinc.FrmAcercaSBVolverClick(Sender: TObject);
 begin
-  FrmSeleccionar.SBVolverClick(Sender);
-  CargarCoordsDestino;
+  FrmAcerca.SBVolverClick(Sender);
   MostrarPrincipal;
 end;
 
