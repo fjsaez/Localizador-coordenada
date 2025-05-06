@@ -171,16 +171,16 @@ procedure TFrmSeleccionar.ShowShareSheetAction1BeforeExecute(Sender: TObject);
 var
   CoordGeo,CoordUTM,Descripcion: string;
 begin
-  CoordGeo:='─ Lon: '+FormatFloat('0.000000',Sistema.Lon)+'; Lat: '+
-    FormatFloat('0.000000',Sistema.Lat);
+  CoordGeo:='─ Lon: '+FormatFloat('0.000000',Sistema.Lon)+
+            '; Lat: '+FormatFloat('0.000000',Sistema.Lat);
   CoordUTM:='─ Este: '+FormatFloat('0.00',Sistema.X)+'; Norte: '+
     FormatFloat('0.00',Sistema.Y)+'; Huso: '+Sistema.Huso.ToString;
   Descripcion:='─ '+Sistema.Descripcion;
   //se comparte el texto (WhatsApp, Bluetooth, etc, etc...)
   ShowShareSheetAction1.Caption:='Compartir coordenada:';
   ShowShareSheetAction1.TextMessage:='● Descripción:'+#13#10+Descripcion+
-    #13#10+'● Coordenadas geográficas:'+#13#10+CoordGeo+#13#10+
-    '● Coordenadas UTM:'+#13#10+CoordUTM+#13#10;
+              #13#10+'● Coordenadas geográficas:'+#13#10+CoordGeo+#13#10+
+              '● Coordenadas UTM:'+#13#10+CoordUTM+#13#10;
 end;
 
 end.

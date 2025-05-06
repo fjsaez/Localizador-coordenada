@@ -2970,6 +2970,7 @@ object FPrinc: TFPrinc
       Size.Height = 596.000000000000000000
       inherited ToolBarSelCoord: TToolBar
         Size.Height = 48.000000000000000000
+        TintColor = claSkyblue
         inherited SBVolver: TSpeedButton
           Size.Width = 48.000000000000000000
           Size.Height = 48.000000000000000000
@@ -3106,6 +3107,7 @@ object FPrinc: TFPrinc
       Size.Height = 596.000000000000000000
       inherited ToolBarConfig: TToolBar
         Size.Height = 48.000000000000000000
+        TintColor = claSkyblue
         inherited SBVolver: TSpeedButton
           Size.Width = 48.000000000000000000
           Size.Height = 48.000000000000000000

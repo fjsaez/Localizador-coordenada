@@ -230,6 +230,8 @@ begin
   ELonEste.Text:=FormatFloat(Formato,X);
   ELatNorte.Text:=FormatFloat(Formato,Y);
   CTBHuso.Value:=Posc.Huso;
+  ELonEsteChange(Self);
+  EDescr.SetFocus;
 end;
 
 procedure TFrmAgregar.SBVolverClick(Sender: TObject);

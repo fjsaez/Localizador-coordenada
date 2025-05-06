@@ -213,6 +213,7 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
+              OnTyping = ELonEsteChange
               OnEnter = ELonEsteEnter
               OnExit = ELonEsteExit
             end
@@ -268,6 +269,7 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
+              OnTyping = ELonEsteChange
               OnEnter = ELonEsteEnter
               OnExit = ELonEsteExit
             end
