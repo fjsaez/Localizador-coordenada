@@ -70,6 +70,7 @@ type
   private
     procedure CargarRegCoordenada(Psc: TPosicion);
     procedure GuardarCoordenada;
+    procedure ActivarBGuardar;
   public
     { Public declarations }
     procedure LimpiarComps;
@@ -115,11 +116,19 @@ begin
   DMod.Query.ExecSQL;
 end;
 
-procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
+procedure TFrmAgregar.ActivarBGuardar;
 begin
   SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
-    and not ELonEste.Text.IsEmpty and not ELatNorte.Text.IsEmpty
-    and not EDescr.Text.IsEmpty;
+    and (not ELonEste.Text.IsEmpty) and (not ELatNorte.Text.IsEmpty)
+    and (not EDescr.Text.IsEmpty);
+end;
+
+procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
+begin
+  ActivarBGuardar;
+  {SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
+    and (not ELonEste.Text.IsEmpty) and (not ELatNorte.Text.IsEmpty)
+    and (not EDescr.Text.IsEmpty); }
 end;
 
 procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);

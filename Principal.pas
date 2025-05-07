@@ -158,7 +158,6 @@ type
     procedure TimerMsjTimer(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
-    { Private declarations }
     procedure RotarLetrasPolos(Grados: double);
     procedure MostrarFrame(Frame: TFrame);
     procedure MostrarPrincipal;

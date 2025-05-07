@@ -2913,12 +2913,6 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
-            inherited Layout12: TLayout
-              inherited CTBHuso: TComboTrackBar
-                Position.Y = 9.000000000000000000
-                Size.Height = 32.000000000000000000
-              end
-            end
           end
         end
       end
@@ -3034,7 +3028,7 @@ object FPrinc: TFPrinc
           inherited SGrid: TStringGrid
             Size.Height = 337.000000000000000000
             Viewport.Width = 426.000000000000000000
-            Viewport.Height = 305.000000000000000000
+            Viewport.Height = 337.000000000000000000
             inherited ColDescr: TStringColumn
               Size.Width = 291.000000000000000000
             end
@@ -3069,8 +3063,8 @@ object FPrinc: TFPrinc
       inherited LayDescr: TLayout
         Position.Y = 173.000000000000000000
         inherited MmDescr: TMemo
-          Viewport.Width = 418.000000000000000000
-          Viewport.Height = 36.000000000000000000
+          Viewport.Width = 426.000000000000000000
+          Viewport.Height = 44.000000000000000000
         end
       end
     end
@@ -3139,9 +3133,7 @@ object FPrinc: TFPrinc
             end
             inherited Layout8: TLayout
               inherited SwDistancia: TSwitch
-                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
-                Size.Height = 26.000000000000000000
               end
               inherited LUnidad: TLabel
                 Size.Width = 133.000000000000000000
@@ -3173,9 +3165,7 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwFrmCoord: TSwitch
-                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
-                Size.Height = 26.000000000000000000
               end
             end
           end
@@ -3204,9 +3194,7 @@ object FPrinc: TFPrinc
             end
             inherited Layout15: TLayout
               inherited SwGuardarBD: TSwitch
-                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
-                Size.Height = 26.000000000000000000
               end
               inherited LGuardarBD: TLabel
                 Size.Width = 133.000000000000000000
@@ -3226,9 +3214,7 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwPantActiva: TSwitch
-                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
-                Size.Height = 26.000000000000000000
               end
             end
           end
@@ -3244,9 +3230,7 @@ object FPrinc: TFPrinc
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited SwSndActivo: TSwitch
-                Position.Y = 7.000000000000000000
                 Size.Width = 44.000000000000000000
-                Size.Height = 26.000000000000000000
               end
             end
           end

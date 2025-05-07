@@ -213,7 +213,6 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
-              OnTyping = ELonEsteChange
               OnEnter = ELonEsteEnter
               OnExit = ELonEsteExit
             end
@@ -269,7 +268,6 @@ object FrmAgregar: TFrmAgregar
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               OnChange = ELonEsteChange
-              OnTyping = ELonEsteChange
               OnEnter = ELonEsteEnter
               OnExit = ELonEsteExit
             end
@@ -355,8 +353,8 @@ object FrmAgregar: TFrmAgregar
         Size.Width = 426.000000000000000000
         Size.Height = 37.000000000000000000
         Size.PlatformDefault = False
+        KillFocusByReturn = True
         OnChange = ELonEsteChange
-        OnTyping = ELonEsteChange
       end
       object Label6: TLabel
         Align = Top
