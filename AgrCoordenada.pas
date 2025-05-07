@@ -72,7 +72,6 @@ type
     procedure GuardarCoordenada;
     procedure ActivarBGuardar;
   public
-    { Public declarations }
     procedure LimpiarComps;
   end;
 
