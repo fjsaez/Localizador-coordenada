@@ -125,8 +125,7 @@ end;
 procedure TFrmAgregar.ELonEsteChange(Sender: TObject);
 begin
   ActivarBGuardar;
-  {SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
-    and (not EDescr.Text.IsEmpty); }
+  //SBGuardar.Visible:=(ELonEste.Text<>'0') and (ELatNorte.Text<>'0')
 end;
 
 procedure TFrmAgregar.ELonEsteEnter(Sender: TObject);
