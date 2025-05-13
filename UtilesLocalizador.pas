@@ -190,7 +190,6 @@ end;
 
 {Carga fuente tipográfica externa a un TLabel}
 {procedure CargarFuente(Etq: TLabel);
-  Recursos: TResourceStream;
   Fuente: TFont;
 begin
   Fuente:=TFont.Create;
