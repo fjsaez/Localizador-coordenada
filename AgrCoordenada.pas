@@ -229,7 +229,6 @@ begin
     X:=Posc.X;
     Y:=Posc.Y;
   end;
-  //showmessage('Filtro: '+Filtro+' / '+'Formato: '+Formato);
   ELonEste.FilterChar:=Filtro;
   ELatNorte.FilterChar:=Filtro;
   ELonEste.Text:=FormatFloat(Formato,X);
