@@ -188,7 +188,6 @@ begin
   Result:=((X>=-Rng) and (X<=Rng)) and ((Y>=-Rng) and (Y<=Rng));
 end;
 
-{Carga fuente tipográfica externa a un TLabel}
 {procedure CargarFuente(Etq: TLabel);
   Fuente: TFont;
 begin
