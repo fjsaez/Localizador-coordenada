@@ -224,7 +224,6 @@ begin
   end
   else
   begin
-    //Filtro:='0123456789'+FormatSettings.DecimalSeparator;
     Formato:='0.00';
     X:=Posc.X;
     Y:=Posc.Y;
