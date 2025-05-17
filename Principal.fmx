@@ -1,7 +1,7 @@
 object FPrinc: TFPrinc
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Localizador de coordenada'
   ClientHeight = 644
   ClientWidth = 432
   FormFactor.Width = 320
