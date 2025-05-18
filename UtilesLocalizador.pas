@@ -190,7 +190,6 @@ end;
 
 {procedure CargarFuente(Etq: TLabel);
 begin
-  Fuente:=TFont.Create;
   Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
 end;                     }
 
