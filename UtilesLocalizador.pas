@@ -190,7 +190,6 @@ end;
 
 {procedure CargarFuente(Etq: TLabel);
 begin
-  Recursos:=TResourceStream.Create(hInstance,'1',RT_RCDATA);
 end;                     }
 
 {Activa/desactiva el GPS del teléfono móvil}
