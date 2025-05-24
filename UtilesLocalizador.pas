@@ -189,7 +189,6 @@ begin
 end;
 
 {procedure CargarFuente(Etq: TLabel);
-begin
 end;                     }
 
 {Activa/desactiva el GPS del teléfono móvil}
