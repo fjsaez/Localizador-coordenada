@@ -188,8 +188,7 @@ begin
   Result:=((X>=-Rng) and (X<=Rng)) and ((Y>=-Rng) and (Y<=Rng));
 end;
 
-{procedure CargarFuente(Etq: TLabel);
-end;                     }
+//end;                     }
 
 {Activa/desactiva el GPS del teléfono móvil}
 procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
