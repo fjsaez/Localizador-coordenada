@@ -188,8 +188,6 @@ begin
   Result:=((X>=-Rng) and (X<=Rng)) and ((Y>=-Rng) and (Y<=Rng));
 end;
 
-//end;                     }
-
 {Activa/desactiva el GPS del teléfono móvil}
 procedure ActivarGPS(LcSensor: TLocationSensor; Activo: boolean);
 const
