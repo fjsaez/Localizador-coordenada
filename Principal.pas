@@ -484,7 +484,7 @@ begin
     if Posc.Distancia<=Config.DistMinima then MPlay.Play;
 end;
 
-end.      //384
+end.
 
 { TODO :
 Otras:
